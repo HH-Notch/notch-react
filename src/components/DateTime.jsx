@@ -15,9 +15,21 @@ export default function DateTime() {
     setDate(new Date());
   }
   return (
-    <div>
-      <h1>{date.toLocaleTimeString()}</h1>
-      <h1>{date.toLocaleDateString()}</h1>
+    <div className="flex flex-col justify-center items-center p-6">
+      <p className="font-mono text-8xl">
+        {date.toLocaleTimeString("ko-KR", {
+          hour12: false,
+          hour: "2-digit",
+          minute: "2-digit",
+        })}
+      </p>
+      <p className="font-mono text-xl pt-3 font-semibold">
+        {date.toLocaleDateString("ko-KR", {
+          month: "long",
+          day: "numeric",
+          weekday: "long",
+        })}
+      </p>
     </div>
   );
 }

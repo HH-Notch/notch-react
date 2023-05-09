@@ -1,20 +1,25 @@
 import React from "react";
+import { AiOutlineSearch } from "react-icons/ai";
 
 export default function GoogleSearchBar() {
   return (
     <>
-      <div className="bg-black">
-        <form action="https://www.google.com/search" method="GET">
+      <form action="https://www.google.com/search" method="GET">
+        <div
+          className="bg-white rounded-full px-3 flex  items-center"
+          style={{ width: "580px" }}
+        >
+          <AiOutlineSearch className="text-xl mx-3" />
+
           <input
-            className="w-40 h-20 bg-slate-300 rounded-full "
+            className="focus:outline-none mr-3 pb-1 text-base"
             type="text"
             name="q"
             placeholder="Google 검색 또는 URL 입력"
+            style={{ width: "500px", height: "50px" }}
           />
-        </form>
-      </div>
-
-      <div className="w-40 h-20 bg-black text-white">야호</div>
+        </div>
+      </form>
     </>
   );
 }
