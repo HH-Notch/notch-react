@@ -3,7 +3,6 @@ import { ThemeProvider } from "@material-tailwind/react";
 import BlockItem from "./BlockItem";
 import { Switch } from "@material-tailwind/react";
 import { Typography } from "@material-tailwind/react";
-import Block from "./Block";
 
 export default function MorningBlock() {
   const [weather, setWeather] = useState({
@@ -14,17 +13,6 @@ export default function MorningBlock() {
   const handleWeather = () => {
     console.log("weather.on", weather.on);
     setWeather((prev) => ({ ...prev, on: !prev.on }));
-    console.log("제대로 됐는가?");
-  };
-
-  const [today, setToday] = useState({
-    id: 2,
-    text: "오늘 할 일 브리핑",
-    on: false,
-  });
-  const handleToday = () => {
-    console.log("today.on", today.on);
-    setToday((prev) => ({ ...prev, on: !prev.on }));
   };
 
   const [destination, setDestination] = useState({
@@ -99,41 +87,18 @@ export default function MorningBlock() {
           style={{ justifyContent: "space-between" }}
           value={customLabelTheme}
         >
-          <BlockItem
-            id="1"
+          <Switch
             checked={weather.on}
-            onChangeFunc={handleWeather}
-            text={weather.text}
+            onChange={handleWeather}
+            label={
+              <div className="flex">
+                <Typography color="blue-gray" variant="h6">
+                  {weather.text}
+                </Typography>
+              </div>
+            }
             containerProps={containerProps}
             labelProps={labelProps}
-            // select_destination=""
-          />
-          <BlockItem
-            id="2"
-            checked={today.on}
-            onChangeFunc={handleToday}
-            text={today.text}
-            containerProps={containerProps}
-            labelProps={labelProps}
-            // select_destination=""
-          />
-          <BlockItem
-            id="3"
-            checked={destination.on}
-            onChangeFunc={handleDest}
-            text={destination.text}
-            containerProps={containerProps}
-            labelProps={labelProps}
-            select_destination=""
-          />
-          <BlockItem
-            id="4"
-            checked={findPath.on}
-            onChangeFunc={handleFindPath}
-            text={findPath.text}
-            containerProps={containerProps}
-            labelProps={labelProps}
-            select_destination=""
           />
         </ThemeProvider>
       </div>
