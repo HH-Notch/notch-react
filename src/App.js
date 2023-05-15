@@ -4,6 +4,7 @@ import GoogleSearchBar from "./components/SearchBar";
 import MorningBlock from "./components/MorningBlock";
 import Block from "./components/Block";
 import Profile from "./components/Profile";
+import Morning from "./components/Morning";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <div className="flex justify-center items-center">
         <Block />
         <MorningBlock />
+        <Morning />
         <Block />
       </div>
     </div>
