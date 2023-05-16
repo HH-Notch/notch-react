@@ -1,10 +1,11 @@
 import "./App.css";
 import DateTime from "./components/DateTime";
 import GoogleSearchBar from "./components/SearchBar";
-import MorningBlock from "./components/MorningBlock";
+import Morning from "./components/Morning";
 import Block from "./components/Block";
 import Profile from "./components/Profile";
-import Morning from "./components/Morning";
+import Afternoon from "./components/Afternoon";
+import Night from "./components/Night";
 
 function App() {
   return (
@@ -17,10 +18,17 @@ function App() {
         <GoogleSearchBar />
       </div>
       <div className="flex justify-center items-center">
-        <Block />
-        <MorningBlock />
-        <Morning />
-        <Block />
+        <Block blockName="아침(Start)">
+          <Morning />
+        </Block>
+
+        <Block blockName="오후(Focus)">
+          <Afternoon />
+        </Block>
+
+        <Block blockName="저녁(Review)">
+          <Night />
+        </Block>
       </div>
     </div>
   );

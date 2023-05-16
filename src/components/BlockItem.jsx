@@ -10,6 +10,7 @@ export default function BlockItem({
   containerProps,
   labelProps,
   select_destination,
+  select_brainer,
 }) {
   return (
     <Switch
@@ -22,6 +23,7 @@ export default function BlockItem({
             {text}
           </Typography>
           {select_destination}
+          {select_brainer}
         </div>
       }
       containerProps={containerProps}
