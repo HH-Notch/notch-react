@@ -10,6 +10,24 @@ import Night from "./components/Night";
 import { useState } from "react";
 import { Drawer, Typography, IconButton } from "@material-tailwind/react";
 import ShortcutsDrawer from "./components/Drawer";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+
+import Home from './pages/Home';
+import Welcome from './pages/welcome';
+import NotFound from './pages/NotFound';
+
+const router = createBrowserRouter([{
+  path:'/',
+  element: <Root/>,
+  errorElement: <NotFound/>
+},
+{
+  path:'/welcome',
+  element: <Welcome/>,
+  errorElement: <NotFound/>
+}
+]);
 
 function App() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -17,6 +35,7 @@ function App() {
   const closeDrawerRight = () => setOpenDrawer(false);
 
   return (
+    <RouterProvider router={router}/>;
     <div className="bg-white w-screen h-screen flex flex-col p-5">
       <div className="flex justify-end">
         <Profile openDrawerRight={openDrawerRight} />
@@ -44,21 +63,6 @@ function App() {
         drawerState={openDrawer}
       />
 
-      {/* <Drawer placement="right" open={openDrawer} onClose={closeDrawerRight}>
-        <div className="mb-6 flex items-center justify-between">
-          <Typography variant="h5" color="blue-gray">
-            How to use Shorcuts
-          </Typography>
-          <IconButton
-            variant="text"
-            color="blue-gray"
-            onClick={closeDrawerRight}
-          >
-          </IconButton>
-          <div>가나다라</div>
-          <div>마바사아</div>
-        </div>
-      </Drawer> */}
     </div>
   );
 }
