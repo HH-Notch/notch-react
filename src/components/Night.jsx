@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import BlockItem from "./BlockItem";
 import { ThemeProvider } from "@material-tailwind/react";
+import { AiFillPlusCircle } from "react-icons/ai";
+import { AiFillMinusCircle } from "react-icons/ai";
 
 export default function Night() {
   const [reviewToday, setReviewToday] = useState({
@@ -67,6 +69,11 @@ export default function Night() {
       video_url: brainerOptions[selectedIndex].url,
     }));
     console.log("brainer 값은?", brainer);
+  };
+  const handleBrainerAddOption = () => {
+    // const newOption = {name: }
+    // option을 form으로 입력 받는거 구현한 다음에 할 수 있음
+    console.log("야호");
   };
 
   const customLabelTheme = {
@@ -142,13 +149,27 @@ export default function Night() {
           containerProps={containerProps}
           labelProps={labelProps}
           select_brainer={
-            <div>
-              <select onChange={handleBrainerOption}>
-                {brainerOptions.map((option, index) => (
-                  <option key={index}>{`${option.name}-${option.url}`}</option>
-                ))}
-              </select>
-            </div>
+            <>
+              <div className="flex">
+                <div>
+                  <select onChange={handleBrainerOption}>
+                    {brainerOptions.map((option, index) => (
+                      <option
+                        key={index}
+                      >{`${option.name}-${option.url}`}</option>
+                    ))}
+                  </select>
+                </div>
+                <button onClick={handleBrainerAddOption}>
+                  <AiFillPlusCircle className="text-xl" />
+                </button>
+
+                <button onClick={handleBrainerAddOption}>
+                  <AiFillMinusCircle className="text-xl" />
+                </button>
+                {/* <IconButton variant="outlined"></IconButton> */}
+              </div>
+            </>
           }
         />
       </ThemeProvider>

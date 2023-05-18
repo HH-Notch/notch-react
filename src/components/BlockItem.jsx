@@ -18,13 +18,15 @@ export default function BlockItem({
       checked={checked}
       onChange={onChangeFunc}
       label={
-        <div className="flex">
-          <Typography color="blue-gray" variant="h6">
-            {text}
-          </Typography>
-          {select_destination}
+        <>
+          <div className="flex">
+            <Typography color="blue-gray" variant="h6">
+              {text}
+            </Typography>
+            {select_destination}
+          </div>
           {select_brainer}
-        </div>
+        </>
       }
       containerProps={containerProps}
       labelProps={labelProps}

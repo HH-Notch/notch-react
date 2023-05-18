@@ -16,9 +16,15 @@ import {
   LifebuoyIcon,
 } from "@heroicons/react/24/outline";
 
-export default function Profile() {
+export default function Profile({ openDrawerRight }) {
   return (
-    <Menu placement="bottom-end">
+    <Menu
+      placement="bottom-end"
+      animate={{
+        mount: { y: 0 },
+        unmount: { y: 25 },
+      }}
+    >
       <MenuHandler>
         <Avatar
           variant="circular"
@@ -37,10 +43,10 @@ export default function Profile() {
             My Profile
           </Typography>
         </MenuItem>
-        <MenuItem className="flex items-center gap-2">
+        <MenuItem className="flex items-center gap-2" onClick={openDrawerRight}>
           <Cog6ToothIcon strokeWidth={2} className="h-4 w-4" />
           <Typography variant="small" className="font-normal">
-            Edit Profile
+            Shortcuts
           </Typography>
         </MenuItem>
         <MenuItem className="flex items-center gap-2">
