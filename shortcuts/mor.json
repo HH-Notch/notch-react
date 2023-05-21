@@ -1,23 +1,27 @@
 {
+  "weather": {
+    "turn": 1
+  },
+
+  "todo": {
+    "turn": 1
+  },
+
   "music": {
-    "turn": true,
-    "music": [
+    "turn": 1,
+    "music_list": [
       {
         "id": 1,
         "playlistName": "Song Song",
         "link": "https://music.youtube.com/watch?list=PLH8TSjQ0awVLrzp7rPbUJFiClVWUILNkO&feature=share"
       },
-      {
-        "id": 2,
-        "playlistName": "Jannabi",
-        "link": "https://music.youtube.com/playlist?list=OLAK5uy_kO30VfEcwad3wI-HGwM8nt_xLFfNeY9N0&feature=share"
-      }
+      {}
     ]
   },
-  "findPath": {
-    "id": "fP",
-    "turn": true,
-    "destination": [
+
+  "detination": {
+    "turn": 1,
+    "destination_list": [
       {
         "id": 1,
         "nickname": "School",

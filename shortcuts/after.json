@@ -1,0 +1,21 @@
+{
+  "todo": { "turn": 1 },
+
+  "whiteNoise": {
+    "turn": 1,
+    "whiteNoise_list": [
+      {
+        "id": 1,
+        "name": "모닥불타다다닥",
+        "link": "https:// ~"
+      },
+      {
+        "id": 2,
+        "name": "파도소리",
+        "link": "https:// ~"
+      }
+    ]
+  },
+
+  "nap": { "turn": 1, "link": "https://youtu.be/SVmjYoZlj6I" }
+}
