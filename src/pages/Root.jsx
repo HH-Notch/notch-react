@@ -8,6 +8,7 @@ import Afternoon from "../components/Afternoon";
 import Night from "../components/Night";
 import { useState } from "react";
 import ShortcutsDrawer from "../components/Drawer";
+import { MorningProvider } from "../context/MorningContext";
 
 export default function Root() {
   const [openDrawer, setOpenDrawer] = useState(false);
@@ -25,7 +26,9 @@ export default function Root() {
       </div>
       <div className="flex flex-wrap justify-center items-center">
         <Block blockName="아침(Start)">
-          <Morning />
+          <MorningProvider>
+            <Morning />
+          </MorningProvider>
         </Block>
 
         <Block blockName="오후(Focus)">
