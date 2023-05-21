@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "name": "todo",
+    "text": "오늘 해야할 일 다시 브리핑 받기",
+    "turn": 1
+  },
+  {
+    "id": 2,
+    "name": "study_playlist",
+    "text": "공부 플리",
+    "turn": 1,
+    "playlists": [
+      {
+        "id": 1,
+        "name": "모닥불타다다닥",
+        "link": "https://youtu.be/2TrgSww4Wf8"
+      },
+      {
+        "id": 2,
+        "name": "파도 소리 플리",
+        "link": "https://youtu.be/IzLywgoyR4c"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "nap",
+    "text": "낮잠이 필요해",
+    "turn": 1,
+    "link": "https://youtu.be/SVmjYoZlj6I"
+  }
+]

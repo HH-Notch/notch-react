@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "name": "health",
+    "text": "건강 정보 브리핑",
+    "turn": 1
+  },
+  {
+    "id": 2,
+    "name": "today_feedback",
+    "text": "오늘 일정 피드백",
+    "turn": 1
+  },
+  {
+    "id": 3,
+    "name": "tomorrow_brief",
+    "text": "내일 일정 브리핑 받기",
+    "turn": 1
+  },
+  {
+    "id": 4,
+    "name": "diary",
+    "text": "일기쓰기",
+    "turn": 1
+  },
+  {
+    "id": 5,
+    "name": "brainer",
+    "text": "브레이너제이 수면 영상",
+    "turn": 1,
+    "playlists": [
+      {
+        "id": 1,
+        "name": "6시간",
+        "link": "https://youtu.be/zCW-O6_LEz8"
+      },
+      {
+        "id": 2,
+        "name": "7시간반",
+        "link": "https://youtu.be/2XS0ptK2QCI"
+      }
+    ]
+  }
+]
