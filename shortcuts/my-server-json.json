@@ -1,0 +1,125 @@
+{
+  "goodMorning": {
+    "user_name": {
+      "name": "혜도니"
+    },
+    "weather": {
+      "turn": 1
+    },
+    "todo": {
+      "turn": 1
+    },
+    "music": {
+      "turn": 1
+    }
+  },
+  "lets-go": {
+    "music": {
+      "turn": 1,
+      "music_list": [
+        {
+          "id": 1,
+          "playlistName": "Soul Song",
+          "link": "https://music.youtube.com/watch?list=PLH8TSjQ0awVLrzp7rPbUJFiClVWUILNkO&feature=share"
+        },
+        {
+          "id": 2,
+          "playlistName": "Jannabi",
+          "link": "https://music.youtube.com/watch?list=OLAK5uy_kO30VfEcwad3wI-HGwM8nt_xLFfNeY9N0&feature=share"
+        },
+        {
+          "id": 3,
+          "playlistName": "Wikid",
+          "link": "https://music.youtube.com/watch?list=OLAK5uy_mcBiwEJUMRopFXhAy02jIxgcHn-eBMcnU&feature=share"
+        }
+      ]
+    },
+
+    "findPath": {
+      "turn": 1,
+      "destination_list": [
+        {
+          "id": 1,
+          "name": "School",
+          "address": "Han University Station Line 4",
+          "altitude": 37.334611,
+          "longitude": 126.832378
+        },
+        {
+          "id": 2,
+          "name": "Home",
+          "address": "Suwol Heights",
+          "altitude": 37.481019,
+          "longitude": 126.951969
+        }
+      ]
+    }
+  },
+
+  "todo": {
+    "todo": {
+      "turn": 1
+    }
+  },
+
+  "white-noise": {
+    "whiteNoise": {
+      "turn": 1,
+      "whiteNoise_list": [
+        {
+          "id": 1,
+          "name": "모닥불타다다닥",
+          "link": "https://youtu.be/2TrgSww4Wf8"
+        },
+        {
+          "id": 2,
+          "name": "파도소리",
+          "link": "https://youtu.be/IzLywgoyR4c"
+        }
+      ]
+    }
+  },
+
+  "nap": {
+    "nap": {
+      "turn": 1,
+      "link": "https://youtu.be/SVmjYoZlj6I"
+    }
+  },
+
+  "how-was-day": {
+    "user_name": {
+      "name": "혜도니"
+    },
+
+    "todo_feedback": {
+      "turn": 1
+    },
+    "next_day_briefing": {
+      "turn": 1
+    },
+    "health": {
+      "turn": 1
+    }
+  },
+  "write-diary": {
+    "diary": {
+      "turn": 1
+    },
+    "brainer": {
+      "turn": 1,
+      "play_list": [
+        {
+          "id": 1,
+          "playlistName": "6시간",
+          "link": "https://youtu.be/zCW-O6_LEz8"
+        },
+        {
+          "id": 2,
+          "playlistName": "7시간반",
+          "link": "https://youtu.be/2XS0ptK2QCI"
+        }
+      ]
+    }
+  }
+}

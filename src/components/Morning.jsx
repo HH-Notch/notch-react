@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { ThemeProvider } from "@material-tailwind/react";
 import BlockItem from "./BlockItem";
+import { Button } from "@material-tailwind/react";
+import { Outlet } from "react-router";
 
 export default function Morning() {
   const [weather, setWeather] = useState({
@@ -68,16 +70,15 @@ export default function Morning() {
             // blockItem CSS
             display: "flex",
             alignItems: "items-center",
-            flexDirection: "flex-row-reverse",
-            justifyContent: "justify-between",
-            marginBottom: "mb-3",
+            // flexDirection: "flex-row",
+            // justifyContent: "justify-between",
           },
         },
       },
     },
   };
   const containerProps = {
-    className: "mr-2",
+    className: "ml-2",
   };
 
   const labelProps = { className: "" };
@@ -86,7 +87,7 @@ export default function Morning() {
     <>
       {/* 오늘 할 일 브리핑 */}
       <ThemeProvider
-        style={{ justifyContent: "space-between" }}
+        // style={{ justifyContent: "space-between" }}
         value={customLabelTheme}
       >
         <BlockItem
@@ -107,6 +108,7 @@ export default function Morning() {
           labelProps={labelProps}
           // select_destination=""
         />
+        <Outlet />
         <BlockItem
           id={destination.id}
           checked={destination.on}
@@ -114,16 +116,10 @@ export default function Morning() {
           text={destination.text}
           containerProps={containerProps}
           labelProps={labelProps}
-          select_destination={
-            <div>
-              <select onChange={handleDestOption}>
-                {destOptions.map((option, index) => (
-                  <option
-                    key={index}
-                  >{`${option.name}-${option.address}`}</option>
-                ))}
-              </select>
-            </div>
+          list_button={
+            <Button className="mx-3" variant="outlined" size="sm" ripple={true}>
+              button
+            </Button>
           }
         />
         <BlockItem
@@ -133,7 +129,6 @@ export default function Morning() {
           text={findPath.text}
           containerProps={containerProps}
           labelProps={labelProps}
-          select_destination=""
         />
       </ThemeProvider>
     </>

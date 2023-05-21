@@ -1,0 +1,22 @@
+{
+  "todo_feedback": {
+    "turn": 1
+  },
+
+  "health": {
+    "turn": 1
+  },
+  "diary": {
+    "turn": 1
+  },
+  "brainer": {
+    "turn": 1,
+    "play_list": [
+      {
+        "id": 1,
+        "playlistName": "6시간",
+        "link": "https://youtu.be/zCW-O6_LEz8"
+      }
+    ]
+  }
+}

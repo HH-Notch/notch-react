@@ -1,0 +1,12 @@
+{
+  "weather": {
+    "id": "weather",
+    "text": "오늘의 날씨 알려주기",
+    "on": true
+  },
+  "today": {
+    "id": "today",
+    "text": "오늘의 할일 브리핑",
+    "on": true
+  }
+}

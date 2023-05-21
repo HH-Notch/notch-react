@@ -1,0 +1,20 @@
+{
+  "diary": {
+    "turn": 1
+  },
+  "brainer": {
+    "turn": 1,
+    "play_list": [
+      {
+        "id": 1,
+        "playlistName": "6시간",
+        "link": "https://youtu.be/zCW-O6_LEz8"
+      },
+      {
+        "id": 2,
+        "playlistName": "7시간반",
+        "link": "https://youtu.be/2XS0ptK2QCI"
+      }
+    ]
+  }
+}

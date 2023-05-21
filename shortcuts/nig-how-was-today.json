@@ -1,0 +1,15 @@
+{
+  "user_name": {
+    "name": "사용자이름"
+  },
+
+  "todo_feedback": {
+    "turn": 1
+  },
+  "next_day_briefing": {
+    "turn": 1
+  },
+  "health": {
+    "turn": 1
+  }
+}
