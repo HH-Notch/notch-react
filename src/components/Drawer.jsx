@@ -3,7 +3,7 @@ import { Drawer, Typography, IconButton, Card } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function ShortcutsDrawer({
-  openDrawerFunc,
+  // openDrawerFunc,
   closeDrawerFunc,
   drawerState,
 }) {

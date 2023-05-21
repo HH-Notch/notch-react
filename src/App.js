@@ -8,7 +8,6 @@ import Afternoon from "./components/Afternoon";
 import Night from "./components/Night";
 // import ShortcutsDrawer from "./components/Drawer";
 import { useState } from "react";
-import { Drawer, Typography, IconButton } from "@material-tailwind/react";
 import ShortcutsDrawer from "./components/Drawer";
 
 function App() {
