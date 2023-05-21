@@ -11,27 +11,20 @@ import { useState } from "react";
 import { Drawer, Typography, IconButton } from "@material-tailwind/react";
 import ShortcutsDrawer from "./components/Drawer";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Welcome from "./pages/Welcome";
 
 import Root from "./pages/Root";
 import NotFound from "./pages/NotFound";
 import MusicList from "./pages/MusicList";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <NotFound />,
-    children: [
-      {
-        path: "music_list",
-        element: <MusicList />,
-      },
-    ],
-  },
-]);
-
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <div className="flex flex-col justify-center items-center w-screen h-screen ">
+        <Welcome />
+      </div>
+    </>
+  );
 }
 
 export default App;
