@@ -1,7 +1,7 @@
 {
   "music": {
-    "turn": true,
-    "music": [
+    "turn": 1,
+    "music_list": [
       {
         "id": 1,
         "playlistName": "Song Song",
@@ -11,13 +11,18 @@
         "id": 2,
         "playlistName": "Jannabi",
         "link": "https://music.youtube.com/playlist?list=OLAK5uy_kO30VfEcwad3wI-HGwM8nt_xLFfNeY9N0&feature=share"
+      },
+      {
+        "id": 3,
+        "playlistName": "Jannabiii",
+        "link": "https://music.youtube.com/playlist?list=OLAK5uy_kO30VfEcwad3wI-HGwM8nt_xLFfNeY9N0&feature=share"
       }
     ]
   },
+
   "findPath": {
-    "id": "fP",
-    "turn": true,
-    "destination": [
+    "turn": 1,
+    "destination_list": [
       {
         "id": 1,
         "nickname": "School",

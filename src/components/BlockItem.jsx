@@ -9,27 +9,28 @@ export default function BlockItem({
   text,
   containerProps,
   labelProps,
-  select_destination,
-  select_brainer,
+  list_button,
 }) {
   return (
-    <Switch
-      id={id}
-      checked={checked}
-      onChange={onChangeFunc}
-      label={
-        <>
+    <>
+      <div className="flex mb-3 items-center justify-between">
+        <div className="flex items-center">
           <div className="flex">
             <Typography color="blue-gray" variant="h6">
               {text}
             </Typography>
-            {select_destination}
           </div>
-          {select_brainer}
-        </>
-      }
-      containerProps={containerProps}
-      labelProps={labelProps}
-    />
+          {list_button}
+        </div>
+        <Switch
+          id={id}
+          checked={checked}
+          onChange={onChangeFunc}
+          label={<></>}
+          containerProps={containerProps}
+          labelProps={labelProps}
+        />
+      </div>
+    </>
   );
 }

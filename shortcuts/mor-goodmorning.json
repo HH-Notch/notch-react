@@ -1,0 +1,14 @@
+{
+  "user_name": {
+    "name": "사용자이름"
+  },
+  "weather": {
+    "turn": 1
+  },
+  "todo": {
+    "turn": 1
+  },
+  "music": {
+    "turn": 1
+  }
+}
