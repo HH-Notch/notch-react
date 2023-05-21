@@ -7,16 +7,23 @@ import { RouterProvider } from "react-router";
 import { createBrowserRouter } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Root from "./pages/Root";
+import Welcome from "./pages/Welcome";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     errorElement: <NotFound />,
-  },
-  {
-    path: "home",
-    element: <Root />,
+    children: [
+      {
+        index: true,
+        element: <Welcome />,
+      },
+      {
+        path: "home",
+        element: <Root />,
+      },
+    ],
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
