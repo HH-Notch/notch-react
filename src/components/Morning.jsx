@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { ThemeProvider } from "@material-tailwind/react";
 import BlockItem from "./BlockItem";
 import { Button } from "@material-tailwind/react";
-import { Outlet } from "react-router";
-
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+import { MorningContext } from "../context/MorningContext";
+import parseJson from "parse-json";
 export default function Morning() {
   const [weather, setWeather] = useState({
     id: "mor-1",
@@ -62,6 +64,48 @@ export default function Morning() {
     setfindPath((prev) => ({ ...prev, on: !prev.on }));
   };
 
+  const {
+    defaultMode,
+    onDefaultMode,
+    offDefaultMode,
+    musicListMode,
+    onMusicListMode,
+    offMusicListMode,
+    musicEditMode,
+    offMusicEditMode,
+  } = useContext(MorningContext);
+
+  const {
+    isLoading,
+    error,
+    data: blockItems,
+  } = useQuery(
+    ["blockItems"],
+    async () => {
+      console.log("fetching ...");
+      return axios
+        .get(
+          "https://my-json-server.typicode.com/HH-Notch/notch-api-mock/morning-block"
+        )
+        .then((res) => res.data);
+
+      // fetch(
+      //   "https://my-json-server.typicode.com/HH-Notch/notch-api-mock/morning-block"
+      // ).then((res) => res.json());
+    },
+    {
+      staleTime: 1000 * 60 * 5,
+    }
+  );
+
+  if (isLoading) return <p>Loading ...</p>;
+  if (error) return <p>{error}</p>;
+
+  console.log(blockItems);
+
+  // previous data
+
+  // switch 컴포넌트에 대한 테마
   const customLabelTheme = {
     switch: {
       styles: {
@@ -70,8 +114,6 @@ export default function Morning() {
             // blockItem CSS
             display: "flex",
             alignItems: "items-center",
-            // flexDirection: "flex-row",
-            // justifyContent: "justify-between",
           },
         },
       },
@@ -108,7 +150,6 @@ export default function Morning() {
           labelProps={labelProps}
           // select_destination=""
         />
-        <Outlet />
         <BlockItem
           id={destination.id}
           checked={destination.on}
@@ -129,6 +170,11 @@ export default function Morning() {
           text={findPath.text}
           containerProps={containerProps}
           labelProps={labelProps}
+          list_button={
+            <Button className="mx-3" variant="outlined" size="sm" ripple={true}>
+              button
+            </Button>
+          }
         />
       </ThemeProvider>
     </>
