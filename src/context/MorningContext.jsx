@@ -7,17 +7,17 @@ export function MorningProvider({ children }) {
   const offDefaultMode = () => setDefaultMode(false);
   const onDefaultMode = () => setDefaultMode(true);
 
-  const [musicListMode, setMusicListMode] = useState(true);
+  const [musicListMode, setMusicListMode] = useState(false);
   const onMusicListMode = () => setMusicListMode(true);
   const offMusicListMode = () => setMusicListMode(false);
-  const [musicEditMode, setMusicEditMode] = useState(true);
+  const [musicEditMode, setMusicEditMode] = useState(false);
   const onMusicEditMode = () => setMusicEditMode(true);
   const offMusicEditMode = () => setMusicEditMode(false);
 
-  const [destListMode, setDestListMode] = useState(true);
+  const [destListMode, setDestListMode] = useState(false);
   const onDestListMode = () => setDestListMode(true);
   const offDestListMode = () => setDestListMode(false);
-  const [destEditMode, setDestEditMode] = useState(true);
+  const [destEditMode, setDestEditMode] = useState(false);
   const onDestEditMode = () => setDestEditMode(true);
   const offDestEditMode = () => setDestEditMode(false);
 

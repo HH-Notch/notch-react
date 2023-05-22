@@ -7,7 +7,7 @@ export default function Block({ children, blockName }) {
         <span>{blockName}</span>
       </div>
       <div
-        className="aspect-square bg-blue-100  h-88 p-5"
+        className=" bg-blue-100 w-88 h-88 p-5"
         style={{
           borderRadius: "57px",
           background: "#e1ffd6",

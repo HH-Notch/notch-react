@@ -9,6 +9,9 @@ module.exports = withMT({
       height: {
         88: "22rem",
       },
+      width: {
+        88: "22rem",
+      },
     },
   },
   plugins: [],
