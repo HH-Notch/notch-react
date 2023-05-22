@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { ThemeProvider } from "@material-tailwind/react";
 import BlockItem from "./BlockItem";
 import { Button } from "@material-tailwind/react";
-import { Outlet } from "react-router";
-
+import { useQuery } from "@tanstack/react-query";
+import { MorningContext } from "../context/MorningContext";
+import axios from "axios";
 export default function Morning() {
   const [weather, setWeather] = useState({
     id: "mor-1",
@@ -70,8 +71,6 @@ export default function Morning() {
             // blockItem CSS
             display: "flex",
             alignItems: "items-center",
-            // flexDirection: "flex-row",
-            // justifyContent: "justify-between",
           },
         },
       },
@@ -82,6 +81,46 @@ export default function Morning() {
   };
 
   const labelProps = { className: "" };
+
+  // 혜선
+  const {
+    defaultMode,
+    onDefaultMode,
+    offDefaultMode,
+    musicListMode,
+    onMusicListMode,
+    offMusicListMode,
+    musicEditMode,
+    offMusicEditMode,
+  } = useContext(MorningContext);
+
+  const {
+    isLoading,
+    error,
+    data: blockItems,
+  } = useQuery(
+    ["blockItems"],
+    async () => {
+      console.log("fetching ...");
+      return axios
+        .get(
+          "https://my-json-server.typicode.com/HH-Notch/notch-api-mock/morning-block"
+        )
+        .then((res) => res.data);
+
+      // fetch(
+      //   "https://my-json-server.typicode.com/HH-Notch/notch-api-mock/morning-block"
+      // ).then((res) => res.json());
+    },
+    {
+      staleTime: 1000 * 60 * 5,
+    }
+  );
+
+  if (isLoading) return <p>Loading ...</p>;
+  if (error) return <p>{error}</p>;
+
+  console.log(blockItems);
 
   return (
     <>
@@ -108,7 +147,6 @@ export default function Morning() {
           labelProps={labelProps}
           // select_destination=""
         />
-        <Outlet />
         <BlockItem
           id={destination.id}
           checked={destination.on}

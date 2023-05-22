@@ -1,5 +1,5 @@
 import React from "react";
 
 export default function NotFound() {
-  return <div></div>;
+  return <div>페이지 낫 found </div>;
 }
