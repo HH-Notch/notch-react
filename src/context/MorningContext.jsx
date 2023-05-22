@@ -59,6 +59,11 @@ export function MorningProvider({ children }) {
     onDestEditMode();
   };
 
+  const [weatherBrief, setWeatherBrief] = useState(true);
+  const handleWeatherBrief = () => {
+    setWeatherBrief((prev) => !prev);
+  };
+
   return (
     <MorningContext.Provider
       value={{
@@ -82,6 +87,9 @@ export function MorningProvider({ children }) {
         goToMusicEdit,
         goToDestList,
         goToDestEdit,
+        weatherBrief,
+        setWeatherBrief,
+        handleWeatherBrief,
       }}
     >
       {children}
