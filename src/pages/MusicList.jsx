@@ -28,11 +28,9 @@ export default function MusicList() {
       // ).then((res) => res.json());
     },
     {
-      staleTime: 1000 * 60 * 5,
+      staleTime: 1000 * 60 * 8,
     }
   );
-
-  console.log("music", musicList);
 
   return (
     <>

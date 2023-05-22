@@ -11,63 +11,87 @@ import MusicList from "../pages/MusicList";
 import DestList from "../pages/DestList";
 import DestEdit from "../pages/DestEdit";
 export default function Morning() {
-  const [weather, setWeather] = useState({
-    id: "mor-1",
-    text: "오늘의 날씨 알려주기",
-    on: false,
-  });
-  const handleWeather = () => {
-    console.log("weather.on", weather.on);
-    setWeather((prev) => ({ ...prev, on: !prev.on }));
-    console.log("제대로 됐는가?");
+  const [weatherBrief, setWeatherBrief] = useState(false);
+  const handleWeatherBrief = () => {
+    setWeatherBrief((prev) => !prev);
+  };
+  const handleWeatherSwitch = () => {
+    const updatedWeatherBrief = !weatherBrief;
+    const turn_value = updatedWeatherBrief ? 1 : 0;
+
+    axios
+      .patch("http://localhost:3001/morning-block/1", {
+        id: 1,
+        turn: turn_value,
+      })
+      .then((res) => {
+        console.log("서버응답", res.data);
+        setWeatherBrief(updatedWeatherBrief);
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
   };
 
-  const [today, setToday] = useState({
-    id: "mor-2",
-    text: "오늘 할 일 브리핑",
-    on: false,
-  });
-  const handleToday = () => {
-    console.log("today.on", today.on);
-    setToday((prev) => ({ ...prev, on: !prev.on }));
+  const [today, setToday] = useState(true);
+  const handleTodaySwitch = () => {
+    const updatedState = !today;
+    const turn_value = updatedState ? 1 : 0;
+
+    axios
+      .patch("http://localhost:3001/morning-block/2", {
+        id: 2,
+        turn: turn_value,
+      })
+      .then((res) => {
+        console.log("서버응답", res.data);
+        setToday(updatedState);
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
   };
 
-  const [destination, setDestination] = useState({
-    id: "mor-3",
-    text: "가야 할 목적지 선택",
-    on: false,
-    desti_name: "",
-    desti_address: "",
-  });
-  const handleDest = () => {
-    console.log("destination.on", destination.on);
-    setDestination((prev) => ({ ...prev, on: !prev.on }));
-  };
-  const [destOptions, setDestOptions] = useState([
-    { name: "옵션 1", address: "주소 1" },
-    { name: "옵션 2", address: "주소 2" },
-    { name: "옵션 3", address: "주소 3" },
-  ]);
-  const handleDestOption = (event) => {
-    const selectedIndex = event.target.selectedIndex;
-    setDestination((prev) => ({
-      ...prev,
-      desti_name: destOptions[selectedIndex].name,
-      desti_address: destOptions[selectedIndex].address,
-    }));
-    console.log("destination 값은?", destination);
+  const [playMusic, setPlayMusic] = useState(false);
+
+  const handleMusicSwitch = () => {
+    const updatedState = !playMusic;
+    const turn_value = updatedState ? 1 : 0;
+
+    axios
+      .patch("http://localhost:3001/morning-block/3", {
+        id: 3,
+        turn: turn_value,
+      })
+      .then((res) => {
+        console.log("서버응답", res.data);
+        setPlayMusic(updatedState);
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
   };
 
-  const [findPath, setfindPath] = useState({
-    id: "mor-4",
-    text: "집에서 나갈 때 목적지까지 길찾기",
-    on: false,
-  });
-  const handleFindPath = () => {
-    console.log("findPath.on", findPath.on);
-    setfindPath((prev) => ({ ...prev, on: !prev.on }));
+  const [dest, setDest] = useState(true);
+  const handleDestSwitch = () => {
+    const updatedState = !dest;
+    const turn_value = updatedState ? 1 : 0;
+
+    axios
+      .patch("http://localhost:3001/morning-block/4", {
+        id: 4,
+        turn: turn_value,
+      })
+      .then((res) => {
+        console.log("서버응답", res.data);
+        setDest(updatedState);
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
   };
 
+  //  Switch component custom style
   const customLabelTheme = {
     switch: {
       styles: {
@@ -86,8 +110,8 @@ export default function Morning() {
   };
 
   const labelProps = { className: "" };
+  // -- Switch component custom style
 
-  // 혜선
   const {
     defaultMode,
     onDefaultMode,
@@ -118,48 +142,51 @@ export default function Morning() {
   } = useQuery(
     ["blockItems"],
     async () => {
-      console.log("fetching ...");
-      return axios
-        .get(
-          "https://my-json-server.typicode.com/HH-Notch/notch-api-mock/morning-block"
-        )
+      console.log("🙇🏻‍♀️fetching ...🙇🏻‍♀️");
+      const result = await axios
+        .get("http://localhost:3001/morning-block")
         .then((res) => res.data);
 
-      // fetch(
-      //   "https://my-json-server.typicode.com/HH-Notch/notch-api-mock/morning-block"
-      // ).then((res) => res.json());
+      const weather_u = result[0];
+      const todo_u = result[1];
+      const music_u = result[2];
+      const destination_u = result[3];
+
+      const weather_on = weather_u.turn;
+      const weather_value = weather_on ? true : false;
+      setWeatherBrief(weather_value);
+
+      const todo_on = todo_u.turn;
+      const todo_value = todo_on ? true : false;
+      setToday(todo_value);
+
+      const music_on = music_u.turn;
+      const music_value = music_on ? true : false;
+      setPlayMusic(music_value);
+
+      const destination_on = destination_u.turn;
+      const destination_value = destination_on ? true : false;
+      setDest(destination_value);
+
+      return result;
     },
     {
-      staleTime: 1000 * 60 * 5,
+      staleTime: 10000 * 6 * 3,
     }
   );
 
   if (isLoading) return <p>Loading ...</p>;
-  if (error) return <p>{error}</p>;
+  if (error) return <p>{error.toString()}</p>;
 
-  console.log(blockItems);
+  const weather = blockItems[0];
+  const todo = blockItems[1];
+  const music = blockItems[2];
+  const destination = blockItems[3];
 
   return (
     <>
       {defaultMode ? (
         <>
-          {/* <p>default Mode : {defaultMode.toString()}</p>
-          <p>musicList Mode : {musicListMode.toString()}</p>
-          <p>musicEdit Mode : {musicEditMode.toString()}</p>
-          <p>destList Mode : {destListMode.toString()}</p>
-          <p>destEdit Mode : {destEditMode.toString()}</p> */}
-          <div>오 안나와 </div>
-          <div>
-            {blockItems.map((item) => (
-              <div key={item.id}>
-                <p>Text : {item.text}</p>
-                <p>Turn: {item.turn}</p>
-                <MusicList items={item.playlists} />
-                {/* <p> {item.dest_list}</p> */}
-                {/* <p>{item.playlists}</p> */}
-              </div>
-            ))}
-          </div>
           {/* 오늘 할 일 브리핑 */}
           <ThemeProvider
             // style={{ justifyContent: "space-between" }}
@@ -167,30 +194,31 @@ export default function Morning() {
           >
             <BlockItem
               id={weather.id}
-              checked={weather.on}
-              onChangeFunc={handleWeather}
+              checked={weatherBrief}
+              onChangeFunc={handleWeatherSwitch}
               text={weather.text}
               containerProps={containerProps}
               labelProps={labelProps}
-              // select_destination=""
+              button={<p>{weatherBrief.toString()}</p>}
             />
             <BlockItem
-              id={today.id}
-              checked={today.on}
-              onChangeFunc={handleToday}
-              text={today.text}
+              id={todo.id}
+              checked={today}
+              onChangeFunc={handleTodaySwitch}
+              text={todo.text}
               containerProps={containerProps}
               labelProps={labelProps}
-              // select_destination=""
+              button={<p>{today.toString()}</p>}
             />
+
             <BlockItem
-              id={destination.id}
-              checked={destination.on}
-              onChangeFunc={handleDest}
-              text={destination.text}
+              id={music.id}
+              checked={playMusic}
+              onChangeFunc={handleMusicSwitch}
+              text={music.text}
               containerProps={containerProps}
               labelProps={labelProps}
-              list_button={
+              button={
                 <Button
                   className="mx-3"
                   variant="outlined"
@@ -198,18 +226,18 @@ export default function Morning() {
                   ripple={true}
                   onClick={() => goToMusicList()}
                 >
-                  button
+                  {playMusic.toString()}
                 </Button>
               }
             />
             <BlockItem
-              id={findPath.id}
-              checked={findPath.on}
-              onChangeFunc={handleFindPath}
-              text={findPath.text}
+              id={destination.id}
+              checked={dest}
+              onChangeFunc={handleDestSwitch}
+              text={destination.text}
               containerProps={containerProps}
               labelProps={labelProps}
-              list_button={
+              button={
                 <Button
                   className="mx-3"
                   variant="outlined"
@@ -217,7 +245,7 @@ export default function Morning() {
                   ripple={true}
                   onClick={() => goToDestList()}
                 >
-                  dest
+                  {dest.toString()}
                 </Button>
               }
             />

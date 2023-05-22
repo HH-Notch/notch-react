@@ -9,8 +9,9 @@ export default function BlockItem({
   text,
   containerProps,
   labelProps,
-  list_button,
+  button,
 }) {
+  // console.log("checked는?", checked);
   return (
     <>
       <div className="flex mb-3 items-center justify-between">
@@ -20,13 +21,12 @@ export default function BlockItem({
               {text}
             </Typography>
           </div>
-          {list_button}
+          {button}
         </div>
         <Switch
           id={id}
           checked={checked}
           onChange={onChangeFunc}
-          label={<></>}
           containerProps={containerProps}
           labelProps={labelProps}
         />
