@@ -143,12 +143,23 @@ export default function Morning() {
     <>
       {defaultMode ? (
         <>
-          <p>default Mode : {defaultMode.toString()}</p>
+          {/* <p>default Mode : {defaultMode.toString()}</p>
           <p>musicList Mode : {musicListMode.toString()}</p>
           <p>musicEdit Mode : {musicEditMode.toString()}</p>
           <p>destList Mode : {destListMode.toString()}</p>
-          <p>destEdit Mode : {destEditMode.toString()}</p>
-
+          <p>destEdit Mode : {destEditMode.toString()}</p> */}
+          <div>오 안나와 </div>
+          <div>
+            {blockItems.map((item) => (
+              <div key={item.id}>
+                <p>Text : {item.text}</p>
+                <p>Turn: {item.turn}</p>
+                <MusicList items={item.playlists} />
+                {/* <p> {item.dest_list}</p> */}
+                {/* <p>{item.playlists}</p> */}
+              </div>
+            ))}
+          </div>
           {/* 오늘 할 일 브리핑 */}
           <ThemeProvider
             // style={{ justifyContent: "space-between" }}
