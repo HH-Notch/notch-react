@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { MorningContext } from "../context/MorningContext";
 
-export default function MusicList() {
-  const { goToDefault, goToMusicEdit } = useContext(MorningContext);
+export default function DestEdit() {
+  const { goToDefault } = useContext(MorningContext);
+
   return (
     <>
       <div>
-        <p> musicList</p>
+        <p> DestEdit</p>
         <button onClick={() => goToDefault()}>닫기</button>
-        <button onClick={() => goToMusicEdit()}>편집</button>
       </div>
     </>
   );

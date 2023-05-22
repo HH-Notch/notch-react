@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function Block({ children, blockName }) {
   return (
@@ -7,8 +7,13 @@ export default function Block({ children, blockName }) {
         <span>{blockName}</span>
       </div>
       <div
-        className="aspect-square bg-blue-100  h-96 p-5"
-        style={{ borderRadius: "30px" }}
+        className="aspect-square bg-blue-100  h-88 p-5"
+        style={{
+          borderRadius: "57px",
+          background: "#e1ffd6",
+          boxShadow:
+            "inset 29px 29px 58px #d4f0c9, inset -29px -29px 58px #efffe3",
+        }}
       >
         {children}
       </div>

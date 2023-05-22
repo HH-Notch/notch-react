@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { ThemeProvider } from "@material-tailwind/react";
 import BlockItem from "./BlockItem";
 import { Button } from "@material-tailwind/react";
-import { Outlet } from "react-router";
+import { useQuery } from "@tanstack/react-query";
+import { MorningContext } from "../context/MorningContext";
+import axios from "axios";
 
+import MusicEdit from "../pages/MusicEdit";
+import MusicList from "../pages/MusicList";
+import DestList from "../pages/DestList";
+import DestEdit from "../pages/DestEdit";
 export default function Morning() {
   const [weather, setWeather] = useState({
     id: "mor-1",
@@ -70,8 +76,6 @@ export default function Morning() {
             // blockItem CSS
             display: "flex",
             alignItems: "items-center",
-            // flexDirection: "flex-row",
-            // justifyContent: "justify-between",
           },
         },
       },
@@ -83,54 +87,140 @@ export default function Morning() {
 
   const labelProps = { className: "" };
 
+  // 혜선
+  const {
+    defaultMode,
+    onDefaultMode,
+    offDefaultMode,
+    musicListMode,
+    onMusicListMode,
+    offMusicListMode,
+    musicEditMode,
+    onMusicEditMode,
+    offMusicEditMode,
+    destListMode,
+    onDestListMode,
+    offDestListMode,
+    destEditMode,
+    onDestEditMode,
+    offDestEditMode,
+    goToDefault,
+    goToMusicList,
+    goToMusicEdit,
+    goToDestList,
+    goToDestEdit,
+  } = useContext(MorningContext);
+
+  const {
+    isLoading,
+    error,
+    data: blockItems,
+  } = useQuery(
+    ["blockItems"],
+    async () => {
+      console.log("fetching ...");
+      return axios
+        .get(
+          "https://my-json-server.typicode.com/HH-Notch/notch-api-mock/morning-block"
+        )
+        .then((res) => res.data);
+
+      // fetch(
+      //   "https://my-json-server.typicode.com/HH-Notch/notch-api-mock/morning-block"
+      // ).then((res) => res.json());
+    },
+    {
+      staleTime: 1000 * 60 * 5,
+    }
+  );
+
+  if (isLoading) return <p>Loading ...</p>;
+  if (error) return <p>{error}</p>;
+
+  console.log(blockItems);
+
   return (
     <>
-      {/* 오늘 할 일 브리핑 */}
-      <ThemeProvider
-        // style={{ justifyContent: "space-between" }}
-        value={customLabelTheme}
-      >
-        <BlockItem
-          id={weather.id}
-          checked={weather.on}
-          onChangeFunc={handleWeather}
-          text={weather.text}
-          containerProps={containerProps}
-          labelProps={labelProps}
-          // select_destination=""
-        />
-        <BlockItem
-          id={today.id}
-          checked={today.on}
-          onChangeFunc={handleToday}
-          text={today.text}
-          containerProps={containerProps}
-          labelProps={labelProps}
-          // select_destination=""
-        />
-        <Outlet />
-        <BlockItem
-          id={destination.id}
-          checked={destination.on}
-          onChangeFunc={handleDest}
-          text={destination.text}
-          containerProps={containerProps}
-          labelProps={labelProps}
-          list_button={
-            <Button className="mx-3" variant="outlined" size="sm" ripple={true}>
-              button
-            </Button>
-          }
-        />
-        <BlockItem
-          id={findPath.id}
-          checked={findPath.on}
-          onChangeFunc={handleFindPath}
-          text={findPath.text}
-          containerProps={containerProps}
-          labelProps={labelProps}
-        />
-      </ThemeProvider>
+      {defaultMode ? (
+        <>
+          <p>default Mode : {defaultMode.toString()}</p>
+          <p>musicList Mode : {musicListMode.toString()}</p>
+          <p>musicEdit Mode : {musicEditMode.toString()}</p>
+          <p>destList Mode : {destListMode.toString()}</p>
+          <p>destEdit Mode : {destEditMode.toString()}</p>
+
+          {/* 오늘 할 일 브리핑 */}
+          <ThemeProvider
+            // style={{ justifyContent: "space-between" }}
+            value={customLabelTheme}
+          >
+            <BlockItem
+              id={weather.id}
+              checked={weather.on}
+              onChangeFunc={handleWeather}
+              text={weather.text}
+              containerProps={containerProps}
+              labelProps={labelProps}
+              // select_destination=""
+            />
+            <BlockItem
+              id={today.id}
+              checked={today.on}
+              onChangeFunc={handleToday}
+              text={today.text}
+              containerProps={containerProps}
+              labelProps={labelProps}
+              // select_destination=""
+            />
+            <BlockItem
+              id={destination.id}
+              checked={destination.on}
+              onChangeFunc={handleDest}
+              text={destination.text}
+              containerProps={containerProps}
+              labelProps={labelProps}
+              list_button={
+                <Button
+                  className="mx-3"
+                  variant="outlined"
+                  size="sm"
+                  ripple={true}
+                  onClick={() => goToMusicList()}
+                >
+                  button
+                </Button>
+              }
+            />
+            <BlockItem
+              id={findPath.id}
+              checked={findPath.on}
+              onChangeFunc={handleFindPath}
+              text={findPath.text}
+              containerProps={containerProps}
+              labelProps={labelProps}
+              list_button={
+                <Button
+                  className="mx-3"
+                  variant="outlined"
+                  size="sm"
+                  ripple={true}
+                  onClick={() => goToDestList()}
+                >
+                  dest
+                </Button>
+              }
+            />
+          </ThemeProvider>
+        </>
+      ) : musicListMode ? (
+        <MusicList />
+      ) : musicEditMode ? (
+        <MusicEdit />
+      ) : destListMode ? (
+        <DestList />
+      ) : destEditMode ? (
+        <DestEdit />
+      ) : null}
     </>
   );
 }
