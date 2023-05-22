@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { ThemeProvider } from "@material-tailwind/react";
 import BlockItem from "./BlockItem";
 import { Button } from "@material-tailwind/react";
@@ -13,59 +13,48 @@ import MusicEdit from "../pages/MusicEdit";
 import MusicList from "../pages/MusicList";
 import DestList from "../pages/DestList";
 import DestEdit from "../pages/DestEdit";
+import { async } from "q";
 export default function Morning() {
   const [weatherBrief, setWeatherBrief] = useState(false);
   const handleWeatherBrief = () => {
     setWeatherBrief((prev) => !prev);
   };
 
-  const [today, setToday] = useState({
-    id: "mor-2",
-    text: "오늘 할 일 브리핑",
-    turn: 0,
-  });
+  const [today, setToday] = useState(true);
   const handleToday = () => {
-    console.log("today.on", today.on);
-    setToday((prev) => ({ ...prev, on: !prev.on }));
+    setToday((prev) => !prev);
   };
 
-  const [destination, setDestination] = useState({
-    id: "mor-3",
-    text: "가야 할 목적지 선택",
-    turn: 0,
-    desti_name: "",
-    desti_address: "",
-  });
+  const [playMusic, setPlayMusic] = useState(false);
+  const handlePlayMusic = () => {
+    setPlayMusic((prev) => !prev);
+  };
+  const [dest, setDest] = useState(true);
   const handleDest = () => {
-    console.log("destination.on", destination.on);
-    setDestination((prev) => ({ ...prev, on: !prev.on }));
-  };
-  const [destOptions, setDestOptions] = useState([
-    { name: "옵션 1", address: "주소 1" },
-    { name: "옵션 2", address: "주소 2" },
-    { name: "옵션 3", address: "주소 3" },
-  ]);
-  const handleDestOption = (event) => {
-    const selectedIndex = event.target.selectedIndex;
-    setDestination((prev) => ({
-      ...prev,
-      desti_name: destOptions[selectedIndex].name,
-      desti_address: destOptions[selectedIndex].address,
-    }));
-    console.log("destination 값은?", destination);
+    setDest((prev) => !prev);
   };
 
-  const [findPath, setfindPath] = useState({
-    id: "mor-4",
-    text: "집에서 나갈 때 목적지까지 길찾기",
-    turn: 0,
-  });
-  const handleFindPath = () => {
-    // console.log("findPath.on", findPath.on);
-    // setfindPath((prev) => ({ ...prev, on: !prev.on }));
-    // axios.patch("http://localhost:3001/morning-block/4", {turn:0})
-  };
+  useEffect(() => {
+    console.log("🔥🔥🔥🔥🔥🔥");
+    fetchData();
+  }, []);
+  const fetchData = async () => {
+    const blocks = await axios
+      .get("http://localhost:3001/morning-block")
+      .then((res) => res.data);
 
+    const weather_b = blocks[0];
+    const todo_b = blocks[1];
+    const music_b = blocks[2];
+    const detination_b = blocks[3];
+    const value = weather_b.turn;
+    console.log("vv", value);
+
+    const letsUpdate = value ? true : false;
+    console.log("lets Update", letsUpdate);
+    setWeatherBrief(letsUpdate);
+    console.log("plz", weatherBrief.toString());
+  };
   const customLabelTheme = {
     switch: {
       styles: {
@@ -113,16 +102,18 @@ export default function Morning() {
     isLoading,
     error,
     data: blockItems,
-  } = useQuery(["blockItems"], async () => {
-    console.log("fetching ...");
-    return axios
-      .get("http://localhost:3001/morning-block")
-      .then((res) => res.data);
-
-    // fetch(
-    //   "https://my-json-server.typicode.com/HH-Notch/notch-api-mock/morning-block"
-    // ).then((res) => res.json());
-  });
+  } = useQuery(
+    ["blockItems"],
+    async () => {
+      console.log("fetching ...");
+      return axios
+        .get("http://localhost:3001/morning-block")
+        .then((res) => res.data);
+    },
+    {
+      staleTime: 10000 * 6 * 3,
+    }
+  );
 
   if (isLoading) return <p>Loading ...</p>;
   if (error) return <p>{error}</p>;
@@ -133,7 +124,7 @@ export default function Morning() {
   const weather = blockItems[0];
   const todo = blockItems[1];
   const music = blockItems[2];
-  const detination = blockItems[3];
+  const destination = blockItems[3];
   // console.log(weather_b, todo_b, music_b, detination_b);
 
   const handleChangeSwitch = () => {
@@ -255,17 +246,17 @@ export default function Morning() {
               labelProps={labelProps}
             /> */}
             <BlockItem
-              id={today.id}
-              checked={today.on}
+              id={todo.id}
+              checked={todo}
               onChangeFunc={handleToday}
-              text={today.text}
+              text={todo.text}
               containerProps={containerProps}
               labelProps={labelProps}
               // select_destination=""
             />
             <BlockItem
               id={destination.id}
-              checked={destination.on}
+              checked={dest}
               onChangeFunc={handleDest}
               text={destination.text}
               containerProps={containerProps}
@@ -276,28 +267,28 @@ export default function Morning() {
                   variant="outlined"
                   size="sm"
                   ripple={true}
-                  onClick={() => goToMusicList()}
+                  onClick={() => goToDestList()}
                 >
-                  button
+                  dest
                 </Button>
               }
             />
             <BlockItem
-              id={findPath.id}
-              checked={findPath.on}
-              onChangeFunc={handleFindPath}
-              text={findPath.text}
+              id={music.id}
+              checked={playMusic}
+              onChangeFunc={handlePlayMusic}
+              text={music.text}
               containerProps={containerProps}
               labelProps={labelProps}
-              list_button={
+              button={
                 <Button
                   className="mx-3"
                   variant="outlined"
                   size="sm"
                   ripple={true}
-                  onClick={() => goToDestList()}
+                  onClick={() => goToMusicList()}
                 >
-                  dest
+                  music
                 </Button>
               }
             />
