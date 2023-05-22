@@ -11,6 +11,7 @@ export default function BlockItem({
   labelProps,
   button,
 }) {
+  // console.log("checked는?", checked);
   return (
     <>
       <div className="flex mb-3 items-center justify-between">
@@ -24,7 +25,7 @@ export default function BlockItem({
         </div>
         <Switch
           id={id}
-          checked={checked ? true : false}
+          checked={checked}
           onChange={onChangeFunc}
           containerProps={containerProps}
           labelProps={labelProps}

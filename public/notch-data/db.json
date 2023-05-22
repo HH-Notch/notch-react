@@ -2,7 +2,7 @@
   "morning-block": [
     {
       "id": 1,
-      "name": "weather",
+      "name": "plz",
       "text": "오늘의 할일 브리핑",
       "turn": 1
     },
