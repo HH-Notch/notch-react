@@ -11,16 +11,16 @@ import MusicList from "../pages/MusicList";
 import DestList from "../pages/DestList";
 import DestEdit from "../pages/DestEdit";
 export default function Morning() {
-  const [weather, setWeather] = useState({
-    id: "mor-1",
-    text: "오늘의 날씨 알려주기",
-    on: false,
-  });
-  const handleWeather = () => {
-    console.log("weather.on", weather.on);
-    setWeather((prev) => ({ ...prev, on: !prev.on }));
-    console.log("제대로 됐는가?");
-  };
+  // const [weather, setWeather] = useState({
+  //   id: "mor-1",
+  //   text: "오늘의 날씨 알려주기",
+  //   on: false,
+  // });
+  // const handleWeather = () => {
+  //   console.log("weather.on", weather.on);
+  //   setWeather((prev) => ({ ...prev, on: !prev.on }));
+  //   console.log("제대로 됐는가?");
+  // };
 
   const [today, setToday] = useState({
     id: "mor-2",
@@ -64,8 +64,9 @@ export default function Morning() {
     on: false,
   });
   const handleFindPath = () => {
-    console.log("findPath.on", findPath.on);
-    setfindPath((prev) => ({ ...prev, on: !prev.on }));
+    // console.log("findPath.on", findPath.on);
+    // setfindPath((prev) => ({ ...prev, on: !prev.on }));
+    // axios.patch("http://localhost:3001/morning-block/4", {turn:0})
   };
 
   const customLabelTheme = {
@@ -120,9 +121,7 @@ export default function Morning() {
     async () => {
       console.log("fetching ...");
       return axios
-        .get(
-          "https://my-json-server.typicode.com/HH-Notch/notch-api-mock/morning-block"
-        )
+        .get("http://localhost:3001/morning-block")
         .then((res) => res.data);
 
       // fetch(
@@ -138,6 +137,21 @@ export default function Morning() {
   if (error) return <p>{error}</p>;
 
   console.log(blockItems);
+  const handleChangeSwitch = (turn) => {
+    console.log("handleChangeSwitch 올 때 turn", turn);
+    turn ? (turn = 0) : (turn = 1);
+    axios.patch("http://localhost:3001/morning-block/1", { id: 1, turn: turn });
+    console.log("바뀐 turn", turn);
+  };
+  const changeTurn = (turn) => {
+    return turn ? (turn = 0) : (turn = 1);
+  };
+
+  const weather = blockItems[0];
+  const todo = blockItems[1];
+  const music = blockItems[2];
+  const detination = blockItems[3];
+  // console.log(weather_b, todo_b, music_b, detination_b);
 
   return (
     <>
@@ -167,12 +181,11 @@ export default function Morning() {
           >
             <BlockItem
               id={weather.id}
-              checked={weather.on}
-              onChangeFunc={handleWeather}
+              checked={weather.turn}
+              onChangeFunc={() => handleChangeSwitch(weather.turn)}
               text={weather.text}
               containerProps={containerProps}
               labelProps={labelProps}
-              // select_destination=""
             />
             <BlockItem
               id={today.id}
@@ -190,7 +203,7 @@ export default function Morning() {
               text={destination.text}
               containerProps={containerProps}
               labelProps={labelProps}
-              list_button={
+              button={
                 <Button
                   className="mx-3"
                   variant="outlined"

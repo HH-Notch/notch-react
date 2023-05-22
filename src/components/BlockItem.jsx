@@ -9,7 +9,7 @@ export default function BlockItem({
   text,
   containerProps,
   labelProps,
-  list_button,
+  button,
 }) {
   return (
     <>
@@ -20,13 +20,12 @@ export default function BlockItem({
               {text}
             </Typography>
           </div>
-          {list_button}
+          {button}
         </div>
         <Switch
           id={id}
-          checked={checked}
+          checked={checked ? true : false}
           onChange={onChangeFunc}
-          label={<></>}
           containerProps={containerProps}
           labelProps={labelProps}
         />
