@@ -1,37 +1,19 @@
 import "./App.css";
-import DateTime from "./components/DateTime";
-import GoogleSearchBar from "./components/SearchBar";
-import Morning from "./components/Morning";
-import Block from "./components/Block";
-import Profile from "./components/Profile";
-import Afternoon from "./components/Afternoon";
-import Night from "./components/Night";
-// import ShortcutsDrawer from "./components/Drawer";
-import { useState } from "react";
-import { Drawer, Typography, IconButton } from "@material-tailwind/react";
-import ShortcutsDrawer from "./components/Drawer";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import Root from "./pages/Root";
-import NotFound from "./pages/NotFound";
-import MusicList from "./pages/MusicList";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <NotFound />,
-    children: [
-      {
-        path: "music_list",
-        element: <MusicList />,
-      },
-    ],
-  },
-]);
+import { Outlet } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
-  return <RouterProvider router={router} />;
+  const queryClient = new QueryClient();
+  return (
+    <>
+      <QueryClientProvider client={queryClient}>
+        <div className="w-screen h-screen p-5">
+          <Outlet />
+        </div>
+      </QueryClientProvider>
+    </>
+  );
 }
 
 export default App;
