@@ -1,0 +1,135 @@
+{
+  "morning-block": [
+    {
+      "id": 1,
+      "name": "weather",
+      "text": "오늘의 할일 브리핑",
+      "turn": 1
+    },
+    {
+      "id": 2,
+      "name": "todo",
+      "text": "오늘의 날씨 브리핑",
+      "turn": 0
+    },
+    {
+      "id": 3,
+      "name": "music",
+      "text": "Music",
+      "turn": 0,
+      "playlists": [
+        {
+          "id": 1,
+          "name": "Soul Sturng",
+          "link": "https://music.youtube.com/watch?list=PLH8TSjQ0awVLrzp7rPbUJFiClVWUILNkO&feature=share"
+        },
+        {
+          "id": 2,
+          "name": "Jannabiloveyou",
+          "link": "https://music.youtube.com/watch?list=OLAK5uy_kO30VfEcwad3wI-HGwM8nt_xLFfNeY9N0&feature=share"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "destinatiturn",
+      "text": "목적지까지 길찾기",
+      "turn": 1,
+      "dest_list": [
+        {
+          "id": 1,
+          "name": "School",
+          "address": "Han University Statiturn Line 4",
+          "latitude": 37.334611,
+          "lturngitude": 126.832378,
+          "url": "nmap://route/public?dlat=37.334611&dlng=126.832378&appname=notch.com"
+        },
+        {
+          "id": 2,
+          "name": "Home",
+          "address": "Suwol Heights",
+          "latitude": 37.4702002,
+          "lturngitude": 126.96782,
+          "url": "nmap://route/public?dlat=37.4702002&dlng=126.967820&appname=notch.com"
+        }
+      ]
+    }
+  ],
+  "afternoon-block": [
+    {
+      "id": 1,
+      "name": "todo",
+      "text": "오늘 해야할 일 다시 브리핑 받기",
+      "turn": 1
+    },
+    {
+      "id": 2,
+      "name": "study_playlist",
+      "text": "공부 플리",
+      "turn": 1,
+      "playlists": [
+        {
+          "id": 1,
+          "name": "모닥불타다다닥",
+          "link": "https://youtu.be/2TrgSww4Wf8"
+        },
+        {
+          "id": 2,
+          "name": "파도 소리 플리",
+          "link": "https://youtu.be/IzLywgoyR4c"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "nap",
+      "text": "낮잠이 필요해",
+      "turn": 1,
+      "link": "https://youtu.be/SVmjYoZlj6I"
+    }
+  ],
+  "night-block": [
+    {
+      "id": 1,
+      "name": "health",
+      "text": "건강 정보 브리핑",
+      "turn": 1
+    },
+    {
+      "id": 2,
+      "name": "today_feedback",
+      "text": "오늘 일정 피드백",
+      "turn": 1
+    },
+    {
+      "id": 3,
+      "name": "tomorrow_brief",
+      "text": "내일 일정 브리핑 받기",
+      "turn": 1
+    },
+    {
+      "id": 4,
+      "name": "diary",
+      "text": "일기쓰기",
+      "turn": 1
+    },
+    {
+      "id": 5,
+      "name": "brainer",
+      "text": "브레이너제이 수면 영상",
+      "turn": 1,
+      "playlists": [
+        {
+          "id": 1,
+          "name": "6시간",
+          "link": "https://youtu.be/zCW-O6_LEz8"
+        },
+        {
+          "id": 2,
+          "name": "7시간반",
+          "link": "https://youtu.be/2XS0ptK2QCI"
+        }
+      ]
+    }
+  ]
+}
