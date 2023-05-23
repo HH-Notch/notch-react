@@ -27,7 +27,7 @@ export default function MusicList() {
       // music edit으로 가면, state 요소로 하나씩 저장해야한다. 그래야 delete를 하고, set을 변경할 수 있기 때문이다.
     },
     {
-      staleTime: 1000 * 60 * 8,
+      // staleTime: 1000 * 60 * 8,
     }
   );
 
