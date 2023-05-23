@@ -10,7 +10,7 @@
       "id": 2,
       "name": "todo",
       "text": "오늘의 할 일 브리핑",
-      "turn": 1
+      "turn": 0
     },
     {
       "id": 3,
@@ -22,31 +22,13 @@
       "id": 4,
       "name": "destination",
       "text": "목적지까지 길찾기",
-      "turn": 1,
-      "dest_list": [
-        {
-          "id": 1,
-          "name": "School",
-          "address": "Han University Statiturn Line 4",
-          "latitude": 37.334611,
-          "lturngitude": 126.832378,
-          "url": "nmap://route/public?dlat=37.334611&dlng=126.832378&appname=notch.com"
-        },
-        {
-          "id": 2,
-          "name": "Home",
-          "address": "Suwol Heights",
-          "latitude": 37.4702002,
-          "lturngitude": 126.96782,
-          "url": "nmap://route/public?dlat=37.4702002&dlng=126.967820&appname=notch.com"
-        }
-      ]
+      "turn": 1
     }
   ],
   "afternoon-block": [
     {
       "id": 1,
-      "name": "todo",
+      "name": "today",
       "text": "오늘 해야할 일 다시 브리핑 받기",
       "turn": 1
     },
@@ -54,22 +36,10 @@
       "id": 2,
       "name": "study_playlist",
       "text": "공부 플리",
-      "turn": 1,
-      "playlists": [
-        {
-          "id": 1,
-          "name": "모닥불타다다닥",
-          "link": "https://youtu.be/2TrgSww4Wf8"
-        },
-        {
-          "id": 2,
-          "name": "파도 소리 플리",
-          "link": "https://youtu.be/IzLywgoyR4c"
-        }
-      ]
+      "turn": 1
     },
     {
-      "id": 4,
+      "id": 3,
       "name": "nap",
       "text": "낮잠이 필요해",
       "turn": 1,
@@ -105,19 +75,7 @@
       "id": 5,
       "name": "brainer",
       "text": "브레이너제이 수면 영상",
-      "turn": 1,
-      "playlists": [
-        {
-          "id": 1,
-          "name": "6시간",
-          "link": "https://youtu.be/zCW-O6_LEz8"
-        },
-        {
-          "id": 2,
-          "name": "7시간반",
-          "link": "https://youtu.be/2XS0ptK2QCI"
-        }
-      ]
+      "turn": 1
     }
   ],
   "music_list": [
@@ -132,8 +90,8 @@
       "link": "https://music.youtube.com/watch?list=OLAK5uy_kO30VfEcwad3wI-HGwM8nt_xLFfNeY9N0&feature=share"
     },
     {
-      "name": "테스트1",
-      "link": "테스트1",
+      "name": "테스트3",
+      "link": "테스트3",
       "id": 3
     }
   ],
@@ -152,6 +110,35 @@
       "name": "목적지이름이고",
       "link": "목적지주소입니다.",
       "id": 3
+    },
+    {
+      "name": "목적지1",
+      "link": "목적지1",
+      "id": 4
+    }
+  ],
+  "study_list": [
+    {
+      "id": 1,
+      "name": "모닥불타다다닥",
+      "link": "https://youtu.be/2TrgSww4Wf8"
+    },
+    {
+      "id": 2,
+      "name": "파도 소리 플리",
+      "link": "https://youtu.be/IzLywgoyR4c"
+    }
+  ],
+  "brainer_list": [
+    {
+      "id": 1,
+      "name": "6시간",
+      "link": "https://youtu.be/zCW-O6_LEz8"
+    },
+    {
+      "id": 2,
+      "name": "7시간반",
+      "link": "https://youtu.be/2XS0ptK2QCI"
     }
   ]
 }

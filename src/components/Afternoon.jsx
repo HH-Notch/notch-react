@@ -1,37 +1,119 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import BlockItem from "./BlockItem";
 import { ThemeProvider } from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { AfternoonContext } from "../context/AfternoonContext";
 
 export default function Afternoon() {
-  const [today, setToday] = useState({
-    id: "after-1",
-    text: "오늘 할일 목록 알려주기",
-    on: false,
-  });
-  const handleToday = () => {
-    console.log("today.on", today.on);
-    setToday((prev) => ({ ...prev, on: !prev.on }));
+  const {
+    defaultMode,
+    onDefaultMode,
+    offDefaultMode,
+    studyMusicListMode,
+    onStudyMusicListMode,
+    offStudyMusicListMode,
+    studyMusicListEditMode,
+    onStudyMusicListEditMode,
+    offStudyMusicListEditMode,
+    goToDefault,
+    goToStudyMusicList,
+    goToStudyMusicListEdit,
+  } = useContext(AfternoonContext);
+
+  const {
+    isLoading,
+    error,
+    data: blockItems,
+  } = useQuery(
+    ["blockItems"],
+    async () => {
+      console.log("🙇🏻‍♀️afternoon fetching ...🙇🏻‍♀️");
+      const result = await axios
+        .get("http://localhost:3001/afternoon-block")
+        .then((res) => res.data);
+
+      return result;
+    },
+    {
+      staleTime: 10000 * 6 * 3,
+      onSuccess: (data) => {
+        const today_u = data[0];
+        const studyMusic_u = data[1];
+        const nap_u = data[2];
+
+        const today_on = today_u.turn;
+        const today_value = today_on ? true : false;
+        setToday(today_value);
+
+        const studyMusic_on = studyMusic_u.turn;
+        const studyMusic_value = studyMusic_on ? true : false;
+        setStudyMusic(studyMusic_value);
+
+        const nap_on = nap_u.turn;
+        const nap_value = nap_on ? true : false;
+        setNap(nap_value);
+      },
+    }
+  );
+
+  const [today, setToday] = useState(true);
+  const handleTodaySwitch = () => {
+    const updatedState = !today;
+    const turn_value = updatedState ? 1 : 0;
+
+    axios
+      .patch("http://localhost:3001/afternoon-block/1", {
+        id: 1,
+        turn: turn_value,
+      })
+      .then((res) => {
+        console.log("서버응답", res.data);
+        setToday(updatedState);
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
   };
 
-  const [whiteNoise, setWhiteNoise] = useState({
-    id: "after-2",
-    text: "백색소음 재생",
-    on: false,
-  });
-  const handleWhiteNoise = () => {
-    console.log("whiteNoise.on", whiteNoise.on);
-    setWhiteNoise((prev) => ({ ...prev, on: !prev.on }));
-    console.log("제대로 됐는가?");
+  const [studyMusic, setStudyMusic] = useState(true);
+
+  const handleStudyMusicSwitch = () => {
+    const updatedState = !studyMusic;
+    const turn_value = updatedState ? 1 : 0;
+
+    axios
+      .patch("http://localhost:3001/afternoon-block/2", {
+        id: 2,
+        turn: turn_value,
+      })
+      .then((res) => {
+        console.log("서버응답", res.data);
+        setStudyMusic(updatedState);
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
   };
 
-  const [nap, setNap] = useState({
-    id: "after-3",
-    text: "낮잠용 브레이너제이 재생",
-    on: false,
-  });
-  const handleNap = () => {
-    console.log("nap.on", nap.on);
-    setNap((prev) => ({ ...prev, on: !prev.on }));
+  const [nap, setNap] = useState(true);
+  const handleNapSwitch = () => {
+    const updatedState = !nap;
+    const turn_value = updatedState ? 1 : 0;
+
+    axios
+      .patch("http://localhost:3001/afternoon-block/3", {
+        id: 3,
+        turn: turn_value,
+      })
+      .then((res) => {
+        console.log("서버응답", res.data);
+        setNap(updatedState);
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
   };
 
   const customLabelTheme = {
@@ -42,9 +124,6 @@ export default function Afternoon() {
             // blockItem CSS
             display: "flex",
             alignItems: "items-center",
-            flexDirection: "flex-row-reverse",
-            justifyContent: "justify-between",
-            marginBottom: "mb-3",
           },
         },
       },
@@ -57,6 +136,13 @@ export default function Afternoon() {
 
   const labelProps = { className: "" };
 
+  if (isLoading) return <p>Loading ...</p>;
+  if (error) return <p>{error.toString()}</p>;
+
+  const today_b = blockItems[0];
+  const studyMusic_b = blockItems[1];
+  const nap_b = blockItems[2];
+
   return (
     <>
       <ThemeProvider
@@ -64,31 +150,39 @@ export default function Afternoon() {
         value={customLabelTheme}
       >
         <BlockItem
-          id={today.id}
-          checked={today.on}
-          onChangeFunc={handleToday}
-          text={today.text}
+          id={today_b.id}
+          checked={today}
+          onChangeFunc={handleTodaySwitch}
+          text={today_b.text}
           containerProps={containerProps}
           labelProps={labelProps}
-          // select_destination=""
         />
         <BlockItem
-          id={whiteNoise.id}
-          checked={whiteNoise.on}
-          onChangeFunc={handleWhiteNoise}
-          text={whiteNoise.text}
+          id={studyMusic_b.id}
+          checked={studyMusic}
+          onChangeFunc={handleStudyMusicSwitch}
+          text={studyMusic_b.text}
           containerProps={containerProps}
           labelProps={labelProps}
-          // select_destination=""
+          button={
+            <Button
+              className="mx-3"
+              variant="outlined"
+              size="sm"
+              ripple={true}
+              onClick={() => goToStudyMusicList()}
+            >
+              {studyMusic.toString()}스터디뮤직
+            </Button>
+          }
         />
         <BlockItem
-          id={nap.id}
-          checked={nap.on}
-          onChangeFunc={handleNap}
-          text={nap.text}
+          id={nap_b.id}
+          checked={nap}
+          onChangeFunc={handleNapSwitch}
+          text={nap_b.text}
           containerProps={containerProps}
           labelProps={labelProps}
-          // select_destination=""
         />
       </ThemeProvider>
     </>

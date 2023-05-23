@@ -74,7 +74,6 @@ export default function Morning() {
       },
     }
   );
-
   const [weatherBrief, setWeatherBrief] = useState(false);
   const handleWeatherBrief = () => {
     setWeatherBrief((prev) => !prev);
