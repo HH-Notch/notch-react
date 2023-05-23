@@ -46,31 +46,32 @@ export default function Morning() {
         .get("http://localhost:3001/morning-block")
         .then((res) => res.data);
 
-      const weather_u = result[0];
-      const todo_u = result[1];
-      const music_u = result[2];
-      const destination_u = result[3];
-
-      const weather_on = weather_u.turn;
-      const weather_value = weather_on ? true : false;
-      setWeatherBrief(weather_value);
-
-      const todo_on = todo_u.turn;
-      const todo_value = todo_on ? true : false;
-      setToday(todo_value);
-
-      const music_on = music_u.turn;
-      const music_value = music_on ? true : false;
-      setPlayMusic(music_value);
-
-      const destination_on = destination_u.turn;
-      const destination_value = destination_on ? true : false;
-      setDest(destination_value);
-
       return result;
     },
     {
       staleTime: 10000 * 6 * 3,
+      onSuccess: (data) => {
+        const weather_u = data[0];
+        const todo_u = data[1];
+        const music_u = data[2];
+        const destination_u = data[3];
+
+        const weather_on = weather_u.turn;
+        const weather_value = weather_on ? true : false;
+        setWeatherBrief(weather_value);
+
+        const todo_on = todo_u.turn;
+        const todo_value = todo_on ? true : false;
+        setToday(todo_value);
+
+        const music_on = music_u.turn;
+        const music_value = music_on ? true : false;
+        setPlayMusic(music_value);
+
+        const destination_on = destination_u.turn;
+        const destination_value = destination_on ? true : false;
+        setDest(destination_value);
+      },
     }
   );
 
