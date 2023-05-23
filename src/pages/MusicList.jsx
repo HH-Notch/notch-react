@@ -9,20 +9,23 @@ export default function MusicList() {
   const {
     isLoading,
     error,
-    data: musicList,
+    data: music_playlist,
   } = useQuery(
-    ["musicList"],
+    ["music_playlist"],
     async () => {
       console.log("fetching ...");
-      return axios
-        .get(
-          "https://my-json-server.typicode.com/HH-Notch/notch-api-mock/morning-block/3"
-        )
-        .then((res) => res.data.palylists)
+      const result = await axios
+        .get("http://localhost:3001/music_list")
+        .then((res) => res.data)
         .catch((error) => {
           console.log("musiclist 가져오는 중 에러 발생", error);
         });
+      console.log("??", result);
+      return result;
 
+      // 화면 변화에 관련된 것은 모두 state로 관리한다 ⭐
+      // 그러므로, 나는 music list는 그냥 뿌려줄 수 있다.
+      // music edit으로 가면, state 요소로 하나씩 저장해야한다. 그래야 delete를 하고, set을 변경할 수 있기 때문이다.
       // fetch(
       //   "https://my-json-server.typicode.com/HH-Notch/notch-api-mock/morning-block"
       // ).then((res) => res.json());
@@ -32,13 +35,16 @@ export default function MusicList() {
     }
   );
 
+  console.log("무직플레이리스트", music_playlist);
+  if (isLoading) return <p>Loading ...</p>;
+  if (error) return <p>{error.toString()}</p>;
+
   return (
     <>
       {musicListMode && (
         <div className="w-full">
           <p> musicList</p>
-
-          {musicList.map((item) => (
+          {music_playlist.map((item) => (
             <div key={item.id} className="break-all">
               <p>{item.name}</p>
               <p> {item.link}</p>

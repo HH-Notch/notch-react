@@ -16,19 +16,7 @@
       "id": 3,
       "name": "music",
       "text": "Music",
-      "turn": 1,
-      "playlists": [
-        {
-          "id": 1,
-          "name": "Soul Sturng",
-          "link": "https://music.youtube.com/watch?list=PLH8TSjQ0awVLrzp7rPbUJFiClVWUILNkO&feature=share"
-        },
-        {
-          "id": 2,
-          "name": "Jannabiloveyou",
-          "link": "https://music.youtube.com/watch?list=OLAK5uy_kO30VfEcwad3wI-HGwM8nt_xLFfNeY9N0&feature=share"
-        }
-      ]
+      "turn": 1
     },
     {
       "id": 4,
@@ -130,6 +118,18 @@
           "link": "https://youtu.be/2XS0ptK2QCI"
         }
       ]
+    }
+  ],
+  "music_list": [
+    {
+      "id": 1,
+      "name": "Soul Sturng",
+      "link": "https://music.youtube.com/watch?list=PLH8TSjQ0awVLrzp7rPbUJFiClVWUILNkO&feature=share"
+    },
+    {
+      "id": 2,
+      "name": "Jannabiloveyou",
+      "link": "https://music.youtube.com/watch?list=OLAK5uy_kO30VfEcwad3wI-HGwM8nt_xLFfNeY9N0&feature=share"
     }
   ]
 }
