@@ -79,7 +79,7 @@ export default function MusicEdit() {
           payload: data,
         });
       },
-      onError: () => console.log("에러났스빈다요"),
+      onError: () => console.log("뮤직 에딧 에러났스빈다요"),
     }
   );
 
