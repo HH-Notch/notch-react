@@ -6,6 +6,9 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { AfternoonContext } from "../context/AfternoonContext";
 
+import StudyList from "../pages/StudyList";
+import StudyEdit from "../pages/StudyEdit";
+
 export default function Afternoon() {
   const {
     defaultMode,
@@ -27,7 +30,7 @@ export default function Afternoon() {
     error,
     data: blockItems,
   } = useQuery(
-    ["blockItems"],
+    ["afternoon-blockItems"],
     async () => {
       console.log("🙇🏻‍♀️afternoon fetching ...🙇🏻‍♀️");
       const result = await axios
@@ -145,46 +148,54 @@ export default function Afternoon() {
 
   return (
     <>
-      <ThemeProvider
-        style={{ justifyContent: "space-between" }}
-        value={customLabelTheme}
-      >
-        <BlockItem
-          id={today_b.id}
-          checked={today}
-          onChangeFunc={handleTodaySwitch}
-          text={today_b.text}
-          containerProps={containerProps}
-          labelProps={labelProps}
-        />
-        <BlockItem
-          id={studyMusic_b.id}
-          checked={studyMusic}
-          onChangeFunc={handleStudyMusicSwitch}
-          text={studyMusic_b.text}
-          containerProps={containerProps}
-          labelProps={labelProps}
-          button={
-            <Button
-              className="mx-3"
-              variant="outlined"
-              size="sm"
-              ripple={true}
-              onClick={() => goToStudyMusicList()}
-            >
-              {studyMusic.toString()}스터디뮤직
-            </Button>
-          }
-        />
-        <BlockItem
-          id={nap_b.id}
-          checked={nap}
-          onChangeFunc={handleNapSwitch}
-          text={nap_b.text}
-          containerProps={containerProps}
-          labelProps={labelProps}
-        />
-      </ThemeProvider>
+      {defaultMode ? (
+        <>
+          <ThemeProvider
+            style={{ justifyContent: "space-between" }}
+            value={customLabelTheme}
+          >
+            <BlockItem
+              id={today_b.id + "-" + today_b.name}
+              checked={today}
+              onChangeFunc={handleTodaySwitch}
+              text={today_b.text}
+              containerProps={containerProps}
+              labelProps={labelProps}
+            />
+            <BlockItem
+              id={studyMusic_b.id + "-" + studyMusic_b.name}
+              checked={studyMusic}
+              onChangeFunc={handleStudyMusicSwitch}
+              text={studyMusic_b.text}
+              containerProps={containerProps}
+              labelProps={labelProps}
+              button={
+                <Button
+                  className="mx-3"
+                  variant="outlined"
+                  size="sm"
+                  ripple={true}
+                  onClick={() => goToStudyMusicList()}
+                >
+                  {studyMusic.toString()}스터디뮤직
+                </Button>
+              }
+            />
+            <BlockItem
+              id={nap_b.id + "-" + nap_b.name}
+              checked={nap}
+              onChangeFunc={handleNapSwitch}
+              text={nap_b.text}
+              containerProps={containerProps}
+              labelProps={labelProps}
+            />
+          </ThemeProvider>
+        </>
+      ) : studyMusicListMode ? (
+        <StudyList />
+      ) : studyMusicListEditMode ? (
+        <StudyEdit />
+      ) : null}
     </>
   );
 }

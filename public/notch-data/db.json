@@ -10,7 +10,7 @@
       "id": 2,
       "name": "todo",
       "text": "오늘의 할 일 브리핑",
-      "turn": 0
+      "turn": 1
     },
     {
       "id": 3,
@@ -30,19 +30,19 @@
       "id": 1,
       "name": "today",
       "text": "오늘 해야할 일 다시 브리핑 받기",
-      "turn": 1
+      "turn": 0
     },
     {
       "id": 2,
       "name": "study_playlist",
       "text": "공부 플리",
-      "turn": 1
+      "turn": 0
     },
     {
       "id": 3,
       "name": "nap",
       "text": "낮잠이 필요해",
-      "turn": 1,
+      "turn": 0,
       "link": "https://youtu.be/SVmjYoZlj6I"
     }
   ],
@@ -117,7 +117,7 @@
       "id": 4
     }
   ],
-  "study_list": [
+  "study_music_list": [
     {
       "id": 1,
       "name": "모닥불타다다닥",

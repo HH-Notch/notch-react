@@ -193,7 +193,7 @@ export default function Morning() {
             value={customLabelTheme}
           >
             <BlockItem
-              id={weather.id}
+              id={weather.id + "-" + weather.name}
               checked={weatherBrief}
               onChangeFunc={handleWeatherSwitch}
               text={weather.text}
@@ -202,7 +202,7 @@ export default function Morning() {
               button={<p>{weatherBrief.toString()}</p>}
             />
             <BlockItem
-              id={todo.id}
+              id={todo.id + "-" + todo.name}
               checked={today}
               onChangeFunc={handleTodaySwitch}
               text={todo.text}
@@ -212,7 +212,7 @@ export default function Morning() {
             />
 
             <BlockItem
-              id={music.id}
+              id={music.id + "-" + music.name}
               checked={playMusic}
               onChangeFunc={handleMusicSwitch}
               text={music.text}
@@ -231,7 +231,7 @@ export default function Morning() {
               }
             />
             <BlockItem
-              id={destination.id}
+              id={destination.id + "-" + destination.name}
               checked={dest}
               onChangeFunc={handleDestSwitch}
               text={destination.text}
