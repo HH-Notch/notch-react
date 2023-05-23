@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <div className="w-screen h-screen p-5">
+        <div className="p-5">
           <Outlet />
         </div>
         <ReactQueryDevtools initialIsOpen={true} />
