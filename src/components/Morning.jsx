@@ -11,6 +11,69 @@ import MusicList from "../pages/MusicList";
 import DestList from "../pages/DestList";
 import DestEdit from "../pages/DestEdit";
 export default function Morning() {
+  const {
+    defaultMode,
+    onDefaultMode,
+    offDefaultMode,
+    musicListMode,
+    onMusicListMode,
+    offMusicListMode,
+    musicEditMode,
+    onMusicEditMode,
+    offMusicEditMode,
+    destListMode,
+    onDestListMode,
+    offDestListMode,
+    destEditMode,
+    onDestEditMode,
+    offDestEditMode,
+    goToDefault,
+    goToMusicList,
+    goToMusicEdit,
+    goToDestList,
+    goToDestEdit,
+  } = useContext(MorningContext);
+
+  const {
+    isLoading,
+    error,
+    data: blockItems,
+  } = useQuery(
+    ["blockItems"],
+    async () => {
+      console.log("🙇🏻‍♀️fetching ...🙇🏻‍♀️");
+      const result = await axios
+        .get("http://localhost:3001/morning-block")
+        .then((res) => res.data);
+
+      const weather_u = result[0];
+      const todo_u = result[1];
+      const music_u = result[2];
+      const destination_u = result[3];
+
+      const weather_on = weather_u.turn;
+      const weather_value = weather_on ? true : false;
+      setWeatherBrief(weather_value);
+
+      const todo_on = todo_u.turn;
+      const todo_value = todo_on ? true : false;
+      setToday(todo_value);
+
+      const music_on = music_u.turn;
+      const music_value = music_on ? true : false;
+      setPlayMusic(music_value);
+
+      const destination_on = destination_u.turn;
+      const destination_value = destination_on ? true : false;
+      setDest(destination_value);
+
+      return result;
+    },
+    {
+      staleTime: 10000 * 6 * 3,
+    }
+  );
+
   const [weatherBrief, setWeatherBrief] = useState(false);
   const handleWeatherBrief = () => {
     setWeatherBrief((prev) => !prev);
@@ -111,69 +174,6 @@ export default function Morning() {
 
   const labelProps = { className: "" };
   // -- Switch component custom style
-
-  const {
-    defaultMode,
-    onDefaultMode,
-    offDefaultMode,
-    musicListMode,
-    onMusicListMode,
-    offMusicListMode,
-    musicEditMode,
-    onMusicEditMode,
-    offMusicEditMode,
-    destListMode,
-    onDestListMode,
-    offDestListMode,
-    destEditMode,
-    onDestEditMode,
-    offDestEditMode,
-    goToDefault,
-    goToMusicList,
-    goToMusicEdit,
-    goToDestList,
-    goToDestEdit,
-  } = useContext(MorningContext);
-
-  const {
-    isLoading,
-    error,
-    data: blockItems,
-  } = useQuery(
-    ["blockItems"],
-    async () => {
-      console.log("🙇🏻‍♀️fetching ...🙇🏻‍♀️");
-      const result = await axios
-        .get("http://localhost:3001/morning-block")
-        .then((res) => res.data);
-
-      const weather_u = result[0];
-      const todo_u = result[1];
-      const music_u = result[2];
-      const destination_u = result[3];
-
-      const weather_on = weather_u.turn;
-      const weather_value = weather_on ? true : false;
-      setWeatherBrief(weather_value);
-
-      const todo_on = todo_u.turn;
-      const todo_value = todo_on ? true : false;
-      setToday(todo_value);
-
-      const music_on = music_u.turn;
-      const music_value = music_on ? true : false;
-      setPlayMusic(music_value);
-
-      const destination_on = destination_u.turn;
-      const destination_value = destination_on ? true : false;
-      setDest(destination_value);
-
-      return result;
-    },
-    {
-      staleTime: 10000 * 6 * 3,
-    }
-  );
 
   if (isLoading) return <p>Loading ...</p>;
   if (error) return <p>{error.toString()}</p>;
