@@ -72,18 +72,15 @@ export default function MusicEdit() {
     },
     {
       onSuccess: (data) => {
-        // console.log("data 잘들어옴");
-        // console.log("data는? ", data);
         dispatch({
           type: "SET_LIST",
           payload: data,
         });
       },
-      onError: () => console.log("에러났스빈다요"),
+      onError: () => console.log("뮤직 에딧 에러났스빈다요"),
     }
   );
 
-  // console.log("무직플레이리스트", music_playlist);
   if (isLoading) return <p>Loading ...</p>;
   if (error) return <p>{error.toString()}</p>;
   console.log("list", list);

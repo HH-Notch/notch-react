@@ -10,7 +10,7 @@
       "id": 2,
       "name": "todo",
       "text": "오늘의 할 일 브리핑",
-      "turn": 0
+      "turn": 1
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "id": 4,
       "name": "destination",
       "text": "목적지까지 길찾기",
-      "turn": 0,
+      "turn": 1,
       "dest_list": [
         {
           "id": 1,
@@ -130,6 +130,28 @@
       "id": 2,
       "name": "Jannabiloveyou",
       "link": "https://music.youtube.com/watch?list=OLAK5uy_kO30VfEcwad3wI-HGwM8nt_xLFfNeY9N0&feature=share"
+    },
+    {
+      "name": "테스트1",
+      "link": "테스트1",
+      "id": 3
+    }
+  ],
+  "destination_list": [
+    {
+      "id": 1,
+      "name": "School",
+      "link": "Han University Statiturn Line 4"
+    },
+    {
+      "id": 2,
+      "name": "Home",
+      "link": "Suwol Heights"
+    },
+    {
+      "name": "목적지이름이고",
+      "link": "목적지주소입니다.",
+      "id": 3
     }
   ]
 }

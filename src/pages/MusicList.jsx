@@ -13,7 +13,7 @@ export default function MusicList() {
   } = useQuery(
     ["music_playlist"],
     async () => {
-      console.log("🎧 music edit fetching ... 🎧");
+      console.log("🎧 music list fetching ... 🎧");
       const result = await axios
         .get("http://localhost:3001/music_list")
         .then((res) => res.data)
