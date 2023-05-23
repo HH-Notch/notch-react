@@ -57,7 +57,7 @@
       "id": 2,
       "name": "today_feedback",
       "text": "오늘 일정 피드백",
-      "turn": 1
+      "turn": 0
     },
     {
       "id": 3,
@@ -127,9 +127,14 @@
       "id": 2,
       "name": "파도 소리 플리",
       "link": "https://youtu.be/IzLywgoyR4c"
+    },
+    {
+      "name": "테스트테ㅡ트",
+      "link": "얍얍욥욥",
+      "id": 3
     }
   ],
-  "brainer_list": [
+  "sleep_music_list": [
     {
       "id": 1,
       "name": "6시간",

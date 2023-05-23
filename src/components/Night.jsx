@@ -1,79 +1,175 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import BlockItem from "./BlockItem";
 import { ThemeProvider } from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import { NightContext } from "../context/NightContext";
+
+import SleepList from "../pages/SleepList";
+import SleepEdit from "../pages/SleepEdit";
+
 import { AiFillPlusCircle } from "react-icons/ai";
 import { AiFillMinusCircle } from "react-icons/ai";
 
 export default function Night() {
-  const [reviewToday, setReviewToday] = useState({
-    id: "reviewToday",
-    text: "오늘 할일 수행률",
-    on: false,
-  });
-  const handleReviewToday = () => {
-    console.log("reviewToday.on", reviewToday.on);
-    setReviewToday((prev) => ({ ...prev, on: !prev.on }));
+  const {
+    defaultMode,
+    onDefaultMode,
+    offDefaultMode,
+    sleepMusicListMode,
+    onSleepMusicListMode,
+    offSleepMusicListMode,
+    sleepMusicListEditMode,
+    onSleepMusicListEditMode,
+    offSleepMusicListEditMode,
+    goToDefault,
+    goToSleepMusicList,
+    goToSleepMusicListEdit,
+  } = useContext(NightContext);
+
+  const {
+    isLoading,
+    error,
+    data: blockItems,
+  } = useQuery(
+    ["night-blockItems"],
+    async () => {
+      console.log("🙇🏻‍♀️night fetching ...🙇🏻‍♀️");
+      const result = await axios
+        .get("http://localhost:3001/night-block")
+        .then((res) => res.data);
+
+      return result;
+    },
+    {
+      staleTime: 10000 * 6 * 3,
+      onSuccess: (data) => {
+        const health_u = data[0];
+        const todayFeedback_u = data[1];
+        const tomoBrief_u = data[2];
+        const diary_u = data[3];
+        const brainer_u = data[4];
+
+        const health_on = health_u.turn;
+        const health_value = health_on ? true : false;
+        setHealth(health_value);
+
+        const todayFeedback_on = todayFeedback_u.turn;
+        const todayFeedback_value = todayFeedback_on ? true : false;
+        setTodayFeedback(todayFeedback_value);
+
+        const tomoBrief_on = tomoBrief_u.turn;
+        const tomoBrief_value = tomoBrief_on ? true : false;
+        setTomoBrief(tomoBrief_value);
+
+        const diary_on = diary_u.turn;
+        const diary_value = diary_on ? true : false;
+        setDiary(diary_value);
+
+        const brainer_on = brainer_u.turn;
+        const brainer_value = brainer_on ? true : false;
+        setBrainer(brainer_value);
+      },
+    }
+  );
+  const [health, setHealth] = useState(true);
+  const handleHealthSwitch = () => {
+    const updatedState = !health;
+    const turn_value = updatedState ? 1 : 0;
+
+    axios
+      .patch("http://localhost:3001/night-block/1", {
+        id: 1,
+        turn: turn_value,
+      })
+      .then((res) => {
+        console.log("서버응답", res.data);
+        setHealth(updatedState);
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
   };
 
-  const [aboutTomorrow, setAboutTomorrow] = useState({
-    id: "aboutTomorrow",
-    text: "오늘 할일 수행률",
-    on: false,
-  });
-  const handleAboutTomorrow = () => {
-    console.log("aboutTomorrow.on", aboutTomorrow.on);
-    setAboutTomorrow((prev) => ({ ...prev, on: !prev.on }));
+  const [todayFeedback, setTodayFeedback] = useState(true);
+
+  const handleTodayFeedbackSwitch = () => {
+    const updatedState = !todayFeedback;
+    const turn_value = updatedState ? 1 : 0;
+
+    axios
+      .patch("http://localhost:3001/night-block/2", {
+        id: 2,
+        turn: turn_value,
+      })
+      .then((res) => {
+        console.log("서버응답", res.data);
+        setTodayFeedback(updatedState);
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
   };
 
-  const [health, setHealth] = useState({
-    id: "health",
-    text: "몇 걸음 걸었을까",
-    on: false,
-  });
-  const handleHealth = () => {
-    console.log("health.on", health.on);
-    setHealth((prev) => ({ ...prev, on: !prev.on }));
+  const [tomoBrief, setTomoBrief] = useState(true);
+
+  const handleTomoBriefSwitch = () => {
+    const updatedState = !tomoBrief;
+    const turn_value = updatedState ? 1 : 0;
+
+    axios
+      .patch("http://localhost:3001/night-block/3", {
+        id: 3,
+        turn: turn_value,
+      })
+      .then((res) => {
+        console.log("서버응답", res.data);
+        setTomoBrief(updatedState);
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
   };
 
-  const [question, setQuestion] = useState({
-    id: "question",
-    text: "생각해 볼 질문",
-    on: false,
-  });
-  const handleQuestion = () => {
-    console.log("question.on", question.on);
-    setQuestion((prev) => ({ ...prev, on: !prev.on }));
+  const [diary, setDiary] = useState(true);
+
+  const handleDiarySwitch = () => {
+    const updatedState = !diary;
+    const turn_value = updatedState ? 1 : 0;
+
+    axios
+      .patch("http://localhost:3001/night-block/4", {
+        id: 4,
+        turn: turn_value,
+      })
+      .then((res) => {
+        console.log("서버응답", res.data);
+        setDiary(updatedState);
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
   };
 
-  const [brainer, setBrainer] = useState({
-    id: "brainer",
-    text: "브레이너제이 수면 영상",
-    on: false,
-    video_name: "",
-    video_url: "",
-  });
-  const handleBrainer = () => {
-    console.log("brainer.on", brainer.on);
-    setBrainer((prev) => ({ ...prev, on: !prev.on }));
-  };
-  const [brainerOptions, setBrainerOptions] = useState([
-    { name: "옵션 1", url: "주소 1" },
-    { name: "옵션 2", url: "주소 2" },
-    { name: "옵션 3", url: "주소 3" },
-  ]);
-  const handleBrainerOption = (event) => {
-    const selectedIndex = event.target.selectedIndex;
-    setBrainer((prev) => ({
-      ...prev,
-      video_name: brainerOptions[selectedIndex].name,
-      video_url: brainerOptions[selectedIndex].url,
-    }));
-    console.log("brainer 값은?", brainer);
-  };
-  const handleBrainerAddOption = () => {
-    // const newOption = {name: }
-    // option을 form으로 입력 받는거 구현한 다음에 할 수 있음
-    console.log("야호");
+  const [brainer, setBrainer] = useState(true);
+
+  const handleBrainerSwitch = () => {
+    const updatedState = !brainer;
+    const turn_value = updatedState ? 1 : 0;
+
+    axios
+      .patch("http://localhost:3001/night-block/5", {
+        id: 5,
+        turn: turn_value,
+      })
+      .then((res) => {
+        console.log("서버응답", res.data);
+        setBrainer(updatedState);
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
   };
 
   const customLabelTheme = {
@@ -99,80 +195,81 @@ export default function Night() {
 
   const labelProps = { className: "" };
 
+  if (isLoading) return <p>Loading ...</p>;
+  if (error) return <p>{error.toString()}</p>;
+
+  const health_b = blockItems[0];
+  const todayFeedback_b = blockItems[1];
+  const tomoBrief_b = blockItems[2];
+  const diary_b = blockItems[3];
+  const brainer_b = blockItems[4];
+
   return (
     <>
-      <ThemeProvider
-        style={{ justifyContent: "space-between" }}
-        value={customLabelTheme}
-      >
-        <BlockItem
-          id={health.id}
-          checked={health.on}
-          onChangeFunc={handleHealth}
-          text={health.text}
-          containerProps={containerProps}
-          labelProps={labelProps}
-          // select_destination=""
-        />
-        <BlockItem
-          id={reviewToday.id}
-          checked={reviewToday.on}
-          onChangeFunc={handleReviewToday}
-          text={reviewToday.text}
-          containerProps={containerProps}
-          labelProps={labelProps}
-          // select_destination=""
-        />
-        <BlockItem
-          id={aboutTomorrow.id}
-          checked={aboutTomorrow.on}
-          onChangeFunc={handleAboutTomorrow}
-          text={aboutTomorrow.text}
-          containerProps={containerProps}
-          labelProps={labelProps}
-          // select_destination=""
-        />
-        <BlockItem
-          id={question.id}
-          checked={question.on}
-          onChangeFunc={handleQuestion}
-          text={question.text}
-          containerProps={containerProps}
-          labelProps={labelProps}
-          // select_destination=""
-        />
-        <BlockItem
-          id={brainer.id}
-          checked={brainer.on}
-          onChangeFunc={handleBrainer}
-          text={brainer.text}
-          containerProps={containerProps}
-          labelProps={labelProps}
-          select_brainer={
-            <>
-              <div className="flex">
-                <div>
-                  <select onChange={handleBrainerOption}>
-                    {brainerOptions.map((option, index) => (
-                      <option
-                        key={index}
-                      >{`${option.name}-${option.url}`}</option>
-                    ))}
-                  </select>
-                </div>
-                <button onClick={handleBrainerAddOption}>
-                  <AiFillPlusCircle className="text-xl" />
-                </button>
-
-                <button onClick={handleBrainerAddOption}>
-                  <AiFillMinusCircle className="text-xl" />
-                </button>
-                {/* <IconButton variant="outlined"></IconButton> */}
-              </div>
-            </>
-          }
-        />
-      </ThemeProvider>
+      {defaultMode ? (
+        <>
+          <ThemeProvider
+            style={{ justifyContent: "space-between" }}
+            value={customLabelTheme}
+          >
+            <BlockItem
+              id={health_b.id + "-" + health_b.name}
+              checked={health}
+              onChangeFunc={handleHealthSwitch}
+              text={health_b.text}
+              containerProps={containerProps}
+              labelProps={labelProps}
+            />
+            <BlockItem
+              id={todayFeedback_b.id + "-" + todayFeedback_b.name}
+              checked={todayFeedback}
+              onChangeFunc={handleTodayFeedbackSwitch}
+              text={todayFeedback_b.text}
+              containerProps={containerProps}
+              labelProps={labelProps}
+            />
+            <BlockItem
+              id={tomoBrief_b.id + "-" + tomoBrief_b.name}
+              checked={tomoBrief}
+              onChangeFunc={handleTomoBriefSwitch}
+              text={tomoBrief_b.text}
+              containerProps={containerProps}
+              labelProps={labelProps}
+            />
+            <BlockItem
+              id={diary_b.id + "-" + diary_b.name}
+              checked={diary}
+              onChangeFunc={handleDiarySwitch}
+              text={diary_b.text}
+              containerProps={containerProps}
+              labelProps={labelProps}
+            />
+            <BlockItem
+              id={brainer_b.id + "-" + brainer_b.name}
+              checked={brainer}
+              onChangeFunc={handleBrainerSwitch}
+              text={brainer_b.text}
+              containerProps={containerProps}
+              labelProps={labelProps}
+              button={
+                <Button
+                  className="mx-3"
+                  variant="outlined"
+                  size="sm"
+                  ripple={true}
+                  onClick={() => goToSleepMusicList()}
+                >
+                  {brainer.toString()}수면 음악
+                </Button>
+              }
+            />
+          </ThemeProvider>
+        </>
+      ) : sleepMusicListMode ? (
+        <SleepList />
+      ) : sleepMusicListEditMode ? (
+        <SleepEdit />
+      ) : null}
     </>
   );
 }

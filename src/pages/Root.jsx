@@ -10,6 +10,7 @@ import { useState } from "react";
 import ShortcutsDrawer from "../components/Drawer";
 import { MorningProvider } from "../context/MorningContext";
 import { AfternoonProvider } from "../context/AfternoonContext";
+import { NightProvider } from "../context/NightContext";
 export default function Root() {
   const [openDrawer, setOpenDrawer] = useState(false);
   const openDrawerRight = () => setOpenDrawer(true);
@@ -38,7 +39,9 @@ export default function Root() {
         </Block>
 
         <Block blockName="저녁(Review)">
-          <Night />
+          <NightProvider>
+            <Night />
+          </NightProvider>
         </Block>
       </div>
       <ShortcutsDrawer
