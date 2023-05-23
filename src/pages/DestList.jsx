@@ -31,6 +31,8 @@ export default function DestList() {
         //   type: "SET_LIST",
         //   payload: data,
         // });
+
+        // ⭐⭐⭐ list에서는 ui가 바뀌는 경우가 없기 때문에, 꼭 dispatch SET_LIST로 가지고 오지 않아도 될 것 같다 !
       },
       onError: () => console.log("데스트 리스트 에러났스빈다요"),
     }

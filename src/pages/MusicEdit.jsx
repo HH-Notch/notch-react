@@ -72,8 +72,6 @@ export default function MusicEdit() {
     },
     {
       onSuccess: (data) => {
-        // console.log("data 잘들어옴");
-        // console.log("data는? ", data);
         dispatch({
           type: "SET_LIST",
           payload: data,
@@ -83,7 +81,6 @@ export default function MusicEdit() {
     }
   );
 
-  // console.log("무직플레이리스트", music_playlist);
   if (isLoading) return <p>Loading ...</p>;
   if (error) return <p>{error.toString()}</p>;
   console.log("list", list);
