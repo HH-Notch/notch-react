@@ -6,7 +6,7 @@ export default function Welcome() {
   return (
     <>
       <div
-        className="flex flex-col justify-center items-center overflow-scroll"
+        className="flex flex-col justify-center items-center"
         style={{ height: "calc(var(--vh, 1vh) * 100)" }}
       >
         <div className="text-center">
