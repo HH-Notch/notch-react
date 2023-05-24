@@ -192,70 +192,72 @@ export default function Morning() {
       {defaultMode ? (
         <>
           {/* 오늘 할 일 브리핑 */}
-          <ThemeProvider
-            // style={{ justifyContent: "space-between" }}
-            value={customLabelTheme}
-          >
-            <BlockItem
-              id={weather.id + "-" + weather.name}
-              checked={weatherBrief}
-              onChangeFunc={handleWeatherSwitch}
-              text={weather.text}
-              // containerProps={containerProps}
-              circleProps={circleProps}
-              switchStyle={switchStyle}
-            />
-            <BlockItem
-              id={todo.id + "-" + todo.name}
-              checked={today}
-              onChangeFunc={handleTodaySwitch}
-              text={todo.text}
-              // containerProps={containerProps}
-              circleProps={circleProps}
-              switchStyle={switchStyle}
-            />
+          <div className="p-2">
+            <ThemeProvider
+              // style={{ justifyContent: "space-between" }}
+              value={customLabelTheme}
+            >
+              <BlockItem
+                id={weather.id + "-" + weather.name}
+                checked={weatherBrief}
+                onChangeFunc={handleWeatherSwitch}
+                text={weather.text}
+                // containerProps={containerProps}
+                circleProps={circleProps}
+                switchStyle={switchStyle}
+              />
+              <BlockItem
+                id={todo.id + "-" + todo.name}
+                checked={today}
+                onChangeFunc={handleTodaySwitch}
+                text={todo.text}
+                // containerProps={containerProps}
+                circleProps={circleProps}
+                switchStyle={switchStyle}
+              />
 
-            <BlockItem
-              id={music.id + "-" + music.name}
-              checked={playMusic}
-              onChangeFunc={handleMusicSwitch}
-              text={music.text}
-              // containerProps={containerProps}
-              circleProps={circleProps}
-              switchStyle={switchStyle}
-              button={
-                <Button
-                  className="mx-3"
-                  variant="outlined"
-                  size="sm"
-                  ripple={true}
-                  onClick={() => goToMusicList()}
-                >
-                  <p className="text-lg">🎧</p>
-                </Button>
-              }
-            />
-            <BlockItem
-              id={destination.id + "-" + destination.name}
-              checked={dest}
-              onChangeFunc={handleDestSwitch}
-              text={destination.text}
-              // containerProps={containerProps}
-              circleProps={circleProps}
-              switchStyle={switchStyle}
-              button={
-                <Button
-                  className="mx-3 !bg-gray-100 !border-zinic !pt-[2.5px] !pb-[5px] !px-4 !bg-opacity-50 !shadow-md-strong"
-                  variant="outlined"
-                  size="sm"
-                  ripple={true}
-                  onClick={() => goToDestList()}
-                >
-                  <p className="text-lg">🚌</p>
-                </Button>
-              }
-            />
-          </ThemeProvider>
+              <BlockItem
+                id={music.id + "-" + music.name}
+                checked={playMusic}
+                onChangeFunc={handleMusicSwitch}
+                text={music.text}
+                // containerProps={containerProps}
+                circleProps={circleProps}
+                switchStyle={switchStyle}
+                button={
+                  <Button
+                    className="mx-3 !bg-white !border-zinic !bg-opacity-60 !shadow-md-strong pt-[4px] !pb-[4px] !px-4  button_animation h-9"
+                    variant="outlined"
+                    size="sm"
+                    ripple={true}
+                    onClick={() => goToMusicList()}
+                  >
+                    <p className="text-base">🎧</p>
+                  </Button>
+                }
+              />
+              <BlockItem
+                id={destination.id + "-" + destination.name}
+                checked={dest}
+                onChangeFunc={handleDestSwitch}
+                text={destination.text}
+                // containerProps={containerProps}
+                circleProps={circleProps}
+                switchStyle={switchStyle}
+                button={
+                  <Button
+                    className="mx-3 h-9 !bg-white !border-zinic !pt-[2px] !pb-[5px] !px-4 !bg-opacity-60 !shadow-md-strong button_animation"
+                    variant="outlined"
+                    size="sm"
+                    ripple={true}
+                    onClick={() => goToDestList()}
+                  >
+                    <p className="text-lg">🚌</p>
+                  </Button>
+                }
+              />
+            </ThemeProvider>
+          </div>
         </>
       ) : musicListMode ? (
         <MusicList />

@@ -154,49 +154,51 @@ export default function Afternoon() {
     <>
       {defaultMode ? (
         <>
-          <ThemeProvider
-            style={{ justifyContent: "space-between" }}
-            value={customLabelTheme}
-          >
-            <BlockItem
-              id={today_b.id + "-" + today_b.name}
-              checked={today}
-              onChangeFunc={handleTodaySwitch}
-              text={today_b.text}
-              // containerProps={containerProps}
-              circleProps={circleProps}
-              switchStyle={switchStyle}
-            />
-            <BlockItem
-              id={studyMusic_b.id + "-" + studyMusic_b.name}
-              checked={studyMusic}
-              onChangeFunc={handleStudyMusicSwitch}
-              text={studyMusic_b.text}
-              // containerProps={containerProps}
-              circleProps={circleProps}
-              switchStyle={switchStyle}
-              button={
-                <Button
-                  className="mx-3"
-                  variant="outlined"
-                  size="sm"
-                  ripple={true}
-                  onClick={() => goToStudyMusicList()}
-                >
-                  <p>✍🏻🎧</p>
-                </Button>
-              }
-            />
-            <BlockItem
-              id={nap_b.id + "-" + nap_b.name}
-              checked={nap}
-              onChangeFunc={handleNapSwitch}
-              text={nap_b.text}
-              circleProps={circleProps}
-              switchStyle={switchStyle}
-              // containerProps={containerProps}
-            />
-          </ThemeProvider>
+          <div className="p-2">
+            <ThemeProvider
+              style={{ justifyContent: "space-between" }}
+              value={customLabelTheme}
+            >
+              <BlockItem
+                id={today_b.id + "-" + today_b.name}
+                checked={today}
+                onChangeFunc={handleTodaySwitch}
+                text={today_b.text}
+                // containerProps={containerProps}
+                circleProps={circleProps}
+                switchStyle={switchStyle}
+              />
+              <BlockItem
+                id={studyMusic_b.id + "-" + studyMusic_b.name}
+                checked={studyMusic}
+                onChangeFunc={handleStudyMusicSwitch}
+                text={studyMusic_b.text}
+                // containerProps={containerProps}
+                circleProps={circleProps}
+                switchStyle={switchStyle}
+                button={
+                  <Button
+                    className="mx-3"
+                    variant="outlined"
+                    size="sm"
+                    ripple={true}
+                    onClick={() => goToStudyMusicList()}
+                  >
+                    <p>✍🏻🎧</p>
+                  </Button>
+                }
+              />
+              <BlockItem
+                id={nap_b.id + "-" + nap_b.name}
+                checked={nap}
+                onChangeFunc={handleNapSwitch}
+                text={nap_b.text}
+                circleProps={circleProps}
+                switchStyle={switchStyle}
+                // containerProps={containerProps}
+              />
+            </ThemeProvider>
+          </div>
         </>
       ) : studyMusicListMode ? (
         <StudyList />

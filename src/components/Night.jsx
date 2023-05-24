@@ -208,62 +208,64 @@ export default function Night() {
     <>
       {defaultMode ? (
         <>
-          <ThemeProvider
-            style={{ justifyContent: "space-between" }}
-            value={customLabelTheme}
-          >
-            <BlockItem
-              id={health_b.id + "-" + health_b.name}
-              checked={health}
-              onChangeFunc={handleHealthSwitch}
-              text={health_b.text}
-              containerProps={containerProps}
-              labelProps={labelProps}
-            />
-            <BlockItem
-              id={todayFeedback_b.id + "-" + todayFeedback_b.name}
-              checked={todayFeedback}
-              onChangeFunc={handleTodayFeedbackSwitch}
-              text={todayFeedback_b.text}
-              containerProps={containerProps}
-              labelProps={labelProps}
-            />
-            <BlockItem
-              id={tomoBrief_b.id + "-" + tomoBrief_b.name}
-              checked={tomoBrief}
-              onChangeFunc={handleTomoBriefSwitch}
-              text={tomoBrief_b.text}
-              containerProps={containerProps}
-              labelProps={labelProps}
-            />
-            <BlockItem
-              id={diary_b.id + "-" + diary_b.name}
-              checked={diary}
-              onChangeFunc={handleDiarySwitch}
-              text={diary_b.text}
-              containerProps={containerProps}
-              labelProps={labelProps}
-            />
-            <BlockItem
-              id={brainer_b.id + "-" + brainer_b.name}
-              checked={brainer}
-              onChangeFunc={handleBrainerSwitch}
-              text={brainer_b.text}
-              containerProps={containerProps}
-              labelProps={labelProps}
-              button={
-                <Button
-                  className="mx-3"
-                  variant="outlined"
-                  size="sm"
-                  ripple={true}
-                  onClick={() => goToSleepMusicList()}
-                >
-                  <p>😴</p>
-                </Button>
-              }
-            />
-          </ThemeProvider>
+          <div className="p-2">
+            <ThemeProvider
+              style={{ justifyContent: "space-between" }}
+              value={customLabelTheme}
+            >
+              <BlockItem
+                id={health_b.id + "-" + health_b.name}
+                checked={health}
+                onChangeFunc={handleHealthSwitch}
+                text={health_b.text}
+                containerProps={containerProps}
+                labelProps={labelProps}
+              />
+              <BlockItem
+                id={todayFeedback_b.id + "-" + todayFeedback_b.name}
+                checked={todayFeedback}
+                onChangeFunc={handleTodayFeedbackSwitch}
+                text={todayFeedback_b.text}
+                containerProps={containerProps}
+                labelProps={labelProps}
+              />
+              <BlockItem
+                id={tomoBrief_b.id + "-" + tomoBrief_b.name}
+                checked={tomoBrief}
+                onChangeFunc={handleTomoBriefSwitch}
+                text={tomoBrief_b.text}
+                containerProps={containerProps}
+                labelProps={labelProps}
+              />
+              <BlockItem
+                id={diary_b.id + "-" + diary_b.name}
+                checked={diary}
+                onChangeFunc={handleDiarySwitch}
+                text={diary_b.text}
+                containerProps={containerProps}
+                labelProps={labelProps}
+              />
+              <BlockItem
+                id={brainer_b.id + "-" + brainer_b.name}
+                checked={brainer}
+                onChangeFunc={handleBrainerSwitch}
+                text={brainer_b.text}
+                containerProps={containerProps}
+                labelProps={labelProps}
+                button={
+                  <Button
+                    className="mx-3"
+                    variant="outlined"
+                    size="sm"
+                    ripple={true}
+                    onClick={() => goToSleepMusicList()}
+                  >
+                    <p>😴</p>
+                  </Button>
+                }
+              />
+            </ThemeProvider>
+          </div>
         </>
       ) : sleepMusicListMode ? (
         <SleepList />

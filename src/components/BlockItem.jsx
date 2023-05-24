@@ -18,21 +18,17 @@ export default function BlockItem({
       <div className="flex mb-4 items-center justify-between">
         <div className="flex items-center">
           <div className="flex">
-            <p className="text-base font-medium">{text}</p>
+            <p className="text-l font-medium">{text}</p>
           </div>
           {button}
-          {/* {switchStyle} */}
         </div>
+
         <Switch
           id={id}
           checked={checked}
           onChange={onChangeFunc}
-          // containerProps={containerProps}
           circleProps={circleProps}
           className={switchStyle}
-
-          // className="checked:bg-morning-strong peer-checked:bg-morning-strong peer-checked:before:bg-morning-strong"
-          // className은 스위치에 대한것을 다룬다.
         />
       </div>
     </>

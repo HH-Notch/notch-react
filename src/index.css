@@ -7,6 +7,12 @@
   src: url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
 }
 
+@layer components {
+  .button_animation {
+    @apply transform hover:scale-105 transition duration-300;
+  }
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
