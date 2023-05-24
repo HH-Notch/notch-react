@@ -53,23 +53,23 @@ export default function MusicList() {
                 color="blue-gray"
                 onClick={() => goToDefault()}
               >
-                <XMarkIcon strokeWidth={2} className="h-5 w-5" />
+                <XMarkIcon strokeWidth={2} className="h-5 w-5 " />
               </Button>
             </div>
 
             <div className="flex flex-col h-full justify-between">
               <div className="flex items-center justify-center ">
-                <p className="text-xl">🎧 Music List 🎧</p>
+                <p className="text-lg font-semibold">🎧 Music List 🎧</p>
               </div>
 
               <div className="flex flex-col justify-between py-3">
                 {music_playlist.map((item, index) => (
                   <div
                     key={item.id}
-                    className="break-all flex leading-10 items-center justify-center"
+                    className="break-all flex leading-8 items-center "
                   >
-                    <p className="mr-2">{index + 1}.</p>
-                    <p className="mx-2">{item.name}</p>
+                    <p className="mr-2 ">{index + 1}.</p>
+                    <p className="mx-2 ">{item.name}</p>
                     <Link to={item.link}>
                       <img
                         src={youtube_music_icon}

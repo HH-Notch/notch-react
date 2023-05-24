@@ -231,7 +231,7 @@ export default function Morning() {
                   ripple={true}
                   onClick={() => goToMusicList()}
                 >
-                  <p>🎧</p>
+                  <p className="text-lg">🎧</p>
                 </Button>
               }
             />
@@ -245,7 +245,7 @@ export default function Morning() {
               switchStyle={switchStyle}
               button={
                 <Button
-                  className="mx-3 !bg-gray-50 !border-gray-500 !pt-1 !pb-2 !px-4"
+                  className="mx-3 !bg-gray-100 !border-zinic !pt-[2.5px] !pb-[5px] !px-4 !bg-opacity-50 !shadow-md-strong"
                   variant="outlined"
                   size="sm"
                   ripple={true}

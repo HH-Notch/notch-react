@@ -22,6 +22,9 @@ module.exports = withMT({
       "morning-strong": "#ff4c4c",
       "afternoon-strong": "#edb500",
     },
+    fontFamily: {
+      NanumGothic: ["Nanum Gothic"],
+    },
   },
   plugins: [],
 });

@@ -128,14 +128,14 @@ export default function MusicEdit() {
 
               <div className="flex flex-col h-full justify-between">
                 <div className="flex items-center justify-center ">
-                  <p className="text-xl">🎧 Music Edit 🎧</p>
+                  <p className="text-lg font-semibold">🎧 Music Edit 🎧</p>
                 </div>
 
                 <div className="flex flex-col justify-between py-3">
                   {list.map((item, index) => (
                     <div
                       key={item.id}
-                      className="break-all flex leading-10 items-center justify-center"
+                      className="break-all flex leading-8 items-center"
                     >
                       <p className="mr-2">{index + 1}.</p>
                       <p className="mx-2">{item.name}</p>
@@ -146,13 +146,12 @@ export default function MusicEdit() {
                           className="h-6 w-6"
                         />
                       </Link>
-                      <IconButton
-                        variant="text"
-                        color="blue-gray"
+
+                      <TrashIcon
+                        className="h-5 w-5 gray"
                         onClick={() => handleListDelete(item.id)}
-                      >
-                        <TrashIcon className="h-5 w-5" />
-                      </IconButton>
+                      />
+
                       {/* <button onClick={() => handleListDelete(item.id)}>
                       삭제
                     </button> */}

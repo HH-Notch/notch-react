@@ -15,12 +15,10 @@ export default function BlockItem({
   // console.log("checked는?", checked);
   return (
     <>
-      <div className="flex mb-3 items-center justify-between">
+      <div className="flex mb-4 items-center justify-between">
         <div className="flex items-center">
           <div className="flex">
-            <Typography color="blue-gray" variant="h6">
-              {text}
-            </Typography>
+            <p className="text-base font-medium">{text}</p>
           </div>
           {button}
           {/* {switchStyle} */}
