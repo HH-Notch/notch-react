@@ -28,12 +28,11 @@ export default function Profile({ openDrawerRight }) {
       <MenuHandler>
         <Avatar
           variant="circular"
-          className="cursor-pointer"
           src={profile}
           alt="avatar"
-          size="lg"
+          // size="lg"
           withBorder={true}
-          color="gray"
+          className="!border-gray-900 !border !cursor-pointer !w-16 !h-16"
         />
       </MenuHandler>
       <MenuList>

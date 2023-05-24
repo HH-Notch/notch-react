@@ -15,7 +15,7 @@ export default function DateTime() {
     setDate(new Date());
   }
   return (
-    <div className="flex flex-col justify-center items-center p-6">
+    <div className="flex flex-col justify-center items-center">
       <p className="font-mono text-8xl">
         {date.toLocaleTimeString("ko-KR", {
           hour12: false,

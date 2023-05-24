@@ -7,7 +7,7 @@ export default function GoogleSearchBar() {
       <form action="https://www.google.com/search" method="GET">
         <div
           className="bg-white rounded-full px-3 flex  items-center"
-          style={{ width: "580px" }}
+          style={{ width: "580px", backgroundColor: "#FFFFFF" }}
         >
           <AiOutlineSearch className="text-xl mx-3" />
 

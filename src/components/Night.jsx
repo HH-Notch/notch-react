@@ -259,7 +259,7 @@ export default function Night() {
                   ripple={true}
                   onClick={() => goToSleepMusicList()}
                 >
-                  {brainer.toString()}수면 음악
+                  <p>😴</p>
                 </Button>
               }
             />

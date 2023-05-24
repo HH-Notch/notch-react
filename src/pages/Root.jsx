@@ -11,44 +11,93 @@ import ShortcutsDrawer from "../components/Drawer";
 import { MorningProvider } from "../context/MorningContext";
 import { AfternoonProvider } from "../context/AfternoonContext";
 import { NightProvider } from "../context/NightContext";
+
+import sun from "../assets/icons/sun.svg";
+
 export default function Root() {
   const [openDrawer, setOpenDrawer] = useState(false);
   const openDrawerRight = () => setOpenDrawer(true);
   const closeDrawerRight = () => setOpenDrawer(false);
 
+  const morning_color = {
+    borderRadius: "50px",
+    background: "#ffd6d6",
+    boxShadow: "inset 11px 11px 26px #ebc5c5,inset -11px -11px 26px #ffe7e7",
+    // " 11px 11px 26px #e0bcbc,-11px -11px 26px #fff0f0",
+    // // borderRadius: "57px",
+    // background: "#e1ffd6",
+    // boxShadow:
+    //   "inset 29px 29px 58px #d4f0c9, inset -29px -29px 58px #efffe3",
+  };
+
+  const morning_color_2 = {
+    borderRadius: "50px",
+    background: "#ffd6d6",
+    boxShadow: " 8px 8px 26px #ba9c9c,-8px -8px 26px #ffffff",
+  };
+
+  const afternoon_color = {
+    borderRadius: "50px",
+    background: "#fbedbc",
+    boxShadow: "inset 8px 8px 18px #f1e4b4,inset -8px -8px 18px #fff6c4",
+  };
+
+  const afternoon_color_2 = {
+    borderRadius: "50px",
+    background: "#fbedbc",
+    boxShadow: "8px 8px 26px#b7ad89, -8px -8px 26px #ffffef",
+  };
+
+  const night_color = {
+    borderRadius: "50px",
+    background: "#bbdefb",
+    boxShadow: " inset 8px 8px 18px #b4d5f1,inset -8px -8px 18px #c2e7ff",
+  };
+
+  const night_color_2 = {
+    borderRadius: "50px",
+    background: "#bbdefb",
+    boxShadow: "8px 8px 26px#89a2b7,-8px -8px 26px #edffff",
+  };
+
   return (
-    <div className="bg-white w-full h-full flex flex-col p-5">
+    <>
       <div className="flex justify-end">
         <Profile openDrawerRight={openDrawerRight} />
       </div>
-      <DateTime />
-      <div className="flex justify-center items-center my-5">
-        <GoogleSearchBar />
-      </div>
-      <div className="flex flex-wrap justify-center items-center">
-        <Block blockName="아침(Start)">
-          <MorningProvider>
-            <Morning />
-          </MorningProvider>
-        </Block>
+      <div
+        className=" w-full h-full flex flex-col justify-center"
+        // style={{ backgroundColor: "#f2f3f7" }}
+      >
+        <DateTime />
+        <div className="flex justify-center items-center my-12">
+          <GoogleSearchBar />
+        </div>
+        <div className="flex flex-wrap justify-center items-center">
+          <Block blockName="🌞 아침 🌞" blockColor={morning_color_2}>
+            <MorningProvider>
+              <Morning />
+            </MorningProvider>
+          </Block>
 
-        <Block blockName="오후(Focus)">
-          <AfternoonProvider>
-            <Afternoon />
-          </AfternoonProvider>
-        </Block>
+          <Block blockName="🏃🏻‍♀️ 오후 🏃🏻‍♀️" blockColor={afternoon_color_2}>
+            <AfternoonProvider>
+              <Afternoon />
+            </AfternoonProvider>
+          </Block>
 
-        <Block blockName="저녁(Review)">
-          <NightProvider>
-            <Night />
-          </NightProvider>
-        </Block>
+          <Block blockName="🌙 저녁 🌙" blockColor={night_color_2}>
+            <NightProvider>
+              <Night />
+            </NightProvider>
+          </Block>
+        </div>
+        <ShortcutsDrawer
+          openDrawerFunc={openDrawerRight}
+          closeDrawerFunc={closeDrawerRight}
+          drawerState={openDrawer}
+        />
       </div>
-      <ShortcutsDrawer
-        openDrawerFunc={openDrawerRight}
-        closeDrawerFunc={closeDrawerRight}
-        drawerState={openDrawer}
-      />
-    </div>
+    </>
   );
 }

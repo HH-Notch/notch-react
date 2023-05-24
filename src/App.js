@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <div className="p-5">
+        <div className="flex flex-col h-screen p-12">
           <Outlet />
         </div>
         <ReactQueryDevtools initialIsOpen={true} />

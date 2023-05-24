@@ -1,20 +1,12 @@
 import React from "react";
 
-export default function Block({ children, blockName }) {
+export default function Block({ children, blockName, blockColor }) {
   return (
     <div className="flex flex-col justify-center items-center m-5">
-      <div className="mb-5">
-        <span>{blockName}</span>
+      <div className="mb-8">
+        <span className="text-lg font-semibold">{blockName}</span>
       </div>
-      <div
-        className=" bg-blue-100 w-88 h-88 p-5"
-        style={{
-          borderRadius: "57px",
-          background: "#e1ffd6",
-          boxShadow:
-            "inset 29px 29px 58px #d4f0c9, inset -29px -29px 58px #efffe3",
-        }}
-      >
+      <div className=" bg-blue-100 w-88 h-88 p-8" style={blockColor}>
         {children}
       </div>
     </div>

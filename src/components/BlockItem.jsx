@@ -8,8 +8,9 @@ export default function BlockItem({
   onChangeFunc,
   text,
   containerProps,
-  labelProps,
+  circleProps,
   button,
+  switchStyle,
 }) {
   // console.log("checked는?", checked);
   return (
@@ -22,13 +23,18 @@ export default function BlockItem({
             </Typography>
           </div>
           {button}
+          {/* {switchStyle} */}
         </div>
         <Switch
           id={id}
           checked={checked}
           onChange={onChangeFunc}
-          containerProps={containerProps}
-          labelProps={labelProps}
+          // containerProps={containerProps}
+          circleProps={circleProps}
+          className={switchStyle}
+
+          // className="checked:bg-morning-strong peer-checked:bg-morning-strong peer-checked:before:bg-morning-strong"
+          // className은 스위치에 대한것을 다룬다.
         />
       </div>
     </>

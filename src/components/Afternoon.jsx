@@ -133,11 +133,15 @@ export default function Afternoon() {
     },
   };
 
-  const containerProps = {
-    className: "mr-2",
+  const circleProps = {
+    // 정확히는 circle에 대한 props다.
+    className:
+      "!bg-white  peer-checked:border-afternoon-strong peer-checked:before:bg-afternoon-strong checked:bg-afternoon-strong peer-checked:bg-afternoon-strong ",
   };
 
-  const labelProps = { className: "" };
+  const switchStyle =
+    "checked:bg-afternoon-strong peer-checked:bg-afternoon-strong peer-checked:before:bg-afternoon-strong";
+  // -- Switch component custom style
 
   if (isLoading) return <p>Loading ...</p>;
   if (error) return <p>{error.toString()}</p>;
@@ -159,16 +163,18 @@ export default function Afternoon() {
               checked={today}
               onChangeFunc={handleTodaySwitch}
               text={today_b.text}
-              containerProps={containerProps}
-              labelProps={labelProps}
+              // containerProps={containerProps}
+              circleProps={circleProps}
+              switchStyle={switchStyle}
             />
             <BlockItem
               id={studyMusic_b.id + "-" + studyMusic_b.name}
               checked={studyMusic}
               onChangeFunc={handleStudyMusicSwitch}
               text={studyMusic_b.text}
-              containerProps={containerProps}
-              labelProps={labelProps}
+              // containerProps={containerProps}
+              circleProps={circleProps}
+              switchStyle={switchStyle}
               button={
                 <Button
                   className="mx-3"
@@ -177,7 +183,7 @@ export default function Afternoon() {
                   ripple={true}
                   onClick={() => goToStudyMusicList()}
                 >
-                  {studyMusic.toString()}스터디뮤직
+                  <p>✍🏻🎧</p>
                 </Button>
               }
             />
@@ -186,8 +192,9 @@ export default function Afternoon() {
               checked={nap}
               onChangeFunc={handleNapSwitch}
               text={nap_b.text}
-              containerProps={containerProps}
-              labelProps={labelProps}
+              circleProps={circleProps}
+              switchStyle={switchStyle}
+              // containerProps={containerProps}
             />
           </ThemeProvider>
         </>

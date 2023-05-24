@@ -4,13 +4,13 @@
       "id": 1,
       "name": "weather",
       "text": "오늘의 날씨 브리핑",
-      "turn": 1
+      "turn": 0
     },
     {
       "id": 2,
       "name": "todo",
-      "text": "오늘의 할 일 브리핑",
-      "turn": 1
+      "text": "오늘의 일정 브리핑",
+      "turn": 0
     },
     {
       "id": 3,
@@ -29,14 +29,14 @@
     {
       "id": 1,
       "name": "today",
-      "text": "오늘 해야할 일 다시 브리핑 받기",
+      "text": "할일 다시 브리핑 받기",
       "turn": 0
     },
     {
       "id": 2,
       "name": "study_playlist",
-      "text": "공부 플리",
-      "turn": 0
+      "text": "공부할 때 듣는 플리",
+      "turn": 1
     },
     {
       "id": 3,
@@ -63,7 +63,7 @@
       "id": 3,
       "name": "tomorrow_brief",
       "text": "내일 일정 브리핑 받기",
-      "turn": 1
+      "turn": 0
     },
     {
       "id": 4,
@@ -88,11 +88,6 @@
       "id": 2,
       "name": "Jannabiloveyou",
       "link": "https://music.youtube.com/watch?list=OLAK5uy_kO30VfEcwad3wI-HGwM8nt_xLFfNeY9N0&feature=share"
-    },
-    {
-      "name": "테스트3",
-      "link": "테스트3",
-      "id": 3
     }
   ],
   "destination_list": [

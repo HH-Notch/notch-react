@@ -168,11 +168,15 @@ export default function Morning() {
       },
     },
   };
-  const containerProps = {
-    className: "ml-2",
+
+  const circleProps = {
+    // 정확히는 circle에 대한 props다.
+    className:
+      "!bg-white  peer-checked:border-morning-strong peer-checked:before:bg-morning-strong checked:bg-morning-strong peer-checked:bg-morning-strong bg-zinic border-zinic before:bg-zinic !shadow-md-strong",
   };
 
-  const labelProps = { className: "" };
+  const switchStyle =
+    "checked:bg-morning-strong peer-checked:bg-morning-strong peer-checked:before:bg-morning-strong bg-zinic";
   // -- Switch component custom style
 
   if (isLoading) return <p>Loading ...</p>;
@@ -197,18 +201,18 @@ export default function Morning() {
               checked={weatherBrief}
               onChangeFunc={handleWeatherSwitch}
               text={weather.text}
-              containerProps={containerProps}
-              labelProps={labelProps}
-              button={<p>{weatherBrief.toString()}</p>}
+              // containerProps={containerProps}
+              circleProps={circleProps}
+              switchStyle={switchStyle}
             />
             <BlockItem
               id={todo.id + "-" + todo.name}
               checked={today}
               onChangeFunc={handleTodaySwitch}
               text={todo.text}
-              containerProps={containerProps}
-              labelProps={labelProps}
-              button={<p>{today.toString()}</p>}
+              // containerProps={containerProps}
+              circleProps={circleProps}
+              switchStyle={switchStyle}
             />
 
             <BlockItem
@@ -216,8 +220,9 @@ export default function Morning() {
               checked={playMusic}
               onChangeFunc={handleMusicSwitch}
               text={music.text}
-              containerProps={containerProps}
-              labelProps={labelProps}
+              // containerProps={containerProps}
+              circleProps={circleProps}
+              switchStyle={switchStyle}
               button={
                 <Button
                   className="mx-3"
@@ -226,7 +231,7 @@ export default function Morning() {
                   ripple={true}
                   onClick={() => goToMusicList()}
                 >
-                  {playMusic.toString()}
+                  <p>🎧</p>
                 </Button>
               }
             />
@@ -235,17 +240,18 @@ export default function Morning() {
               checked={dest}
               onChangeFunc={handleDestSwitch}
               text={destination.text}
-              containerProps={containerProps}
-              labelProps={labelProps}
+              // containerProps={containerProps}
+              circleProps={circleProps}
+              switchStyle={switchStyle}
               button={
                 <Button
-                  className="mx-3"
+                  className="mx-3 !bg-gray-50 !border-gray-500 !pt-1 !pb-2 !px-4"
                   variant="outlined"
                   size="sm"
                   ripple={true}
                   onClick={() => goToDestList()}
                 >
-                  {dest.toString()}
+                  <p className="text-lg">🚌</p>
                 </Button>
               }
             />

@@ -2,6 +2,12 @@ import React, { useContext } from "react";
 import { MorningContext } from "../context/MorningContext";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { IconButton } from "@material-tailwind/react";
+import { Button } from "@material-tailwind/react";
+import youtube_music_icon from "../assets/icons/youtube-music.svg";
+
+import { Link } from "react-router-dom";
 export default function MusicList() {
   const { musicListMode, goToDefault, goToMusicEdit } =
     useContext(MorningContext);
@@ -38,17 +44,49 @@ export default function MusicList() {
   return (
     <>
       {musicListMode && (
-        <div className="w-full">
-          <p> musicList</p>
-          {music_playlist.map((item) => (
-            <div key={item.id} className="break-all">
-              <p>{item.name}</p>
-              <p> {item.link}</p>
+        <>
+          <div className="flex flex-col h-full justify-between">
+            <div className="flex justify-end !static">
+              <Button
+                className="!py-1 !px-0 !absolute"
+                variant="text"
+                color="blue-gray"
+                onClick={() => goToDefault()}
+              >
+                <XMarkIcon strokeWidth={2} className="h-5 w-5" />
+              </Button>
             </div>
-          ))}
-          <button onClick={() => goToDefault()}>닫기</button>
-          <button onClick={() => goToMusicEdit()}>편집</button>
-        </div>
+
+            <div className="flex flex-col h-full justify-between">
+              <div className="flex items-center justify-center ">
+                <p className="text-xl">🎧 Music List 🎧</p>
+              </div>
+
+              <div className="flex flex-col justify-between py-3">
+                {music_playlist.map((item, index) => (
+                  <div
+                    key={item.id}
+                    className="break-all flex leading-10 items-center justify-center"
+                  >
+                    <p className="mr-2">{index + 1}.</p>
+                    <p className="mx-2">{item.name}</p>
+                    <Link to={item.link}>
+                      <img
+                        src={youtube_music_icon}
+                        alt="metamask"
+                        className="h-6 w-6"
+                      />
+                    </Link>
+                  </div>
+                ))}
+              </div>
+
+              <Button fullWidth onClick={() => goToMusicEdit()}>
+                편집
+              </Button>
+            </div>
+          </div>
+        </>
       )}
     </>
   );
