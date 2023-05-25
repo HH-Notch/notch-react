@@ -98,6 +98,11 @@
       "name": "얍",
       "link": "https://www.google.com",
       "id": 4
+    },
+    {
+      "name": "새로운",
+      "link": "https:/www.youtube.com",
+      "id": 5
     }
   ],
   "destination_list": [
