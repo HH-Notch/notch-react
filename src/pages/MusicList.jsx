@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useReducer } from "react";
 import { MorningContext } from "../context/MorningContext";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
@@ -7,9 +7,14 @@ import { Button } from "@material-tailwind/react";
 import youtube_music_icon from "../assets/icons/youtube-music.svg";
 import { Link } from "react-router-dom";
 
+import listReducer from "../reducer/list-reducer";
+
 export default function MusicList() {
   const { musicListMode, goToDefault, goToMusicEdit } =
     useContext(MorningContext);
+  const initialState = [];
+
+  const [list, dispatch] = useReducer(listReducer, initialState);
 
   const {
     isLoading,
@@ -33,6 +38,13 @@ export default function MusicList() {
     },
     {
       // staleTime: 1000 * 60 * 8,
+      onSuccess: (data) => {
+        dispatch({
+          type: "SET_LIST",
+          payload: data,
+        });
+      },
+      onError: () => console.log("뮤직 리스트 에러났스빈다요"),
     }
   );
 
@@ -62,7 +74,7 @@ export default function MusicList() {
               </div>
 
               <div className="flex flex-col justify-between py-3">
-                {music_playlist.map((item, index) => (
+                {list.map((item, index) => (
                   <div
                     key={item.id}
                     className="break-all flex !leading-8 items-center "
