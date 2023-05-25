@@ -11,6 +11,7 @@ module.exports = withMT({
       },
       width: {
         88: "22rem",
+        14: "3.75rem",
       },
       boxShadow: {
         "md-strong":
@@ -22,6 +23,7 @@ module.exports = withMT({
       paddingRight: {
         "pr-19": "4.5rem",
       },
+
       input: {
         autocomplete: "off",
       },
@@ -33,6 +35,7 @@ module.exports = withMT({
       "gray-300": "#5b5b5b",
       "morning-strong": "#ff4c4c",
       "afternoon-strong": "#edb500",
+      "night-strong": "#2472ad",
     },
     fontFamily: {
       NanumGothic: ["Nanum Gothic"],

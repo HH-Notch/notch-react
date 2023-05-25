@@ -74,7 +74,7 @@
     {
       "id": 5,
       "name": "brainer",
-      "text": "브레이너제이 수면 영상",
+      "text": "Deep Sleep Sound",
       "turn": 1
     }
   ],
@@ -98,11 +98,6 @@
       "name": "얍",
       "link": "https://www.google.com",
       "id": 4
-    },
-    {
-      "name": "새로운",
-      "link": "https:/www.youtube.com",
-      "id": 5
     }
   ],
   "destination_list": [
@@ -120,11 +115,6 @@
       "name": "목적지이름이고",
       "link": "목적지주소입니다.",
       "id": 3
-    },
-    {
-      "name": "목적지1",
-      "link": "목적지1",
-      "id": 4
     }
   ],
   "study_music_list": [

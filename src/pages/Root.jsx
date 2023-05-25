@@ -56,17 +56,17 @@ export default function Root() {
 
   const night_color_2 = {
     borderRadius: "50px",
-    background: "#bbdefb",
-    boxShadow: "8px 8px 26px#89a2b7,-8px -8px 26px #edffff",
+    background: "#c5e2f9",
+    boxShadow: "8px 8px 26px#a7c0d4,-8px -8px 26px #e3ffff",
   };
 
   return (
     <>
-      <div className="flex justify-end">
+      <div className="flex justify-end pt-12 pr-12">
         <Profile openDrawerRight={openDrawerRight} />
       </div>
       <div
-        className=" w-full h-full flex flex-col justify-center"
+        className=" w-full flex flex-col justify-center"
         // style={{ backgroundColor: "#f2f3f7" }}
       >
         <DateTime />
@@ -86,7 +86,7 @@ export default function Root() {
             </AfternoonProvider>
           </Block>
 
-          <Block blockName="🌙 저녁 🌙" blockColor={night_color_2}>
+          <Block blockName="🌙  저녁 🌙" blockColor={night_color_2}>
             <NightProvider>
               <Night />
             </NightProvider>

@@ -12,7 +12,7 @@
     @apply transform hover:scale-105 transition duration-300;
   }
   .list_button {
-    @apply mx-3  !bg-white !border-zinic !bg-opacity-90  h-8 w-14 items-center justify-center !p-0 cursor-pointer;
+    @apply mx-3  !bg-white  !bg-opacity-90  h-8 w-14 items-center justify-center !p-0 cursor-pointer;
   }
   .edit_button {
     @apply !bg-gray !border-zinic font-NanumGothic font-semibold transform hover:scale-100 transition duration-300 cursor-pointer;
@@ -23,6 +23,10 @@
   .trash_button {
     @apply h-5 w-5  text-gray-300 cursor-pointer;
   }
+  .list_input {
+    @apply border border-gray-300 hover:border-gray-300 focus:outline-none focus:border-gray-300  rounded-md py-1 pl-4 pr-[4.2rem] block w-full appearance-none leading-normal bg-opacity-70 bg-white placeholder:italic  placeholder-opacity-80;
+    /* focus:shadow-outline-gray */
+  }
 }
 
 body {
@@ -32,7 +36,8 @@ body {
     NanumGothic, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #e3e4e8;
+  background-color: #ecedef;
+  background-image: "./assets/images/space_bg";
 }
 
 code {

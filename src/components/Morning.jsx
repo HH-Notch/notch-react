@@ -202,7 +202,7 @@ export default function Morning() {
       {defaultMode ? (
         <>
           {/* 오늘 할 일 브리핑 */}
-          <div className="p-2">
+          <div className="p-3">
             <ThemeProvider
               // style={{ justifyContent: "space-between" }}
               value={customLabelTheme}
@@ -236,7 +236,7 @@ export default function Morning() {
                 switchStyle={switchStyle}
                 button={
                   <Button
-                    className="list_button button_animation !shadow-md-strong"
+                    className="list_button button_animation !shadow-md-strong !border-morning-strong"
                     // pt-[4px] !pb-[4px] !px-4
                     variant="outlined"
                     size="sm"
@@ -257,13 +257,13 @@ export default function Morning() {
                 switchStyle={switchStyle}
                 button={
                   <Button
-                    className="list_button  !shadow-md-strong button_animation"
+                    className="list_button  !shadow-md-strong button_animation !border-zinic"
                     variant="outlined"
                     size="sm"
                     ripple={true}
                     onClick={() => goToDestList()}
                   >
-                    <p className="text-lg">🚌</p>
+                    <p className="text-base">🚌</p>
                   </Button>
                 }
               />

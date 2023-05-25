@@ -32,7 +32,7 @@ export default function Profile({ openDrawerRight }) {
           alt="avatar"
           // size="lg"
           withBorder={true}
-          className="!border-gray-900 !border !cursor-pointer !w-16 !h-16"
+          className="!border-black !border-2 !cursor-pointer !w-16 !h-16"
         />
       </MenuHandler>
       <MenuList>

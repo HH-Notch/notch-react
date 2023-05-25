@@ -4,6 +4,13 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import listReducer from "../reducer/list-reducer";
 
+import { Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { TrashIcon } from "@heroicons/react/24/solid";
+import { AiOutlinePlus } from "react-icons/ai";
+import youtube_music_icon from "../assets/icons/youtube-music.svg";
+
 export default function SleepEdit() {
   const { sleepMusicListEditMode, goToDefault } = useContext(NightContext);
 
@@ -87,39 +94,86 @@ export default function SleepEdit() {
   return (
     <>
       {sleepMusicListEditMode && (
-        <div className="w-full">
-          <p> Sleep Music</p>
-          <button onClick={() => goToDefault()}>닫기</button>
+        <div className="flex flex-col h-full justify-between">
+          <div className="flex justify-end !static">
+            <Button
+              className="!py-1 !px-0 !absolute"
+              variant="text"
+              color="blue-gray"
+              onClick={() => goToDefault()}
+            >
+              <XMarkIcon strokeWidth={2} className="h-5 w-5" />
+            </Button>
+          </div>
 
-          {list.map((item, index) => (
-            <div key={index} className="break-all">
-              <p>index: {index + 1}</p>
-              <p>{item.name}</p>
-              <p> {item.link}</p>
-              <button onClick={() => handleListDelete(item.id)}>삭제</button>
+          <div className="flex flex-col h-full justify-between">
+            <div className="flex items-center justify-center ">
+              <p className="text-lg font-semibold">🎧 Sleeping Music Edit 🎧</p>
             </div>
-          ))}
 
-          <div>
-            <form onSubmit={handleListAdd}>
-              <input
-                name="name"
-                type="text"
-                value={playlist.name}
-                onChange={handleChange}
-                className="outlined"
-              />
-              <input
-                type="text"
-                name="link"
-                value={playlist.link}
-                onChange={handleChange}
-                className="outlined"
-              />
-              <button>+</button>
-            </form>
+            <div className="flex flex-col justify-between py-3">
+              {list.map((item, index) => (
+                <div
+                  key={item.id}
+                  className="break-all flex justify-between !leading-8 items-center"
+                >
+                  <div className="flex items-center">
+                    <Link to={item.link}>
+                      <img
+                        src={youtube_music_icon}
+                        alt="metamask"
+                        className="h-6 w-6 mr-4 button_animation"
+                      />
+                    </Link>
+                    {/* <p className="font-semibold mr-2">{index + 1}.</p> */}
+
+                    <p className="font-medium">{item.name}</p>
+                  </div>
+                  <TrashIcon
+                    className="button_animation trash_button"
+                    onClick={() => handleListDelete(item.id)}
+                  />
+                </div>
+              ))}
+            </div>
+
+            <div className="relative flex flex-col w-full ">
+              <form onSubmit={handleListAdd}>
+                <input
+                  type="text"
+                  placeholder="playlist name"
+                  name="name"
+                  value={playlist.name}
+                  onChange={handleChange}
+                  className="list_input mb-1"
+                />
+                <input
+                  type="url"
+                  placeholder="youtube music link"
+                  name="link"
+                  value={playlist.link}
+                  onChange={handleChange}
+                  className="list_input"
+                />
+                <Button
+                  type="submit"
+                  size="sm"
+                  color="gray"
+                  className="!absolute right-0 top-0 rounded edit_submit_button"
+                  style={{
+                    paddingTop: "0.4rem",
+                    paddingBottom: "0.4rem",
+                    marginTop: "0.1rem",
+                    marginRight: "0.1rem",
+                  }}
+                >
+                  <AiOutlinePlus className="text-lg" />
+                </Button>
+              </form>
+            </div>
           </div>
         </div>
+        //
       )}
     </>
   );
