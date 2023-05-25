@@ -50,14 +50,14 @@ export default function Root() {
 
   const night_color = {
     borderRadius: "50px",
-    background: "#bbdefb",
+    background: "#c5e2f9",
     boxShadow: " inset 8px 8px 18px #b4d5f1,inset -8px -8px 18px #c2e7ff",
   };
 
   const night_color_2 = {
     borderRadius: "50px",
     background: "#c5e2f9",
-    boxShadow: "8px 8px 26px#a7c0d4,-8px -8px 26px #e3ffff",
+    boxShadow: "8px 8px 26px#94acbf,-8px -8px 26px #ecfafa",
   };
 
   return (
@@ -74,7 +74,7 @@ export default function Root() {
           <GoogleSearchBar />
         </div>
         <div className="flex flex-wrap justify-center items-center">
-          <Block blockName="🌞 아침 🌞" blockColor={morning_color_2}>
+          <Block blockName="🌞 아침 🌞" blockColor={morning_color}>
             <MorningProvider>
               <Morning />
             </MorningProvider>
