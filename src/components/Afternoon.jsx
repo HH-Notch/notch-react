@@ -178,7 +178,7 @@ export default function Afternoon() {
                 switchStyle={switchStyle}
                 button={
                   <Button
-                    className="list_button  !shadow-md-strong button_animation"
+                    className="list_button  !shadow-md-strong button_animation !border-afternoon-strong"
                     variant="outlined"
                     size="sm"
                     ripple={true}

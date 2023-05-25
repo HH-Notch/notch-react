@@ -188,6 +188,16 @@ export default function Night() {
       },
     },
   };
+  // className="bg-night-strong"
+  const circleProps = {
+    // 정확히는 circle에 대한 props다.
+    className:
+      "!bg-white  peer-checked:border-night-strong peer-checked:before:bg-night-strong checked:bg-night-strong peer-checked:bg-night-strong",
+  };
+
+  const switchStyle =
+    "checked:bg-night-strong peer-checked:bg-night-strong peer-checked:before:bg-night-strong";
+  // -- Switch component custom style
 
   if (isLoading) return <p>Loading ...</p>;
   if (error) return <p>{error.toString()}</p>;
@@ -212,33 +222,43 @@ export default function Night() {
                 checked={health}
                 onChangeFunc={handleHealthSwitch}
                 text={health_b.text}
+                circleProps={circleProps}
+                switchStyle={switchStyle}
               />
               <BlockItem
                 id={todayFeedback_b.id + "-" + todayFeedback_b.name}
                 checked={todayFeedback}
                 onChangeFunc={handleTodayFeedbackSwitch}
                 text={todayFeedback_b.text}
+                circleProps={circleProps}
+                switchStyle={switchStyle}
               />
               <BlockItem
                 id={tomoBrief_b.id + "-" + tomoBrief_b.name}
                 checked={tomoBrief}
                 onChangeFunc={handleTomoBriefSwitch}
                 text={tomoBrief_b.text}
+                circleProps={circleProps}
+                switchStyle={switchStyle}
               />
               <BlockItem
                 id={diary_b.id + "-" + diary_b.name}
                 checked={diary}
                 onChangeFunc={handleDiarySwitch}
                 text={diary_b.text}
+                circleProps={circleProps}
+                switchStyle={switchStyle}
               />
               <BlockItem
                 id={brainer_b.id + "-" + brainer_b.name}
                 checked={brainer}
                 onChangeFunc={handleBrainerSwitch}
                 text={brainer_b.text}
+                circleProps={circleProps}
+                switchStyle={switchStyle}
                 button={
                   <Button
-                    className="list_button  !shadow-md-strong button_animation"
+                    className="list_button  !shadow-md-strong button_animation !border-night-strong"
                     variant="outlined"
                     size="sm"
                     ripple={true}

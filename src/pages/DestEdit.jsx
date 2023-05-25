@@ -140,7 +140,7 @@ export default function DestEdit() {
                     name="name"
                     value={listItem.name}
                     onChange={handleChange}
-                    className=" border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-500 focus:shadow-outline-gray rounded-md py-1 pl-4 pr-[4.2rem] block w-full appearance-none leading-normal bg-opacity-70 bg-white placeholder:italic placeholder-gray-400 placeholder-opacity-80 mb-1"
+                    className="list_input mb-1"
                   />
                   <input
                     type="text"
@@ -148,7 +148,7 @@ export default function DestEdit() {
                     name="link"
                     value={listItem.link}
                     onChange={handleChange}
-                    className=" border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-500 focus:shadow-outline-gray rounded-md py-1 px-4 block w-full appearance-none leading-normal bg-opacity-70 bg-white placeholder:italic placeholder-gray-400 placeholder-opacity-80"
+                    className="list_input"
                   />
                   <Button
                     type="submit"

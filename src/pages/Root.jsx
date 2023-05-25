@@ -56,8 +56,8 @@ export default function Root() {
 
   const night_color_2 = {
     borderRadius: "50px",
-    background: "#bbdefb",
-    boxShadow: "8px 8px 26px#89a2b7,-8px -8px 26px #edffff",
+    background: "#c5e2f9",
+    boxShadow: "8px 8px 26px#a7c0d4,-8px -8px 26px #e3ffff",
   };
 
   return (

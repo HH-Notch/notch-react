@@ -35,6 +35,7 @@ module.exports = withMT({
       "gray-300": "#5b5b5b",
       "morning-strong": "#ff4c4c",
       "afternoon-strong": "#edb500",
+      "night-strong": "#2472ad",
     },
     fontFamily: {
       NanumGothic: ["Nanum Gothic"],
