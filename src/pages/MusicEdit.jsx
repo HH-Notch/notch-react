@@ -113,87 +113,87 @@ export default function MusicEdit() {
       {" "}
       {musicEditMode && (
         <>
-          <ThemeProvider value={customLabelTheme}>
+          {/* <ThemeProvider value={customLabelTheme}> */}
+          <div className="flex flex-col h-full justify-between">
+            <div className="flex justify-end !static">
+              <Button
+                className="!py-1 !px-0 !absolute"
+                variant="text"
+                color="blue-gray"
+                onClick={() => goToDefault()}
+              >
+                <XMarkIcon strokeWidth={2} className="h-5 w-5" />
+              </Button>
+            </div>
+
             <div className="flex flex-col h-full justify-between">
-              <div className="flex justify-end !static">
-                <Button
-                  className="!py-1 !px-0 !absolute"
-                  variant="text"
-                  color="blue-gray"
-                  onClick={() => goToDefault()}
-                >
-                  <XMarkIcon strokeWidth={2} className="h-5 w-5" />
-                </Button>
+              <div className="flex items-center justify-center ">
+                <p className="text-lg font-semibold">🎧 Music Edit 🎧</p>
               </div>
 
-              <div className="flex flex-col h-full justify-between">
-                <div className="flex items-center justify-center ">
-                  <p className="text-lg font-semibold">🎧 Music Edit 🎧</p>
-                </div>
+              <div className="flex flex-col justify-between py-3">
+                {list.map((item, index) => (
+                  <div
+                    key={item.id}
+                    className="break-all flex justify-between leading-8 items-center"
+                  >
+                    <div className="flex items-center">
+                      <Link to={item.link}>
+                        <img
+                          src={youtube_music_icon}
+                          alt="metamask"
+                          className="h-6 w-6 mr-4 button_animation"
+                        />
+                      </Link>
+                      {/* <p className="font-semibold mr-2">{index + 1}.</p> */}
 
-                <div className="flex flex-col justify-between py-3">
-                  {list.map((item, index) => (
-                    <div
-                      key={item.id}
-                      className="break-all flex justify-between leading-8 items-center"
-                    >
-                      <div className="flex items-center">
-                        <Link to={item.link}>
-                          <img
-                            src={youtube_music_icon}
-                            alt="metamask"
-                            className="h-6 w-6 mr-4 button_animation"
-                          />
-                        </Link>
-                        {/* <p className="font-semibold mr-2">{index + 1}.</p> */}
-
-                        <p className="font-base">{item.name}</p>
-                      </div>
-                      <TrashIcon
-                        className="button_animation trash_button"
-                        onClick={() => handleListDelete(item.id)}
-                      />
+                      <p className="font-base">{item.name}</p>
                     </div>
-                  ))}
-                </div>
+                    <TrashIcon
+                      className="button_animation trash_button"
+                      onClick={() => handleListDelete(item.id)}
+                    />
+                  </div>
+                ))}
+              </div>
 
-                <div className="relative flex flex-col w-full ">
-                  <form onSubmit={handleListAdd}>
-                    <input
-                      type="text"
-                      placeholder="playlist name"
-                      name="name"
-                      value={playlist.name}
-                      onChange={handleChange}
-                      className=" border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-500 focus:shadow-outline-gray rounded-md py-1 pl-4 pr-[4.2rem] block w-full appearance-none leading-normal bg-opacity-70 bg-white placeholder:italic placeholder-gray-400 placeholder-opacity-80 mb-1"
-                    />
-                    <input
-                      type="url"
-                      placeholder="youtube music link"
-                      name="link"
-                      value={playlist.link}
-                      onChange={handleChange}
-                      className=" border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-500 focus:shadow-outline-gray rounded-md py-1 px-4 block w-full appearance-none leading-normal bg-opacity-70 bg-white placeholder:italic placeholder-gray-400 placeholder-opacity-80"
-                    />
-                    <Button
-                      type="submit"
-                      size="sm"
-                      color="gray"
-                      className="!absolute right-0 top-0 rounded edit_submit_button"
-                      style={{
-                        paddingTop: "0.4rem",
-                        paddingBottom: "0.4rem",
-                        marginTop: "0.1rem",
-                        marginRight: "0.1rem",
-                      }}
-                    >
-                      <AiOutlinePlus className="text-lg" />
-                    </Button>
-                  </form>
-                </div>
+              <div className="relative flex flex-col w-full ">
+                <form onSubmit={handleListAdd}>
+                  <input
+                    type="text"
+                    placeholder="playlist name"
+                    name="name"
+                    value={playlist.name}
+                    onChange={handleChange}
+                    className=" border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-500 focus:shadow-outline-gray rounded-md py-1 pl-4 pr-[4.2rem] block w-full appearance-none leading-normal bg-opacity-70 bg-white placeholder:italic placeholder-gray-400 placeholder-opacity-80 mb-1"
+                  />
+                  <input
+                    type="url"
+                    placeholder="youtube music link"
+                    name="link"
+                    value={playlist.link}
+                    onChange={handleChange}
+                    className=" border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-500 focus:shadow-outline-gray rounded-md py-1 px-4 block w-full appearance-none leading-normal bg-opacity-70 bg-white placeholder:italic placeholder-gray-400 placeholder-opacity-80"
+                  />
+                  <Button
+                    type="submit"
+                    size="sm"
+                    color="gray"
+                    className="!absolute right-0 top-0 rounded edit_submit_button"
+                    style={{
+                      paddingTop: "0.4rem",
+                      paddingBottom: "0.4rem",
+                      marginTop: "0.1rem",
+                      marginRight: "0.1rem",
+                    }}
+                  >
+                    <AiOutlinePlus className="text-lg" />
+                  </Button>
+                </form>
               </div>
             </div>
-          </ThemeProvider>
+          </div>
+          {/* </ThemeProvider> */}
         </>
       )}
     </>

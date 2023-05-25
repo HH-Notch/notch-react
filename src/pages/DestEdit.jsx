@@ -3,7 +3,12 @@ import { MorningContext } from "../context/MorningContext";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import listReducer from "../reducer/list-reducer";
+import { Button } from "@material-tailwind/react";
 
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { TrashIcon } from "@heroicons/react/24/solid";
+import { AiOutlinePlus } from "react-icons/ai";
+import { ThemeProvider } from "@material-tailwind/react";
 export default function DestEdit() {
   const { destEditMode, goToDefault } = useContext(MorningContext);
   const initialState = [];
@@ -86,39 +91,84 @@ export default function DestEdit() {
   return (
     <>
       {destEditMode && (
-        <div className="w-full">
-          <p> 목적지 </p>
-          <button onClick={() => goToDefault()}>닫기</button>
-
-          {list.map((item, index) => (
-            <div key={index} className="break-all">
-              <p>index: {index + 1}</p>
-              <p>{item.name}</p>
-              <p> {item.link}</p>
-              <button onClick={() => handleListDelete(item.id)}>삭제</button>
+        <>
+          <div className="flex flex-col h-full justify-between">
+            <div className="flex justify-end !static">
+              <Button
+                className="!py-1 !px-0 !absolute"
+                variant="text"
+                color="blue-gray"
+                onClick={() => goToDefault()}
+              >
+                <XMarkIcon strokeWidth={2} className="h-5 w-5 " />
+              </Button>
             </div>
-          ))}
 
-          <div>
-            <form onSubmit={handleListAdd}>
-              <input
-                name="name"
-                type="text"
-                value={listItem.name}
-                onChange={handleChange}
-                className="outlined"
-              />
-              <input
-                type="text"
-                name="link"
-                value={listItem.link}
-                onChange={handleChange}
-                className="outlined"
-              />
-              <button>+</button>
-            </form>
+            <div className="flex flex-col h-full justify-between">
+              <div className="flex items-center justify-center ">
+                <p className="text-lg font-semibold">🚌 Destination List 🚌</p>
+              </div>
+
+              <div className="flex flex-col justify-between pt-3">
+                {list.map((item, index) => (
+                  <div
+                    key={item.id}
+                    className="break-all flex items-top justify-between pb-2"
+                  >
+                    <div className="flex ">
+                      <div>
+                        <p className="font-semibold mr-2"> 🚩</p>
+                      </div>
+                      <div className="flex flex-col">
+                        <p className="text-base font-medium">{item.name}</p>
+                        <p className="text-xs">{item.link}</p>
+                      </div>
+                    </div>
+                    <TrashIcon
+                      className="button_animation trash_button"
+                      onClick={() => handleListDelete(item.id)}
+                    />
+                  </div>
+                ))}
+              </div>
+
+              <div className="relative flex flex-col w-full ">
+                <form onSubmit={handleListAdd}>
+                  <input
+                    type="text"
+                    placeholder="destination name"
+                    name="name"
+                    value={listItem.name}
+                    onChange={handleChange}
+                    className=" border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-500 focus:shadow-outline-gray rounded-md py-1 pl-4 pr-[4.2rem] block w-full appearance-none leading-normal bg-opacity-70 bg-white placeholder:italic placeholder-gray-400 placeholder-opacity-80 mb-1"
+                  />
+                  <input
+                    type="text"
+                    placeholder="destination address"
+                    name="link"
+                    value={listItem.link}
+                    onChange={handleChange}
+                    className=" border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-500 focus:shadow-outline-gray rounded-md py-1 px-4 block w-full appearance-none leading-normal bg-opacity-70 bg-white placeholder:italic placeholder-gray-400 placeholder-opacity-80"
+                  />
+                  <Button
+                    type="submit"
+                    size="sm"
+                    color="gray"
+                    className="!absolute right-0 top-0 rounded edit_submit_button"
+                    style={{
+                      paddingTop: "0.4rem",
+                      paddingBottom: "0.4rem",
+                      marginTop: "0.1rem",
+                      marginRight: "0.1rem",
+                    }}
+                  >
+                    <AiOutlinePlus className="text-lg" />
+                  </Button>
+                </form>
+              </div>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </>
   );
