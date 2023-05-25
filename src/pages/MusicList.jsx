@@ -3,11 +3,10 @@ import { MorningContext } from "../context/MorningContext";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { XMarkIcon } from "@heroicons/react/24/outline";
-import { IconButton } from "@material-tailwind/react";
 import { Button } from "@material-tailwind/react";
 import youtube_music_icon from "../assets/icons/youtube-music.svg";
-
 import { Link } from "react-router-dom";
+
 export default function MusicList() {
   const { musicListMode, goToDefault, goToMusicEdit } =
     useContext(MorningContext);
@@ -66,7 +65,7 @@ export default function MusicList() {
                 {music_playlist.map((item, index) => (
                   <div
                     key={item.id}
-                    className="break-all flex leading-8 items-center "
+                    className="break-all flex !leading-8 items-center "
                   >
                     <Link to={item.link}>
                       <img
@@ -77,7 +76,7 @@ export default function MusicList() {
                     </Link>
                     {/* <p className="font-semibold mr-2">{index + 1}.</p> */}
 
-                    <p className="font-base">{item.name}</p>
+                    <p className="font-medium">{item.name}</p>
                   </div>
                 ))}
               </div>

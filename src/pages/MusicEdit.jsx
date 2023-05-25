@@ -5,8 +5,6 @@ import axios from "axios";
 import listReducer from "../reducer/list-reducer";
 import { Button } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-import { Input } from "@material-tailwind/react";
-import { IconButton } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { TrashIcon } from "@heroicons/react/24/solid";
 import { AiOutlinePlus } from "react-icons/ai";
@@ -96,24 +94,11 @@ export default function MusicEdit() {
   if (error) return <p>{error.toString()}</p>;
   console.log("list", list);
 
-  const customLabelTheme = {
-    input: {
-      styles: {
-        base: {},
-        shrink: {
-          input: { color: "white" },
-          label: { color: "pink" },
-        },
-      },
-    },
-  };
-
   return (
     <>
       {" "}
       {musicEditMode && (
         <>
-          {/* <ThemeProvider value={customLabelTheme}> */}
           <div className="flex flex-col h-full justify-between">
             <div className="flex justify-end !static">
               <Button
@@ -135,7 +120,7 @@ export default function MusicEdit() {
                 {list.map((item, index) => (
                   <div
                     key={item.id}
-                    className="break-all flex justify-between leading-8 items-center"
+                    className="break-all flex justify-between !leading-8 items-center"
                   >
                     <div className="flex items-center">
                       <Link to={item.link}>
@@ -147,7 +132,7 @@ export default function MusicEdit() {
                       </Link>
                       {/* <p className="font-semibold mr-2">{index + 1}.</p> */}
 
-                      <p className="font-base">{item.name}</p>
+                      <p className="font-medium">{item.name}</p>
                     </div>
                     <TrashIcon
                       className="button_animation trash_button"
@@ -193,7 +178,6 @@ export default function MusicEdit() {
               </div>
             </div>
           </div>
-          {/* </ThemeProvider> */}
         </>
       )}
     </>

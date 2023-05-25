@@ -11,6 +11,7 @@ module.exports = withMT({
       },
       width: {
         88: "22rem",
+        14: "3.75rem",
       },
       boxShadow: {
         "md-strong":
@@ -22,6 +23,7 @@ module.exports = withMT({
       paddingRight: {
         "pr-19": "4.5rem",
       },
+
       input: {
         autocomplete: "off",
       },

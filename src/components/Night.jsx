@@ -180,20 +180,14 @@ export default function Night() {
             // blockItem CSS
             display: "flex",
             alignItems: "items-center",
-            flexDirection: "flex-row-reverse",
-            justifyContent: "justify-between",
-            marginBottom: "mb-3",
+            // flexDirection: "flex-row-reverse",
+            // justifyContent: "justify-between",
+            // marginBottom: "mb-3",
           },
         },
       },
     },
   };
-
-  const containerProps = {
-    className: "mr-2",
-  };
-
-  const labelProps = { className: "" };
 
   if (isLoading) return <p>Loading ...</p>;
   if (error) return <p>{error.toString()}</p>;
@@ -218,49 +212,39 @@ export default function Night() {
                 checked={health}
                 onChangeFunc={handleHealthSwitch}
                 text={health_b.text}
-                containerProps={containerProps}
-                labelProps={labelProps}
               />
               <BlockItem
                 id={todayFeedback_b.id + "-" + todayFeedback_b.name}
                 checked={todayFeedback}
                 onChangeFunc={handleTodayFeedbackSwitch}
                 text={todayFeedback_b.text}
-                containerProps={containerProps}
-                labelProps={labelProps}
               />
               <BlockItem
                 id={tomoBrief_b.id + "-" + tomoBrief_b.name}
                 checked={tomoBrief}
                 onChangeFunc={handleTomoBriefSwitch}
                 text={tomoBrief_b.text}
-                containerProps={containerProps}
-                labelProps={labelProps}
               />
               <BlockItem
                 id={diary_b.id + "-" + diary_b.name}
                 checked={diary}
                 onChangeFunc={handleDiarySwitch}
                 text={diary_b.text}
-                containerProps={containerProps}
-                labelProps={labelProps}
               />
               <BlockItem
                 id={brainer_b.id + "-" + brainer_b.name}
                 checked={brainer}
                 onChangeFunc={handleBrainerSwitch}
                 text={brainer_b.text}
-                containerProps={containerProps}
-                labelProps={labelProps}
                 button={
                   <Button
-                    className="mx-3"
+                    className="list_button  !shadow-md-strong button_animation"
                     variant="outlined"
                     size="sm"
                     ripple={true}
                     onClick={() => goToSleepMusicList()}
                   >
-                    <p>😴</p>
+                    <p className="text-base">😴</p>
                   </Button>
                 }
               />

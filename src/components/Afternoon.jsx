@@ -178,13 +178,13 @@ export default function Afternoon() {
                 switchStyle={switchStyle}
                 button={
                   <Button
-                    className="mx-3"
+                    className="list_button  !shadow-md-strong button_animation"
                     variant="outlined"
                     size="sm"
                     ripple={true}
                     onClick={() => goToStudyMusicList()}
                   >
-                    <p>✍🏻🎧</p>
+                    <p className="text-base">✍🏻🎧</p>
                   </Button>
                 }
               />

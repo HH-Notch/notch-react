@@ -263,7 +263,7 @@ export default function Morning() {
                     ripple={true}
                     onClick={() => goToDestList()}
                   >
-                    <p className="text-lg">🚌</p>
+                    <p className="text-base">🚌</p>
                   </Button>
                 }
               />
