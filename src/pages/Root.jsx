@@ -62,11 +62,11 @@ export default function Root() {
 
   return (
     <>
-      <div className="flex justify-end">
+      <div className="flex justify-end pt-12 pr-12">
         <Profile openDrawerRight={openDrawerRight} />
       </div>
       <div
-        className=" w-full h-full flex flex-col justify-center"
+        className=" w-full flex flex-col justify-center"
         // style={{ backgroundColor: "#f2f3f7" }}
       >
         <DateTime />
@@ -86,7 +86,7 @@ export default function Root() {
             </AfternoonProvider>
           </Block>
 
-          <Block blockName="🌙 저녁 🌙" blockColor={night_color_2}>
+          <Block blockName="🌙  저녁 🌙" blockColor={night_color_2}>
             <NightProvider>
               <Night />
             </NightProvider>

@@ -202,7 +202,7 @@ export default function Morning() {
       {defaultMode ? (
         <>
           {/* 오늘 할 일 브리핑 */}
-          <div className="p-2">
+          <div className="p-3">
             <ThemeProvider
               // style={{ justifyContent: "space-between" }}
               value={customLabelTheme}

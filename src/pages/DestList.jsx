@@ -2,6 +2,11 @@ import React, { useContext, useReducer } from "react";
 import { MorningContext } from "../context/MorningContext";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
+import { XMarkIcon } from "@heroicons/react/24/outline";
+import { Button } from "@material-tailwind/react";
+import youtube_music_icon from "../assets/icons/youtube-music.svg";
 
 export default function DestList() {
   const { destListMode, goToDefault, goToDestEdit } =
@@ -44,19 +49,45 @@ export default function DestList() {
   return (
     <>
       {destListMode && (
-        <div className="w-full">
-          <p> DestList</p>
-
-          {dest_list.map((item, index) => (
-            <div key={item.id} className="break-all">
-              <p>index: {index + 1}</p>
-              <p>{item.name}</p>
-              <p> {item.link}</p>
+        <div className="flex flex-col h-full justify-between">
+          <div className="flex justify-end !static">
+            <Button
+              className="!py-1 !px-0 !absolute"
+              variant="text"
+              color="blue-gray"
+              onClick={() => goToDefault()}
+            >
+              <XMarkIcon strokeWidth={2} className="h-5 w-5 " />
+            </Button>
+          </div>
+          <div className="flex flex-col h-full justify-between">
+            <div className="flex items-center justify-center ">
+              <p className="text-lg font-semibold">🚌 Destination List 🚌</p>
             </div>
-          ))}
 
-          <button onClick={() => goToDefault()}>닫기</button>
-          <button onClick={() => goToDestEdit()}>편집</button>
+            <div className="flex flex-col justify-between pt-3">
+              {dest_list.map((item, index) => (
+                <div key={item.id} className="break-all flex items-top pb-3">
+                  <div>
+                    <p className="font-semibold mr-2"> 🚩</p>
+                  </div>
+                  <div className="flex flex-col">
+                    <p className="text-base font-medium">{item.name}</p>
+                    <p className="text-xs">{item.link}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <Button
+              className=" edit_button !shadow-md-strong "
+              fullWidth
+              onClick={() => goToDestEdit()}
+              color="gray"
+            >
+              <p className="text-white font-base !tracking-widest">Edit</p>
+            </Button>
+          </div>
         </div>
       )}
     </>

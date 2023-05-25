@@ -32,7 +32,8 @@ body {
     NanumGothic, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #e3e4e8;
+  background-color: #ecedef;
+  background-image: "./assets/images/space_bg";
 }
 
 code {

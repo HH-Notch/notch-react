@@ -145,7 +145,7 @@ export default function MusicEdit() {
                             className="h-6 w-6 mr-4 button_animation"
                           />
                         </Link>
-                        <p className="font-semibold mr-2">{index + 1}.</p>
+                        {/* <p className="font-semibold mr-2">{index + 1}.</p> */}
 
                         <p className="font-base">{item.name}</p>
                       </div>
