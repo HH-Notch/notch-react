@@ -19,6 +19,9 @@ module.exports = withMT({
       fontSize: {
         l: ["17px", "26px"],
       },
+      paddingRight: {
+        "pr-19": "4.5rem",
+      },
     },
 
     colors: {

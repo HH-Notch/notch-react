@@ -158,9 +158,8 @@ export default function MusicEdit() {
                     </div>
                   ))}
                 </div>
-                {/* //인풋 */}
+
                 <div className="relative flex flex-col w-full ">
-                  {/* max-w-[24rem] */}
                   <form onSubmit={handleListAdd}>
                     <input
                       type="text"
@@ -168,7 +167,7 @@ export default function MusicEdit() {
                       name="name"
                       value={playlist.name}
                       onChange={handleChange}
-                      className=" border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-500 focus:shadow-outline-gray rounded-md py-1 px-4 block w-full appearance-none leading-normal bg-opacity-70 bg-white placeholder:italic placeholder-gray-400 placeholder-opacity-80 mb-1"
+                      className=" border border-gray-300 hover:border-gray-400 focus:outline-none focus:border-gray-500 focus:shadow-outline-gray rounded-md py-1 pl-4 pr-[4.2rem] block w-full appearance-none leading-normal bg-opacity-70 bg-white placeholder:italic placeholder-gray-400 placeholder-opacity-80 mb-1"
                     />
                     <input
                       type="url"
@@ -182,7 +181,13 @@ export default function MusicEdit() {
                       type="submit"
                       size="sm"
                       color="gray"
-                      className="!absolute right-0 top-0 rounded "
+                      className="!absolute right-0 top-0 rounded edit_submit_button"
+                      style={{
+                        paddingTop: "0.4rem",
+                        paddingBottom: "0.4rem",
+                        marginTop: "0.1rem",
+                        marginRight: "0.1rem",
+                      }}
                     >
                       <AiOutlinePlus className="text-lg" />
                     </Button>

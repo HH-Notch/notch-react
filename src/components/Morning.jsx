@@ -179,8 +179,18 @@ export default function Morning() {
     "checked:bg-morning-strong peer-checked:bg-morning-strong peer-checked:before:bg-morning-strong bg-zinic";
   // -- Switch component custom style
 
-  if (isLoading) return <p>Loading ...</p>;
-  if (error) return <p>{error.toString()}</p>;
+  if (isLoading)
+    return (
+      <div className="p-2">
+        <p>Loading ...</p>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="p-2">
+        <p>{error.toString()}</p>
+      </div>
+    );
 
   const weather = blockItems[0];
   const todo = blockItems[1];
@@ -226,7 +236,8 @@ export default function Morning() {
                 switchStyle={switchStyle}
                 button={
                   <Button
-                    className="mx-3 !bg-white !border-zinic !bg-opacity-60 !shadow-md-strong pt-[4px] !pb-[4px] !px-4  button_animation h-9"
+                    className="list_button button_animation !shadow-md-strong"
+                    // pt-[4px] !pb-[4px] !px-4
                     variant="outlined"
                     size="sm"
                     ripple={true}
@@ -246,7 +257,7 @@ export default function Morning() {
                 switchStyle={switchStyle}
                 button={
                   <Button
-                    className="mx-3 h-9 !bg-white !border-zinic !pt-[2px] !pb-[5px] !px-4 !bg-opacity-60 !shadow-md-strong button_animation"
+                    className="list_button  !shadow-md-strong button_animation"
                     variant="outlined"
                     size="sm"
                     ripple={true}

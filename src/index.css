@@ -11,6 +11,15 @@
   .button_animation {
     @apply transform hover:scale-105 transition duration-300;
   }
+  .list_button {
+    @apply mx-3  !bg-white !border-zinic !bg-opacity-70  h-8 w-14 items-center justify-center !p-0 cursor-pointer;
+  }
+  .edit_button {
+    @apply !bg-gray !border-zinic font-NanumGothic font-semibold transform hover:scale-100 transition duration-300;
+  }
+  .edit_submit_button {
+    @apply !bg-gray !border-zinic;
+  }
 }
 
 body {

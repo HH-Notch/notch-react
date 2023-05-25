@@ -68,25 +68,27 @@ export default function MusicList() {
                     key={item.id}
                     className="break-all flex leading-8 items-center "
                   >
-                    <p className="">{index + 1}.</p>
                     <Link to={item.link}>
                       <img
                         src={youtube_music_icon}
                         alt="metamask"
-                        className="h-5 w-5 ml-5 mr-3"
+                        className="h-5 w-5 mr-4 button_animation"
                       />
                     </Link>
-                    <p>{item.name}</p>
+                    <p className="font-semibold mr-2">{index + 1}.</p>
+
+                    <p className="font-base">{item.name}</p>
                   </div>
                 ))}
               </div>
 
               <Button
-                className="!bg-gray !border-zinic  !shadow-md-strong button_animation font-NanumGothic font-semibold "
+                className=" edit_button !shadow-md-strong "
                 fullWidth
                 onClick={() => goToMusicEdit()}
+                color="gray"
               >
-                편집
+                <p className="text-white font-base !tracking-widest">Edit</p>
               </Button>
             </div>
           </div>
