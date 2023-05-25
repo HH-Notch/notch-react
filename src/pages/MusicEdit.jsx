@@ -135,26 +135,24 @@ export default function MusicEdit() {
                   {list.map((item, index) => (
                     <div
                       key={item.id}
-                      className="break-all flex leading-8 items-center"
+                      className="break-all flex justify-between leading-8 items-center"
                     >
-                      <p className="mr-2">{index + 1}.</p>
-                      <p className="mx-2">{item.name}</p>
-                      <Link to={item.link}>
-                        <img
-                          src={youtube_music_icon}
-                          alt="metamask"
-                          className="h-6 w-6"
-                        />
-                      </Link>
+                      <div className="flex items-center">
+                        <Link to={item.link}>
+                          <img
+                            src={youtube_music_icon}
+                            alt="metamask"
+                            className="h-5 w-5 mr-4 button_animation"
+                          />
+                        </Link>
+                        <p className="font-semibold mr-2">{index + 1}.</p>
 
+                        <p className="font-base">{item.name}</p>
+                      </div>
                       <TrashIcon
-                        className="h-5 w-5 gray"
+                        className="button_animation trash_button"
                         onClick={() => handleListDelete(item.id)}
                       />
-
-                      {/* <button onClick={() => handleListDelete(item.id)}>
-                      삭제
-                    </button> */}
                     </div>
                   ))}
                 </div>

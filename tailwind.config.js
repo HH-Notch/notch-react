@@ -22,11 +22,15 @@ module.exports = withMT({
       paddingRight: {
         "pr-19": "4.5rem",
       },
+      input: {
+        autocomplete: "off",
+      },
     },
 
     colors: {
       zinic: "#e4e4e7",
       gray: "#757575",
+      "gray-300": "#5b5b5b",
       "morning-strong": "#ff4c4c",
       "afternoon-strong": "#edb500",
     },
