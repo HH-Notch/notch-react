@@ -2,9 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
+/* @font-face {
   font-family: "Nanum Gothic", sans-serif;
   src: url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+} */
+
+@font-face {
+  font-family: "Grandstander", cursive;
+  src: url("https://fonts.googleapis.com/css2?family=Grandstander:wght@500&display=swap");
+}
+
+@font-face {
+  font-family: "ghanachoco";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 @layer components {
@@ -33,7 +46,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    NanumGothic, sans-serif;
+    "Grandstander";
+  /* NanumGothic, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #ecedef;

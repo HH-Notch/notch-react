@@ -12,6 +12,7 @@ module.exports = withMT({
       width: {
         88: "22rem",
         14: "3.75rem",
+        logo: "35rem",
       },
       boxShadow: {
         "md-strong":
@@ -27,11 +28,26 @@ module.exports = withMT({
       input: {
         autocomplete: "off",
       },
+      dropShadow: {
+        welcome: [
+          "0 1px 0 #a5a2ec",
+          "0 1px 0 #e1d8e7",
+          "0 1px 0 #b294da",
+          "0 1px 0 #9a9bff",
+
+          "1px 3px 1px rgba(0, 0, 0 ,0.29)",
+          "0 0 1px rgba(0, 0, 0, 0.1)",
+          "0 1px 0 rgba(0, 0, 0, 0)",
+          "0 1px 0px rgba(0, 0, 0, 0.25)",
+        ],
+        // text2: ["-4px 3px 0 #3a50d9", "-14px 7px 0 #0a0e27"],
+      },
     },
 
     colors: {
       zinic: "#e4e4e7",
       gray: "#757575",
+      welcome: "#b88fd6",
       "gray-300": "#5b5b5b",
       "morning-strong": "#ff4c4c",
       "afternoon-strong": "#edb500",
@@ -39,6 +55,8 @@ module.exports = withMT({
     },
     fontFamily: {
       NanumGothic: ["Nanum Gothic"],
+      Grandstander: ["Grandstander"],
+      ghanachoco: ["ghanachoco"],
     },
   },
   plugins: [],
