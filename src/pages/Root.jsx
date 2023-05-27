@@ -7,14 +7,13 @@ import Profile from "../components/Profile";
 import Afternoon from "../components/Afternoon";
 import Night from "../components/Night";
 import { useState } from "react";
-import ShortcutsDrawer from "../components/Drawer";
+import ShortcutsDrawer from "./Drawer";
 import { MorningProvider } from "../context/MorningContext";
 import { AfternoonProvider } from "../context/AfternoonContext";
 import { NightProvider } from "../context/NightContext";
-
-import sun from "../assets/icons/sun.svg";
-
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 export default function Root() {
+  const queryClient = new QueryClient();
   const [openDrawer, setOpenDrawer] = useState(false);
   const openDrawerRight = () => setOpenDrawer(true);
   const closeDrawerRight = () => setOpenDrawer(false);
@@ -62,42 +61,44 @@ export default function Root() {
 
   return (
     <>
-      <div className="flex justify-end pt-12 pr-12">
-        <Profile openDrawerRight={openDrawerRight} />
-      </div>
-      <div
-        className=" w-full flex flex-col justify-center"
-        // style={{ backgroundColor: "#f2f3f7" }}
-      >
-        <DateTime />
-        <div className="flex justify-center items-center my-12">
-          <GoogleSearchBar />
+      <QueryClientProvider client={queryClient}>
+        <div className="flex justify-end pt-12 pr-12">
+          <Profile openDrawerRight={openDrawerRight} />
         </div>
-        <div className="flex flex-wrap justify-center items-center">
-          <Block blockName="🌞 아침 🌞" blockColor={morning_color}>
-            <MorningProvider>
-              <Morning />
-            </MorningProvider>
-          </Block>
+        <div
+          className=" w-full flex flex-col justify-center"
+          // style={{ backgroundColor: "#f2f3f7" }}
+        >
+          <DateTime />
+          <div className="flex justify-center items-center my-12">
+            <GoogleSearchBar />
+          </div>
+          <div className="flex flex-wrap justify-center items-center">
+            <Block blockName="🌞 아침 🌞" blockColor={morning_color_2}>
+              <MorningProvider>
+                <Morning />
+              </MorningProvider>
+            </Block>
 
-          <Block blockName="🏃🏻‍♀️ 오후 🏃🏻‍♀️" blockColor={afternoon_color_2}>
-            <AfternoonProvider>
-              <Afternoon />
-            </AfternoonProvider>
-          </Block>
+            <Block blockName="🏃🏻‍♀️ 오후 🏃🏻‍♀️" blockColor={afternoon_color_2}>
+              <AfternoonProvider>
+                <Afternoon />
+              </AfternoonProvider>
+            </Block>
 
-          <Block blockName="🌙  저녁 🌙" blockColor={night_color_2}>
-            <NightProvider>
-              <Night />
-            </NightProvider>
-          </Block>
+            <Block blockName="🌙  저녁 🌙" blockColor={night_color_2}>
+              <NightProvider>
+                <Night />
+              </NightProvider>
+            </Block>
+          </div>
+          <ShortcutsDrawer
+            openDrawerFunc={openDrawerRight}
+            closeDrawerFunc={closeDrawerRight}
+            drawerState={openDrawer}
+          />
         </div>
-        <ShortcutsDrawer
-          openDrawerFunc={openDrawerRight}
-          closeDrawerFunc={closeDrawerRight}
-          drawerState={openDrawer}
-        />
-      </div>
+      </QueryClientProvider>
     </>
   );
 }

@@ -26,22 +26,19 @@ export default function Profile({ openDrawerRight }) {
       }}
     >
       <MenuHandler>
-        <Avatar
-          variant="circular"
-          src={profile}
-          alt="avatar"
-          // size="lg"
-          withBorder={true}
-          className="!border-black !border-2 !cursor-pointer !w-16 !h-16"
-        />
+        <div onClick={openDrawerRight}>
+          <Avatar
+            variant="circular"
+            src={profile}
+            alt="avatar"
+            // size="lg"
+            withBorder={true}
+            className="!border-black !border-2 !cursor-pointer !w-16 !h-16"
+            onClick={openDrawerRight}
+          />
+        </div>
       </MenuHandler>
-      <MenuList>
-        <MenuItem className="flex items-center gap-2">
-          <UserCircleIcon strokeWidth={2} className="h-4 w-4" />
-          <Typography variant="small" className="font-normal">
-            My Profile
-          </Typography>
-        </MenuItem>
+      {/* <MenuList>
         <MenuItem className="flex items-center gap-2" onClick={openDrawerRight}>
           <Cog6ToothIcon strokeWidth={2} className="h-4 w-4" />
           <Typography variant="small" className="font-normal">
@@ -67,7 +64,7 @@ export default function Profile({ openDrawerRight }) {
             Sign Out
           </Typography>
         </MenuItem>
-      </MenuList>
+      </MenuList> */}
     </Menu>
   );
 }
