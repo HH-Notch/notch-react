@@ -20,14 +20,15 @@ const router = createBrowserRouter([
         index: true,
         element: <Welcome />,
       },
-    ],
-
-    path: "home",
-    element: <Root />,
-    children: [
       {
-        path: "goodMorning",
-        element: <GoodMorning />,
+        path: "home",
+        element: <Root />,
+        children: [
+          {
+            path: "goodMorning",
+            element: <GoodMorning />,
+          },
+        ],
       },
     ],
   },
