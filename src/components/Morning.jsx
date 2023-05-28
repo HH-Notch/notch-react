@@ -43,9 +43,11 @@ export default function Morning() {
     async () => {
       console.log("🙇🏻‍♀️fetching ...🙇🏻‍♀️");
       const result = await axios
-        .get("http://localhost:3001/morning-block")
+        .get(
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/morningblock"
+        )
         .then((res) => res.data);
-
+      console.log("morning-data", result);
       return result;
     },
     {
@@ -71,6 +73,9 @@ export default function Morning() {
         const destination_on = destination_u.turn;
         const destination_value = destination_on ? true : false;
         setDest(destination_value);
+      },
+      onError: (error) => {
+        console.log("morning-error", error);
       },
     }
   );
