@@ -3,13 +3,13 @@
     {
       "id": 1,
       "name": "weather",
-      "text": "오늘의 날씨 브리핑",
+      "text": "날씨 브리핑",
       "turn": 1
     },
     {
       "id": 2,
       "name": "todo",
-      "text": "오늘의 일정 브리핑",
+      "text": "오늘의 할일 브리핑",
       "turn": 0
     },
     {
@@ -29,7 +29,7 @@
     {
       "id": 1,
       "name": "today",
-      "text": "할일 다시 브리핑 받기",
+      "text": "일정/todo 다시 브리핑 받기",
       "turn": 0
     },
     {
@@ -44,6 +44,13 @@
       "text": "낮잠이 필요해",
       "turn": 0,
       "link": "https://youtu.be/SVmjYoZlj6I"
+    },
+    {
+      "id": 4,
+      "name": "sleep_time",
+      "text": "나는 이정도는 자야합니다",
+      "turn": 0,
+      "sleep_time": 6
     }
   ],
   "night-block": [
@@ -56,14 +63,14 @@
     {
       "id": 2,
       "name": "today_feedback",
-      "text": "오늘 일정 피드백",
+      "text": "오늘 todo 달성률",
       "turn": 0
     },
     {
       "id": 3,
       "name": "tomorrow_brief",
-      "text": "내일 일정 브리핑 받기",
-      "turn": 0
+      "text": "내일 일정 브리핑",
+      "turn": 1
     },
     {
       "id": 4,
