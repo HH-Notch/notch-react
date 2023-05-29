@@ -45,6 +45,7 @@ export default function Afternoon() {
         const today_u = data[0];
         const studyMusic_u = data[1];
         const nap_u = data[2];
+        const sleepTime_u = data[3];
 
         const today_on = today_u.turn;
         const today_value = today_on ? true : false;
@@ -57,6 +58,10 @@ export default function Afternoon() {
         const nap_on = nap_u.turn;
         const nap_value = nap_on ? true : false;
         setNap(nap_value);
+
+        const sleepTime_on = sleepTime_u.turn;
+        const sleepTime_value = sleepTime_on ? true : false;
+        setNap(sleepTime_value);
       },
     }
   );
@@ -119,6 +124,25 @@ export default function Afternoon() {
       });
   };
 
+  const [sleepTime, setSleepTime] = useState(true);
+  const handleSleepTimeSwitch = () => {
+    const updatedState = !sleepTime;
+    const turn_value = updatedState ? 1 : 0;
+
+    axios
+      .patch("http://localhost:3001/afternoon-block/4", {
+        id: 1,
+        turn: turn_value,
+      })
+      .then((res) => {
+        console.log("서버응답", res.data);
+        setSleepTime(updatedState);
+      })
+      .catch((error) => {
+        console.log("err", error);
+      });
+  };
+
   const customLabelTheme = {
     switch: {
       styles: {
@@ -149,6 +173,7 @@ export default function Afternoon() {
   const today_b = blockItems[0];
   const studyMusic_b = blockItems[1];
   const nap_b = blockItems[2];
+  const sleepTime_b = blockItems[3];
 
   return (
     <>
@@ -193,6 +218,15 @@ export default function Afternoon() {
                 checked={nap}
                 onChangeFunc={handleNapSwitch}
                 text={nap_b.text}
+                circleProps={circleProps}
+                switchStyle={switchStyle}
+                // containerProps={containerProps}
+              />
+              <BlockItem
+                id={sleepTime_b.id + "-" + sleepTime_b.name}
+                checked={sleepTime}
+                onChangeFunc={handleSleepTimeSwitch}
+                text={sleepTime_b.text}
                 circleProps={circleProps}
                 switchStyle={switchStyle}
                 // containerProps={containerProps}

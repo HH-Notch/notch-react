@@ -48,7 +48,7 @@
     {
       "id": 4,
       "name": "sleep_time",
-      "text": "나는 이정도는 자야합니다",
+      "text": "매일 이정도는 자야합니다",
       "turn": 0,
       "sleep_time": 6
     }
@@ -95,11 +95,6 @@
       "id": 2,
       "name": "Jannabiloveyou",
       "link": "https://music.youtube.com/watch?list=OLAK5uy_kO30VfEcwad3wI-HGwM8nt_xLFfNeY9N0&feature=share"
-    },
-    {
-      "name": "가나다라마바사",
-      "link": "https://www.naver.com",
-      "id": 3
     }
   ],
   "destination_list": [
