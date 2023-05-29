@@ -43,7 +43,9 @@ export default function Morning() {
     async () => {
       console.log("🙇🏻‍♀️fetching ...🙇🏻‍♀️");
       const result = await axios
-        .get("http://localhost:3001/morning-block")
+        .get(
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/morningblock/?format=json"
+        )
         .then((res) => res.data);
 
       return result;
