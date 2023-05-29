@@ -259,7 +259,7 @@ export default function Morning() {
                 switchStyle={switchStyle}
                 button={
                   <Button
-                    className="list_button  !shadow-md-strong button_animation !border-zinic"
+                    className="list_button  !shadow-md-strong button_animation !border-morning-strong"
                     variant="outlined"
                     size="sm"
                     ripple={true}
