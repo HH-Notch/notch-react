@@ -21,7 +21,9 @@ export default function DestList() {
     async () => {
       console.log("🎧 dest list fetching ... 🎧");
       const result = await axios
-        .get("http://localhost:3001/destination_list")
+        .get(
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/mornigdestlist/?format=json"
+        )
         .then((res) => res.data)
         .catch((error) => {
           console.log("destlist 가져오는 중 에러 발생", error);

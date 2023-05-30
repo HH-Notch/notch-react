@@ -26,7 +26,9 @@ export default function StudyList() {
     async () => {
       console.log("🎧 study music list fetching ... 🎧");
       const result = await axios
-        .get("http://localhost:3001/study_music_list")
+        .get(
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonstudymusiclist/?format=json"
+        )
         .then((res) => res.data)
         .catch((error) => {
           console.log("musiclist 가져오는 중 에러 발생", error);

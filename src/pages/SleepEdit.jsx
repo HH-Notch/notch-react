@@ -29,7 +29,9 @@ export default function SleepEdit() {
 
   const handleListDelete = (id) => {
     axios
-      .delete(`http://localhost:3001/sleep_music_list/${id}`)
+      .delete(
+        `http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningsleepmusiclist/${id}/?format=json`
+      )
       .then((res) => {
         // dispatch 사용해서 상태관리
         dispatch({
@@ -45,7 +47,7 @@ export default function SleepEdit() {
   const handleListAdd = async (e) => {
     e.preventDefault();
     const response = await axios.post(
-      "http://localhost:3001/sleep_music_list",
+      "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningsleepmusiclist/?format=json",
       playlist
     );
     dispatch({
@@ -70,7 +72,9 @@ export default function SleepEdit() {
     async () => {
       console.log("fetching ...");
       const result = await axios
-        .get("http://localhost:3001/sleep_music_list")
+        .get(
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningsleepmusiclist/?format=json"
+        )
         .then((res) => res.data)
         .catch((error) => {
           console.log("sleepmusiclist 가져오는 중 에러 발생", error);

@@ -26,7 +26,9 @@ export default function SleepList() {
     async () => {
       console.log("🎧 sleep music list fetching ... 🎧");
       const result = await axios
-        .get("http://localhost:3001/sleep_music_list")
+        .get(
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningsleepmusiclist/?format=json"
+        )
         .then((res) => res.data)
         .catch((error) => {
           console.log("musiclist 가져오는 중 에러 발생", error);

@@ -82,7 +82,7 @@ export default function Night() {
 
     axios
       .patch(
-        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/1",
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/1/?format=json",
         {
           id: 1,
           turn: turn_value,
@@ -105,7 +105,7 @@ export default function Night() {
 
     axios
       .patch(
-        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/2",
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/2/?format=json",
         {
           id: 2,
           turn: turn_value,
@@ -128,7 +128,7 @@ export default function Night() {
 
     axios
       .patch(
-        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/3",
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/3/?format=json",
         {
           id: 3,
           turn: turn_value,
@@ -151,7 +151,7 @@ export default function Night() {
 
     axios
       .patch(
-        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/4",
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/4/?format=json",
         {
           id: 4,
           turn: turn_value,
@@ -174,7 +174,7 @@ export default function Night() {
 
     axios
       .patch(
-        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/5",
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/5/?format=json",
         {
           id: 5,
           turn: turn_value,

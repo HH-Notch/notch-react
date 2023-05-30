@@ -28,7 +28,9 @@ export default function DestEdit() {
     async () => {
       console.log("fetching ...");
       const result = await axios
-        .get("http://localhost:3001/destination_list")
+        .get(
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/mornigdestlist/?format=json"
+        )
         .then((res) => res.data)
         .catch((error) => {
           console.log("musiclist 가져오는 중 에러 발생", error);
@@ -53,7 +55,9 @@ export default function DestEdit() {
 
   const handleListDelete = (id) => {
     axios
-      .delete(`http://localhost:3001/destination_list/${id}`)
+      .delete(
+        `http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/mornigdestlist/${id}/?format=json/`
+      )
       .then((res) => {
         // dispatch 사용해서 상태관리
         dispatch({
@@ -69,7 +73,7 @@ export default function DestEdit() {
   const handleListAdd = async (e) => {
     e.preventDefault();
     const response = await axios.post(
-      "http://localhost:3001/destination_list",
+      "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/mornigdestlist/?format=json",
       listItem
     );
     dispatch({

@@ -28,7 +28,9 @@ export default function StudyEdit() {
 
   const handleListDelete = (id) => {
     axios
-      .delete(`http://localhost:3001/study_music_list/${id}`)
+      .delete(
+        `http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonstudymusiclist/${id}/?format=json`
+      )
       .then((res) => {
         // dispatch 사용해서 상태관리
         dispatch({
@@ -44,7 +46,7 @@ export default function StudyEdit() {
   const handleListAdd = async (e) => {
     e.preventDefault();
     const response = await axios.post(
-      "http://localhost:3001/study_music_list",
+      "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonstudymusiclist/?format=json",
       playlist
     );
     dispatch({
@@ -69,7 +71,9 @@ export default function StudyEdit() {
     async () => {
       console.log("fetching ...");
       const result = await axios
-        .get("http://localhost:3001/study_music_list")
+        .get(
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonstudymusiclist/?format=json"
+        )
         .then((res) => res.data)
         .catch((error) => {
           console.log("studymusiclist 가져오는 중 에러 발생", error);
