@@ -12,11 +12,16 @@ import { MorningProvider } from "../context/MorningContext";
 import { AfternoonProvider } from "../context/AfternoonContext";
 import { NightProvider } from "../context/NightContext";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 export default function Root() {
   const queryClient = new QueryClient();
+  const navigate = useNavigate();
   const [openDrawer, setOpenDrawer] = useState(false);
   const openDrawerRight = () => setOpenDrawer(true);
-  const closeDrawerRight = () => setOpenDrawer(false);
+  const closeDrawerRight = () => {
+    setOpenDrawer(false);
+    navigate("/home");
+  };
 
   const morning_color = {
     borderRadius: "50px",

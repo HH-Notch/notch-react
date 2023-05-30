@@ -42,6 +42,13 @@ module.exports = withMT({
         ],
         // text2: ["-4px 3px 0 #3a50d9", "-14px 7px 0 #0a0e27"],
       },
+      transform: {
+        "translate-y-minus-0.2": "transform:translateY(-0.2em)",
+        "translate-y-minus-0.33": "transform: translateY(-0.33em)",
+      },
+      fontWeight: {
+        "lg-medium": 450,
+      },
     },
 
     colors: {
@@ -52,6 +59,10 @@ module.exports = withMT({
       "morning-strong": "#ff4c4c",
       "afternoon-strong": "#edb500",
       "night-strong": "#2472ad",
+      "morning-block": "#f9957f",
+      "afternoon-block": "#54cdd8",
+      "night-block": "#b68bd3",
+      "bonus-block": "#a5a5a5",
     },
     fontFamily: {
       NanumGothic: ["Nanum Gothic"],

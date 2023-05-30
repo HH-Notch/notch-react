@@ -10,6 +10,18 @@ import Welcome from "./pages/Welcome";
 import Root from "./pages/Root";
 
 import GoodMorning from "./pages/shorcuts/GoodMorning";
+import LetsGo from "./pages/shorcuts/LetsGo";
+import HowToUse from "./pages/shorcuts/HowToUse";
+import BrainerJay from "./pages/shorcuts/BrainerJay";
+import Diary from "./pages/shorcuts/Diary";
+import HowWasDay from "./pages/shorcuts/HowWasDay";
+import Nap from "./pages/shorcuts/Nap";
+import StudyMusic from "./pages/shorcuts/StudyMusic";
+import TodayReminder from "./pages/shorcuts/TodayReminder";
+import TurnOnMusic from "./pages/shorcuts/TurnOnMusic";
+import WhatIsPrepareNextDay from "./pages/shorcuts/WhatIsPrepareNextDay";
+import YapToday from "./pages/shorcuts/YapToday";
+import WhenHaveToSleep from "./pages/shorcuts/WhenHaveToSleep";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,8 +37,56 @@ const router = createBrowserRouter([
         element: <Root />,
         children: [
           {
-            path: "goodMorning",
+            index: true,
+            element: <HowToUse />,
+          },
+          {
+            path: "goodmorning",
             element: <GoodMorning />,
+          },
+          {
+            path: "letsGo",
+            element: <LetsGo />,
+          },
+          {
+            path: "brainerJay",
+            element: <BrainerJay />,
+          },
+          {
+            path: "diary",
+            element: <Diary />,
+          },
+          {
+            path: "how_was_day",
+            element: <HowWasDay />,
+          },
+          {
+            path: "nap",
+            element: <Nap />,
+          },
+          {
+            path: "study_music",
+            element: <StudyMusic />,
+          },
+          {
+            path: "today_reminder",
+            element: <TodayReminder />,
+          },
+          {
+            path: "turn_on_music",
+            element: <TurnOnMusic />,
+          },
+          {
+            path: "prepare_next_day",
+            element: <WhatIsPrepareNextDay />,
+          },
+          {
+            path: "sleep_time_calculator",
+            element: <WhenHaveToSleep />,
+          },
+          {
+            path: "yap_today",
+            element: <YapToday />,
           },
         ],
       },

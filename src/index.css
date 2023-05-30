@@ -40,6 +40,12 @@
     @apply border border-gray-300 hover:border-gray-300 focus:outline-none focus:border-gray-300  rounded-md py-1 pl-4 pr-[4.2rem] block w-full appearance-none leading-normal bg-opacity-70 bg-white placeholder:italic  placeholder-opacity-80;
     /* focus:shadow-outline-gray */
   }
+  .shortcut_button_style {
+    @apply border-none rounded-xl h-14;
+  }
+  .shortcut_text_style {
+    @apply box-border rounded-xl border-solid border-[1.5px] -translate-y-[0.2rem] ease-in duration-[100ms] py-2 px-2 text-center text-sm text-black border-black font-semibold tracking-tighter h-14;
+  }
 }
 
 body {

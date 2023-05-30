@@ -1,6 +1,6 @@
 import React from "react";
-import qr from "../../assets/images/qr_code/goodMorning_QR.png";
-export default function GoodMorning() {
+
+export default function TodayReminder() {
   return (
     <>
       <div className="h-full flex flex-col p-3">
@@ -12,14 +12,15 @@ export default function GoodMorning() {
                 ⯎ Concept
               </p>
               <p className="text-lg font-medium px-2">
-                하루를 맞이하며 매일 아침 외출 전 꼭 하는 행동에는 '날씨
-                확인하기'와 '오늘 해야 할일 확인하기'가 빠질 수 없습니다.
-                수면모드 해제 자동화와 함께 사용하길 추천합니다.{" "}
+                우리는 해야할 일과 캘린더 일정을 확인하는 행동을 하루에 몇번이나
+                할까요? 또한 할일과 일정을 기록해두는 서비스가 서로 다른 경우가
+                대부분입니다. 2개의 어플을 확인해야 하는 것을 한번의 클릭으로
+                해결합니다.
               </p>
             </div>
           </div>
           <div className="flex basis-1/4 py-3 pr-3">
-            <img src={qr} alt="" className="w-full" />
+            <img alt="" className="w-full" />
           </div>
         </div>
         <div className="w-full flex">
@@ -28,9 +29,9 @@ export default function GoodMorning() {
               ⯎ Notch
             </div>
             <div className="flex flex-col px-2">
-              <p className="text-lg font-medium">◼ 날씨 브리핑</p>
-              <p className="text-lg font-medium">◼ 오늘의 할일 브리핑</p>
-              <p className="text-lg font-medium">◼ Music & Music Playlist</p>
+              <p className="text-lg font-medium">
+                ◼ 일정/todo 다시 브리핑 받기
+              </p>
             </div>
           </div>
           <div className="flex flex-col basis-2/3 p-3">
@@ -40,12 +41,9 @@ export default function GoodMorning() {
               </p>
               <div className="flex flex-col px-2">
                 <p className="text-lg font-medium">
-                  1. 원하는 플리의 youtube 영상을 틀어서 공유 버튼을 눌러 url을
-                  복사해주세요.
-                </p>
-                <p className="text-lg font-medium">
-                  2. Music 버튼 > Edit > 플리 이름과 복사한 url을 적어서
-                  추가해주세요.
+                  언제든 미리 알림과 캘린더에 데이터가 추가되면, 단축어 클릭시
+                  그 데이터를 알려줍니다. 단지 일정/todo 다시 브리핑 받기
+                  스위치를 켜주세요 !{" "}
                 </p>
               </div>
             </div>
@@ -55,12 +53,8 @@ export default function GoodMorning() {
               </p>
               <div className="flex flex-col px-2">
                 <p className="text-lg font-lg-medium">
-                  1. [ 자동화 : 수면 모드가 해제될 때 ⇒ 굿모닝 단축어 실행 ]을
-                  하시면 기상 알람이 중단될 때 자동으로 굿모닝 단축어를 사용할
-                  수 있습니다.
-                </p>
-                <p className="text-lg font-medium">
-                  2. youtube premium을 사용하시는 분에게 최적화 되어있습니다.
+                  (추천 상황) 에어팟을 끼고 지내다가 문득 리마인드 받기 원할 때
+                  이 단축어를 사용해보세요 ! 👍🏻
                 </p>
               </div>
             </div>
