@@ -25,7 +25,9 @@ export default function MusicList() {
     async () => {
       console.log("🎧 music list fetching ... 🎧");
       const result = await axios
-        .get("http://localhost:3001/music_list")
+        .get(
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/morningmusiclist/?format=json"
+        )
         .then((res) => res.data)
         .catch((error) => {
           console.log("musiclist 가져오는 중 에러 발생", error);

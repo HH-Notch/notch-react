@@ -30,7 +30,9 @@ export default function MusicEdit() {
   const handleListDelete = (id) => {
     console.log("lets delete");
     axios
-      .delete(`http://localhost:3001/music_list/${id}`)
+      .delete(
+        `http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/morningmusiclist/?format=json/${id}`
+      )
       .then((res) => {
         // dispatch 사용해서 상태관리
         dispatch({
@@ -47,7 +49,7 @@ export default function MusicEdit() {
     e.preventDefault();
     console.log("lets add");
     const response = await axios.post(
-      "http://localhost:3001/music_list",
+      "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/morningmusiclist/?format=json",
       playlist
     );
     dispatch({
@@ -72,7 +74,9 @@ export default function MusicEdit() {
     async () => {
       console.log("fetching ...");
       const result = await axios
-        .get("http://localhost:3001/music_list")
+        .get(
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/morningmusiclist/?format=json"
+        )
         .then((res) => res.data)
         .catch((error) => {
           console.log("musiclist 가져오는 중 에러 발생", error);
