@@ -37,7 +37,9 @@ export default function Night() {
     async () => {
       console.log("🙇🏻‍♀️night fetching ...🙇🏻‍♀️");
       const result = await axios
-        .get("http://localhost:3001/night-block")
+        .get(
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/?format=json"
+        )
         .then((res) => res.data);
 
       return result;
@@ -79,10 +81,13 @@ export default function Night() {
     const turn_value = updatedState ? 1 : 0;
 
     axios
-      .patch("http://localhost:3001/night-block/1", {
-        id: 1,
-        turn: turn_value,
-      })
+      .patch(
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/1",
+        {
+          id: 1,
+          turn: turn_value,
+        }
+      )
       .then((res) => {
         console.log("서버응답", res.data);
         setHealth(updatedState);
@@ -99,10 +104,13 @@ export default function Night() {
     const turn_value = updatedState ? 1 : 0;
 
     axios
-      .patch("http://localhost:3001/night-block/2", {
-        id: 2,
-        turn: turn_value,
-      })
+      .patch(
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/2",
+        {
+          id: 2,
+          turn: turn_value,
+        }
+      )
       .then((res) => {
         console.log("서버응답", res.data);
         setTodayFeedback(updatedState);
@@ -119,10 +127,13 @@ export default function Night() {
     const turn_value = updatedState ? 1 : 0;
 
     axios
-      .patch("http://localhost:3001/night-block/3", {
-        id: 3,
-        turn: turn_value,
-      })
+      .patch(
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/3",
+        {
+          id: 3,
+          turn: turn_value,
+        }
+      )
       .then((res) => {
         console.log("서버응답", res.data);
         setTomoBrief(updatedState);
@@ -139,10 +150,13 @@ export default function Night() {
     const turn_value = updatedState ? 1 : 0;
 
     axios
-      .patch("http://localhost:3001/night-block/4", {
-        id: 4,
-        turn: turn_value,
-      })
+      .patch(
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/4",
+        {
+          id: 4,
+          turn: turn_value,
+        }
+      )
       .then((res) => {
         console.log("서버응답", res.data);
         setDiary(updatedState);
@@ -159,10 +173,13 @@ export default function Night() {
     const turn_value = updatedState ? 1 : 0;
 
     axios
-      .patch("http://localhost:3001/night-block/5", {
-        id: 5,
-        turn: turn_value,
-      })
+      .patch(
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/eveningblock/5",
+        {
+          id: 5,
+          turn: turn_value,
+        }
+      )
       .then((res) => {
         console.log("서버응답", res.data);
         setBrainer(updatedState);

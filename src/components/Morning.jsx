@@ -85,10 +85,13 @@ export default function Morning() {
     const turn_value = updatedWeatherBrief ? 1 : 0;
 
     axios
-      .patch("http://localhost:3001/morning-block/1", {
-        id: 1,
-        turn: turn_value,
-      })
+      .patch(
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/morningblock/1/?format=json",
+        {
+          id: 1,
+          turn: turn_value,
+        }
+      )
       .then((res) => {
         console.log("서버응답", res.data);
         setWeatherBrief(updatedWeatherBrief);
@@ -104,10 +107,13 @@ export default function Morning() {
     const turn_value = updatedState ? 1 : 0;
 
     axios
-      .patch("http://localhost:3001/morning-block/2", {
-        id: 2,
-        turn: turn_value,
-      })
+      .patch(
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/morningblock/2/?format=json",
+        {
+          id: 2,
+          turn: turn_value,
+        }
+      )
       .then((res) => {
         console.log("서버응답", res.data);
         setToday(updatedState);
@@ -124,10 +130,13 @@ export default function Morning() {
     const turn_value = updatedState ? 1 : 0;
 
     axios
-      .patch("http://localhost:3001/morning-block/3", {
-        id: 3,
-        turn: turn_value,
-      })
+      .patch(
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/morningblock/4/?format=json",
+        {
+          id: 3,
+          turn: turn_value,
+        }
+      )
       .then((res) => {
         console.log("서버응답", res.data);
         setPlayMusic(updatedState);
@@ -143,10 +152,13 @@ export default function Morning() {
     const turn_value = updatedState ? 1 : 0;
 
     axios
-      .patch("http://localhost:3001/morning-block/4", {
-        id: 4,
-        turn: turn_value,
-      })
+      .patch(
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/morningblock/5/?format=json",
+        {
+          id: 4,
+          turn: turn_value,
+        }
+      )
       .then((res) => {
         console.log("서버응답", res.data);
         setDest(updatedState);

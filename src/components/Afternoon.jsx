@@ -34,7 +34,9 @@ export default function Afternoon() {
     async () => {
       console.log("🙇🏻‍♀️afternoon fetching ...🙇🏻‍♀️");
       const result = await axios
-        .get("http://localhost:3001/afternoon-block")
+        .get(
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonblock/?format=json"
+        )
         .then((res) => res.data);
 
       return result;
@@ -72,10 +74,13 @@ export default function Afternoon() {
     const turn_value = updatedState ? 1 : 0;
 
     axios
-      .patch("http://localhost:3001/afternoon-block/1", {
-        id: 1,
-        turn: turn_value,
-      })
+      .patch(
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonblock/1/?format=json",
+        {
+          id: 1,
+          turn: turn_value,
+        }
+      )
       .then((res) => {
         console.log("서버응답", res.data);
         setToday(updatedState);
@@ -92,10 +97,13 @@ export default function Afternoon() {
     const turn_value = updatedState ? 1 : 0;
 
     axios
-      .patch("http://localhost:3001/afternoon-block/2", {
-        id: 2,
-        turn: turn_value,
-      })
+      .patch(
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonblock/2/?format=json",
+        {
+          id: 2,
+          turn: turn_value,
+        }
+      )
       .then((res) => {
         console.log("서버응답", res.data);
         setStudyMusic(updatedState);
@@ -111,10 +119,13 @@ export default function Afternoon() {
     const turn_value = updatedState ? 1 : 0;
 
     axios
-      .patch("http://localhost:3001/afternoon-block/3", {
-        id: 3,
-        turn: turn_value,
-      })
+      .patch(
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonblock/3/?format=json",
+        {
+          id: 3,
+          turn: turn_value,
+        }
+      )
       .then((res) => {
         console.log("서버응답", res.data);
         setNap(updatedState);
@@ -130,10 +141,13 @@ export default function Afternoon() {
     const turn_value = updatedState ? 1 : 0;
 
     axios
-      .patch("http://localhost:3001/afternoon-block/4", {
-        id: 1,
-        turn: turn_value,
-      })
+      .patch(
+        "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonblock/4/?format=json",
+        {
+          id: 1,
+          turn: turn_value,
+        }
+      )
       .then((res) => {
         console.log("서버응답", res.data);
         setSleepTime(updatedState);

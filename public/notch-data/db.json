@@ -4,7 +4,7 @@
       "id": 1,
       "name": "weather",
       "text": "날씨 브리핑",
-      "turn": 1
+      "turn": 0
     },
     {
       "id": 2,
@@ -107,11 +107,6 @@
       "id": 2,
       "name": "Home",
       "link": "Suwol Heights"
-    },
-    {
-      "name": "목적지이름이고",
-      "link": "목적지주소입니다.",
-      "id": 3
     }
   ],
   "study_music_list": [
@@ -124,11 +119,6 @@
       "id": 2,
       "name": "파도 소리 플리",
       "link": "https://youtu.be/IzLywgoyR4c"
-    },
-    {
-      "name": "테스트테ㅡ트",
-      "link": "얍얍욥욥",
-      "id": 3
     }
   ],
   "sleep_music_list": [
