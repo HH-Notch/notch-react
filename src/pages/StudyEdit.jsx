@@ -25,11 +25,11 @@ export default function StudyEdit() {
     const { name, value } = e.target;
     setPlaylist({ ...playlist, [name]: value });
   };
-
+  ?format=json
   const handleListDelete = (id) => {
     axios
       .delete(
-        `http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonstudymusiclist/${id}/?format=json`
+        `http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonstudymusicList/${id}/?format=json`
       )
       .then((res) => {
         // dispatch 사용해서 상태관리
