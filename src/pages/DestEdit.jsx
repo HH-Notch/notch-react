@@ -73,7 +73,7 @@ export default function DestEdit() {
   const handleListAdd = async (e) => {
     e.preventDefault();
     const response = await axios.post(
-      "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/mornigdestlist/?format=json",
+      "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/morningdestlist/?format=json",
       listItem
     );
     dispatch({

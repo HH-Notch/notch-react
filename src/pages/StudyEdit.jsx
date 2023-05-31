@@ -46,7 +46,7 @@ export default function StudyEdit() {
   const handleListAdd = async (e) => {
     e.preventDefault();
     const response = await axios.post(
-      "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonstudymusiclist/?format=json",
+      "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonstudymusicList/?format=json",
       playlist
     );
     dispatch({
@@ -72,7 +72,7 @@ export default function StudyEdit() {
       console.log("fetching ...");
       const result = await axios
         .get(
-          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonstudymusiclist/?format=json"
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonstudymusicList/?format=json"
         )
         .then((res) => res.data)
         .catch((error) => {
