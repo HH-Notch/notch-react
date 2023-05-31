@@ -94,7 +94,7 @@ export default function ShortcutsDrawer({
                 to="nap"
                 className="w-full h-full flex justify-center items-center shortcut_text_style group-hover:-translate-y-[0.33rem] group-active:translate-y-0 bg-afternoon-block "
               >
-                낮잠이 필요해 ᯅ̈
+                낮잠이 필요해 🥱
               </Link>
             </div>
             <div className="group shortcut_button_style basis-1/4 m-2 bg-black ">
@@ -111,7 +111,7 @@ export default function ShortcutsDrawer({
                 className="w-full h-full flex justify-center items-center shortcut_text_style group-hover:-translate-y-[0.33rem] group-active:translate-y-0 bg-night-block "
               >
                 {" "}
-                내일을 준비하는 마음 가짐이란 뭘까 ⚯̮
+                내일을 준비하는 마음 가짐이란 뭘까 ⚯
               </Link>
             </div>
             <div className="group shortcut_button_style basis-1/4 m-2 bg-black ">
@@ -149,7 +149,7 @@ export default function ShortcutsDrawer({
                 to="yap_today"
                 className="w-full h-full flex justify-center items-center shortcut_text_style group-hover:-translate-y-[0.33rem] group-active:translate-y-0 bg-bonus-block "
               >
-                할일 나와라 얍 🪄
+                할일 나와라 얍 ✨
               </Link>
             </div>
             <div className="group shortcut_button_style basis-1/4 m-2 bg-black ">
