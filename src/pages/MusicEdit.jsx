@@ -31,7 +31,7 @@ export default function MusicEdit() {
     console.log("lets delete");
     axios
       .delete(
-        `http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/morningmusiclist/?format=json/${id}`
+        `http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/morningmusiclist/${id}/?format=json`
       )
       .then((res) => {
         // dispatch 사용해서 상태관리
