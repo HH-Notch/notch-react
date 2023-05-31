@@ -1,5 +1,5 @@
 import React from "react";
-import qr from "../../assets/images/qr_code/goodMorning.png";
+import qr from "../../assets/images/qr_code/goodmorning.png";
 export default function GoodMorning() {
   return (
     <>
