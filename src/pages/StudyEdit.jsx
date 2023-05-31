@@ -25,7 +25,7 @@ export default function StudyEdit() {
     const { name, value } = e.target;
     setPlaylist({ ...playlist, [name]: value });
   };
-  ?format=json
+
   const handleListDelete = (id) => {
     axios
       .delete(
