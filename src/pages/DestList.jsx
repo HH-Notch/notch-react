@@ -22,7 +22,7 @@ export default function DestList() {
       console.log("🎧 dest list fetching ... 🎧");
       const result = await axios
         .get(
-          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/mornigdestlist/?format=json"
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/morningdestlist/?format=json"
         )
         .then((res) => res.data)
         .catch((error) => {
