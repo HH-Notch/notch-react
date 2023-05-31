@@ -1,5 +1,5 @@
 import React from "react";
-import qr from "../../assets/images/qr_code/brainerJay.png";
+import qr from "../../assets/images/qr_code/brainerJay_.png";
 
 export default function BrainerJay() {
   return (
