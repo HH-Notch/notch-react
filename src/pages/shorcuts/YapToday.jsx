@@ -1,4 +1,5 @@
 import React from "react";
+import qr from "../../assets/images/qr_code/yap.png";
 
 export default function YapToday() {
   return (
@@ -8,7 +9,7 @@ export default function YapToday() {
           ⯎ This is Bonus Shortcut ⯎
         </div>
         <div className="flex basis-1/4 py-3 pr-3">
-          <img alt="" className="w-full" />
+          <img src={qr} alt="" className="w-full" />
         </div>
       </div>
     </>

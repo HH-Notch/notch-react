@@ -1,4 +1,5 @@
 import React from "react";
+import qr from "../../assets/images/qr_code/howwasday.png";
 
 export default function HowWasDay() {
   return (
@@ -19,7 +20,7 @@ export default function HowWasDay() {
             </div>
           </div>
           <div className="flex basis-1/4 py-3 pr-3">
-            <img alt="" className="w-full" />
+            <img src={qr} alt="" className="w-full" />
           </div>
         </div>
         <div className="w-full flex">
