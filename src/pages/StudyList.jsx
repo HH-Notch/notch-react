@@ -27,7 +27,7 @@ export default function StudyList() {
       console.log("🎧 study music list fetching ... 🎧");
       const result = await axios
         .get(
-          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonstudymusiclist/?format=json"
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/afternoonstudymusicList/?format=json"
         )
         .then((res) => res.data)
         .catch((error) => {

@@ -29,7 +29,7 @@ export default function DestEdit() {
       console.log("fetching ...");
       const result = await axios
         .get(
-          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/mornigdestlist/?format=json"
+          "http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/morningdestlist/?format=json"
         )
         .then((res) => res.data)
         .catch((error) => {
@@ -56,7 +56,7 @@ export default function DestEdit() {
   const handleListDelete = (id) => {
     axios
       .delete(
-        `http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/mornigdestlist/${id}/?format=json/`
+        `http://ec2-13-124-90-246.ap-northeast-2.compute.amazonaws.com:8080/app/mornigdestlist/${id}/?format=json`
       )
       .then((res) => {
         // dispatch 사용해서 상태관리
